@@ -50,7 +50,13 @@ function Hero({ course }) {
               <span key={line}>{line}</span>
             ))}
           </div>
-          <p className="cp_hero_description">{hero.description}</p>
+          {(Array.isArray(hero.description) ? hero.description : [hero.description]).map(
+            (paragraph) => (
+              <p key={paragraph} className="cp_hero_description">
+                {paragraph}
+              </p>
+            ),
+          )}
           <div className="cp_hero_bottom">
             <a className="cp_btn" href="#enquire">
               {hero.cta || "Request course details"} <span className="cp_arrow">↗</span>
@@ -59,14 +65,16 @@ function Hero({ course }) {
               {hero.secondaryCta || "Explore the training"} <span className="cp_arrow">↓</span>
             </a>
           </div>
-          <div className="cp_hero_reference">
-            {hero.reference.map((item) => (
-              <div key={`${item.label}-${item.value}`}>
-                <span>{item.label}</span>
-                <strong>{item.value}</strong>
-              </div>
-            ))}
-          </div>
+          {hero.reference && (
+            <div className="cp_hero_reference">
+              {hero.reference.map((item) => (
+                <div key={`${item.label}-${item.value}`}>
+                  <span>{item.label}</span>
+                  <strong>{item.value}</strong>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <div className="cp_hero_side_label">Meridian Quality Management Professionals</div>
@@ -76,11 +84,11 @@ function Hero({ course }) {
 
 function Intro({ data, number }) {
   return (
-    <section className="cp_intro" id="explore">
+    <section className="cp_intro">
       <div className="cp_wrap cp_intro_grid">
         <div className="cp_intro_aside cp_reveal">
           <Kicker number={number} label={data.kicker} />
-          <p>{data.aside}</p>
+          {data.aside && <p>{data.aside}</p>}
         </div>
         <div className="cp_intro_content cp_reveal">
           <h2>{data.heading}</h2>
@@ -290,7 +298,7 @@ function Journey({ data, number }) {
 
 function Extra({ data, number }) {
   return (
-    <section className="cp_extra">
+    <section className={`cp_extra ${data.tone === "tint" ? "cp_extra_tint" : ""}`}>
       <div className="cp_wrap cp_extra_grid">
         <div className="cp_reveal">
           <Kicker number={number} label={data.kicker} />
@@ -370,7 +378,7 @@ function Related({ data, number }) {
 // "Focus" section (preview 2): heading, paragraph, paper note and image row.
 function Focus({ data, number }) {
   return (
-    <section className="cp_focus" id="explore">
+    <section className="cp_focus">
       <div className="cp_wrap cp_focus_grid">
         <div className="cp_focus_left cp_reveal">
           <Kicker number={number} label={data.kicker} className="cp_kicker_dark" />
@@ -409,14 +417,21 @@ function Diagram({ data, number }) {
             <Kicker number={number} label={data.kicker} className="cp_kicker_dark" />
             <h2>{data.heading}</h2>
           </div>
-          <p>{data.text}</p>
+          {data.text && <p>{data.text}</p>}
         </div>
         <div className="cp_flow_visual cp_reveal">
           <div className="cp_flow_topline">
             <span>{data.label}</span>
             <small>{data.hint}</small>
           </div>
-          <div className="cp_flow" role="group" aria-label={data.label}>
+          <div
+            className={`cp_flow ${data.nodes.some((item) => item.summary) ? "" : "cp_flow_compact"}`}
+            role="group"
+            aria-label={data.label}
+            style={{
+              "--cp-flow-count": data.nodes.length,
+            }}
+          >
             {data.nodes.map((item, index) => (
               <button
                 key={item.title}
@@ -427,7 +442,7 @@ function Diagram({ data, number }) {
               >
                 <span className="cp_flow_no">{sectionNumber(index + 1)}</span>
                 <strong>{item.title}</strong>
-                <small>{item.summary}</small>
+                {item.summary && <small>{item.summary}</small>}
               </button>
             ))}
           </div>
@@ -435,10 +450,12 @@ function Diagram({ data, number }) {
             <strong>{node.title}</strong>
             <p>{node.detail}</p>
           </div>
-          <div className="cp_flow_foot">
-            <p>{data.footText}</p>
-            <span>{data.footLabel}</span>
-          </div>
+          {(data.footText || data.footLabel) && (
+            <div className="cp_flow_foot">
+              <p>{data.footText}</p>
+              {data.footLabel && <span>{data.footLabel}</span>}
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -453,10 +470,10 @@ function AudienceBand({ data, number }) {
         <div className="cp_aud2_top cp_reveal">
           <div>
             <Kicker number={number} label={data.kicker} className="cp_kicker_dark" />
-            <h2>{data.heading}</h2>
+            {data.heading && <h2>{data.heading}</h2>}
           </div>
           <div className="cp_aud2_copy">
-            <p>{data.text}</p>
+            {data.text && <p>{data.text}</p>}
           </div>
         </div>
         <div className="cp_aud2_band cp_reveal">
@@ -467,7 +484,57 @@ function AudienceBand({ data, number }) {
             </div>
           ))}
         </div>
-        <div className="cp_aud2_foot">{data.foot}</div>
+        {data.foot && <div className="cp_aud2_foot">{data.foot}</div>}
+      </div>
+    </section>
+  );
+}
+
+// Proportional weightings (e.g. PMP exam domains): one connected bar sized by real percentages.
+function Weights({ data, number }) {
+  return (
+    <section className="cp_weights">
+      <div className="cp_wrap">
+        <div className="cp_diagram_heading cp_reveal">
+          <div>
+            <Kicker number={number} label={data.kicker} className="cp_kicker_dark" />
+            <h2>{data.heading}</h2>
+          </div>
+          {data.text && <p>{data.text}</p>}
+        </div>
+        <div className="cp_weights_panel cp_reveal">
+          <div className="cp_weights_bar" role="img" aria-label={data.items.map((item) => `${item.title} ${item.pct}%`).join(", ")}>
+            {data.items.map((item, index) => (
+              <div
+                key={item.title}
+                className={`cp_weights_seg cp_weights_seg_${index + 1}`}
+                style={{
+                  flexGrow: item.pct,
+                }}
+              >
+                <b>{item.pct}%</b>
+              </div>
+            ))}
+          </div>
+          <div className="cp_weights_items">
+            {data.items.map((item, index) => (
+              <div
+                key={item.title}
+                className="cp_weights_item"
+                style={{
+                  flexGrow: item.pct,
+                }}
+              >
+                <span className={`cp_weights_dot cp_weights_seg_${index + 1}`} aria-hidden="true" />
+                <strong>
+                  {item.title} <em>{item.pct}%</em>
+                </strong>
+                <p>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          {data.note && <p className="cp_weights_note">{data.note}</p>}
+        </div>
       </div>
     </section>
   );
@@ -539,6 +606,14 @@ function Enquiry({ course, data, number }) {
               </>
             )}
           </div>
+          {data.notes && (
+            <div className="cp_contact_notes">
+              <strong>{data.notes.title}</strong>
+              {data.notes.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          )}
         </div>
         <form className="cp_form cp_reveal" onSubmit={handleSubmit} noValidate>
           <div className="cp_form_top">
@@ -677,6 +752,18 @@ export default function CoursePage({ course }) {
   }, [course]);
 
   const sections = (course.sections || DEFAULT_SECTIONS).filter((key) => course[key]);
+  const SECTION_TYPES = {
+    intro: Intro,
+    inside: Inside,
+    journey: Journey,
+    extra: Extra,
+    audience: Audience,
+    related: Related,
+    focus: Focus,
+    diagram: Diagram,
+    audienceBand: AudienceBand,
+    weights: Weights,
+  };
   let counter = 0;
   const next = () => sectionNumber(++counter);
 
@@ -684,31 +771,16 @@ export default function CoursePage({ course }) {
     <div className="cp" ref={rootRef}>
       <div className="cp_progress" ref={progressRef} aria-hidden="true" />
       <Hero course={course} />
+      {/* Target of the hero's secondary button */}
+      <div id="explore" />
       {sections.map((key) => {
-        switch (key) {
-          case "intro":
-            return <Intro key={key} data={course.intro} number={next()} />;
-          case "inside":
-            return <Inside key={key} data={course.inside} number={next()} />;
-          case "journey":
-            return <Journey key={key} data={course.journey} number={next()} />;
-          case "extra":
-            return <Extra key={key} data={course.extra} number={next()} />;
-          case "audience":
-            return <Audience key={key} data={course.audience} number={next()} />;
-          case "related":
-            return <Related key={key} data={course.related} number={next()} />;
-          case "focus":
-            return <Focus key={key} data={course.focus} number={next()} />;
-          case "diagram":
-            return <Diagram key={key} data={course.diagram} number={next()} />;
-          case "audienceBand":
-            return <AudienceBand key={key} data={course.audienceBand} number={next()} />;
-          case "enquiry":
-            return <Enquiry key={key} course={course} data={course.enquiry} number={next()} />;
-          default:
-            return null;
+        // "extra2", "intro2"... reuse the layout of their base type.
+        const type = key.replace(/\d+$/, "");
+        if (type === "enquiry") {
+          return <Enquiry key={key} course={course} data={course[key]} number={next()} />;
         }
+        const Section = SECTION_TYPES[type];
+        return Section ? <Section key={key} data={course[key]} number={next()} /> : null;
       })}
     </div>
   );

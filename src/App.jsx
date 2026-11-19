@@ -522,6 +522,7 @@ export default function App() {
         <Route path="/training" element={<Navigate to="/services/training" replace />} />
         <Route path="/trainings" element={<Navigate to="/services/training" replace />} />
         <Route path="/services/training/:slug" element={<CourseRoute />} />
+        <Route path="/training/:slug" element={<CourseRoute redirect />} />
         <Route
           path="/fire-safety-awareness-and-fire-fighting"
           element={<Navigate to="/services/training/fire-safety-awareness-and-fire-fighting" replace />}

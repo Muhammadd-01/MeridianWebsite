@@ -4,6 +4,8 @@
 // Sections render in this order unless a course sets its own `sections` list:
 // intro → inside → journey → extra → audience → related → enquiry.
 
+import { examCoursePages } from "./examCourseData";
+
 const photo = (id, width = 1400) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${width}&q=80`;
 
@@ -2583,6 +2585,7 @@ export const coursePages = [
   fireSafety,
   firstAid,
   osha,
+  ...examCoursePages,
 ];
 
 export const coursePath = (slug) => `/services/training/${slug}`;
