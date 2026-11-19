@@ -1,5 +1,37 @@
 import { Link } from "react-router-dom";
+import EnquiryForm from "../../components/EnquiryForm";
+import usePageMeta from "../../components/usePageMeta";
+const support = [
+  {
+    h: "Initial review and gap assessment",
+    p: "Review existing energy management practices, responsibilities, available data and gaps against the standard's requirements.",
+  },
+  {
+    h: "Energy review and baseline",
+    p: "Identify significant energy uses, relevant variables and energy performance indicators. Establish the appropriate energy baseline.",
+  },
+  {
+    h: "EnMS development and implementation",
+    p: "Support energy policy, objectives, action plans, operational controls, monitoring and documented information.",
+  },
+  {
+    h: "Internal audit and management review readiness",
+    p: "Help prepare the organisation to evaluate its system, address gaps and prepare for an independent certification audit where certification is pursued.",
+  },
+];
+const outcomes = [
+  "Identify and monitor significant energy uses.",
+  "Establish measurable energy objectives and targets.",
+  "Track energy performance against a suitable baseline.",
+  "Assign responsibilities for energy management.",
+  "Integrate energy considerations into operational decisions.",
+  "Review performance and identify further improvements.",
+];
 export default function EnergyManagement() {
+  usePageMeta(
+    "ISO 50001 Consultancy | Energy Management Systems | Meridian",
+    "Implement and improve an ISO 50001 Energy Management System with support for energy reviews, baselines, performance indicators and certification readiness.",
+  );
   return (
     <div className="enms-page">
       <section className="enms-hero" id="top">
@@ -15,34 +47,41 @@ export default function EnergyManagement() {
               <b>{"ISO 50001 & Energy Management Systems"}</b>
             </p>
             <h1>
-              {"Optimize energy usage and reduce costs "}
-              <i>with globally recognized systems.</i>
+              {"Energy costs are visible. "}
+              <i>Energy waste is not always so easy to find.</i>
             </h1>
             <p className="enms-lead">
-              ISO 50001 helps organizations use energy more efficiently through structured policies
-              and continuous improvement.
+              Many organisations monitor utility bills without having a complete picture of where
+              energy is used, which processes consume the most or why performance changes over
+              time.
+            </p>
+            <p className="enms-lead">
+              ISO 50001 provides a structured way to manage energy use, establish performance
+              objectives and improve energy performance through an Energy Management System (EnMS).
+              Meridian supports organisations in developing and implementing energy management
+              arrangements aligned with ISO 50001:2018.
             </p>
             <div className="enms-acts">
-              <Link className="enms-pill" to="/contact-us">
-                Book a free consultation →
-              </Link>
+              <a className="enms-pill" href="#contact">
+                Discuss Your Energy Management Requirements →
+              </a>
               <a className="enms-pill g" href="#help">
-                Our approach
+                Our implementation support
               </a>
             </div>
           </div>
           <div className="enms-cert">
             <div>
               <small>International standard</small>
-              <b>ISO 50001</b>
+              <b>ISO 50001:2018</b>
             </div>
             <div>
               <small>System</small>
               <b>EnMS</b>
             </div>
             <div>
-              <small>Energy savings potential</small>
-              <b>10–30%</b>
+              <small>Focus</small>
+              <b>Energy performance</b>
             </div>
           </div>
         </div>
@@ -50,79 +89,34 @@ export default function EnergyManagement() {
       <section className="enms-sec" id="why">
         <div className="enms-wrap">
           <div className="enms-sh">
-            <span className="enms-k">Why It Matters</span>
+            <span className="enms-k">01. From energy consumption to energy performance</span>
             <h2 className="enms-h2">
-              {"Why ISO 50001 & energy management systems "}
-              <i>matter.</i>
+              {"From energy consumption "}
+              <i>to energy performance.</i>
             </h2>
           </div>
-          <div className="enms-bn">
+          <div className="enms-bn enms-bn-single">
             <article className="enms-bt def">
               <div>
-                <span className="enms-k">What is ISO 50001?</span>
                 <p>
-                  {"ISO 50001 is the "}
-                  <em>international standard</em>
-                  {
-                    " for Energy Management Systems (EnMS). It enables organizations to use energy more efficiently through structured policies and continuous improvement."
-                  }
+                  An effective energy management system needs{" "}
+                  <em>reliable information about how energy is used.</em>
+                </p>
+                <p>
+                  Organisations must identify significant energy uses, understand the factors
+                  affecting consumption, establish suitable energy performance indicators and review
+                  whether actions are improving performance.
+                </p>
+                <p>
+                  Without this information, energy-saving initiatives can become isolated projects
+                  rather than part of an ongoing management system.
                 </p>
               </div>
               <div className="ch">
-                <span>EnMS</span>
-                <span>Structured policies</span>
-                <span>Continuous improvement</span>
+                <span>Significant energy uses</span>
+                <span>Energy performance indicators</span>
+                <span>Energy baseline</span>
               </div>
-            </article>
-            <article
-              className="enms-bt a"
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1000&q=75')",
-              }}
-            >
-              <small>01</small>
-              <b>Cut energy costs and consumption.</b>
-            </article>
-            <article
-              className="enms-bt a"
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1000&q=75')",
-              }}
-            >
-              <small>02</small>
-              <b>Unlock utility incentives and rebates.</b>
-            </article>
-            <article
-              className="enms-bt t"
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=75')",
-              }}
-            >
-              <small>03</small>
-              <b>Strengthen ESG and ISO integration.</b>
-            </article>
-            <article
-              className="enms-bt t"
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1000&q=75')",
-              }}
-            >
-              <small>04</small>
-              <b>Meet compliance with energy regulations.</b>
-            </article>
-            <article
-              className="enms-bt t"
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1000&q=75')",
-              }}
-            >
-              <small>05</small>
-              <b>Improve environmental and carbon performance.</b>
             </article>
           </div>
         </div>
@@ -130,127 +124,77 @@ export default function EnergyManagement() {
       <section className="enms-sec enms-help" id="help">
         <div className="enms-wrap">
           <div className="enms-sh">
-            <span className="enms-k">Our Approach</span>
+            <span className="enms-k">02. Our ISO 50001 implementation support</span>
             <h2 className="enms-h2">
               {"Our ISO 50001 "}
-              <i>implementation approach.</i>
+              <i>implementation support.</i>
             </h2>
           </div>
           <ol className="enms-st">
-            <li data-n="1">
-              <h3>{"Energy Review & Baseline"}</h3>
-              <p>Evaluate energy usage data and identify major users across all operations.</p>
-            </li>
-            <li data-n="2">
-              <h3>{"Policy & Objective Setting"}</h3>
-              <p>Define clear, measurable energy goals and KPIs for performance tracking.</p>
-            </li>
-            <li data-n="3">
-              <h3>EnMS Framework Development</h3>
-              <p>Develop policies, and documentation aligned with ISO 50001 requirements.</p>
-            </li>
-            <li data-n="4">
-              <h3>{"Training & Certification Support"}</h3>
-              <p>Train your team and prepare the facility for ISO 50001 certification.</p>
-            </li>
+            {support.map((step, index) => (
+              <li key={step.h} data-n={index + 1}>
+                <h3>{step.h}</h3>
+                <p>{step.p}</p>
+              </li>
+            ))}
           </ol>
         </div>
       </section>
       <section className="enms-kb">
         <div className="enms-wrap enms-kg">
           <div>
-            <span className="enms-k">Key Benefits</span>
+            <span className="enms-k">03. What the system helps your organisation do</span>
             <h2
               className="enms-h2"
               style={{
                 marginTop: "14px",
               }}
             >
-              Key benefits.
+              What the system helps your organisation do.
             </h2>
           </div>
           <ul className="enms-kl">
-            <li>ISO alignment with 14001, 9001.</li>
-            <li>Enhanced operational efficiency.</li>
-            <li>10–30% energy savings potential.</li>
-            <li>Transparent energy monitoring and reporting.</li>
-          </ul>
-        </div>
-      </section>
-      <section className="enms-sec enms-ch3 lt" id="meridian">
-        <div className="enms-wrap">
-          <div>
-            <span className="enms-k">Why Choose Meridian?</span>
-            <h2
-              className="enms-h2"
-              style={{
-                marginTop: "16px",
-              }}
-            >
-              {"Why choose "}
-              <i>Meridian?</i>
-            </h2>
-          </div>
-          <ul className="enms-cc">
-            <li data-n="01">
-              <b>{"ISO-Certified Auditors & Trainers."}</b>
-            </li>
-            <li data-n="02">
-              <b>Compliance, Cost-Saving, and Certification — All-in-One.</b>
-            </li>
-            <li data-n="03">
-              <b>Industry-Specific Insights (FMCG, Manufacturing, Hospitality).</b>
-            </li>
+            {outcomes.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
           </ul>
         </div>
       </section>
       <section className="enms-role">
         <div className="enms-wrap">
-          <span className="enms-k">Role of ISO 50001 Consultants</span>
+          <span className="enms-k">04. Why work with Meridian?</span>
           <h2 className="enms-h2">
-            {"Toward a smart, "}
-            <i>energy-efficient operation.</i>
+            {"Why work with "}
+            <i>Meridian?</i>
           </h2>
           <p>
-            We guide your transition to a smart, energy-efficient operation — certified and
-            optimized.
+            ISO 50001 needs to work within the organisation&apos;s actual operations. The energy
+            review, performance indicators, responsibilities and monitoring arrangements must
+            reflect how the organisation uses energy.
+          </p>
+          <p>
+            Meridian helps connect the requirements of the standard with practical energy
+            management activities and existing management systems.
           </p>
         </div>
       </section>
       <section className="enms-cta" id="contact">
         <div className="enms-wrap">
-          <span className="enms-k">Book a Free Consultation</span>
+          <span className="enms-k">05. Request ISO 50001 Support</span>
           <h2
             className="enms-h2"
             style={{
               marginTop: "20px",
             }}
           >
-            {"Want to cut energy waste "}
-            <i>{"& boost efficiency?"}</i>
+            {"Looking to establish "}
+            <i>or improve an EnMS?</i>
           </h2>
-          <p>Let our ISO 50001 specialists help you!</p>
-          <Link className="enms-pill" to="/contact-us">
-            Book a Free Consultation →
-          </Link>
-          <dl className="enms-cn">
-            <div>
-              <dt>Call us</dt>
-              <dd>
-                <a href="tel:+966509394640">+966 50 939 4640</a>
-              </dd>
-            </div>
-            <div>
-              <dt>Need support</dt>
-              <dd>
-                <a href="mailto:info@meqmp.com">info@meqmp.com</a>
-              </dd>
-            </div>
-            <div>
-              <dt>Our global locations</dt>
-              <dd>Saudi Arabia · Bahrain · Canada · Pakistan</dd>
-            </div>
-          </dl>
+          <p>
+            Tell us about your facilities, operations and current energy management arrangements.
+            We can discuss the scope of an ISO 50001 implementation project.
+          </p>
+          <EnquiryForm subjectPrefix="ISO 50001 support request" submitLabel="Request ISO 50001 Support" />
         </div>
       </section>
     </div>

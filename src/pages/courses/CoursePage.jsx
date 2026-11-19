@@ -6,6 +6,8 @@ const ENQUIRY_EMAIL = "info@meqmp.com";
 const PHONE_DISPLAY = "+966 50 939 4640";
 const PHONE_LINK = "+966509394640";
 const DEFAULT_SECTIONS = ["intro", "inside", "journey", "extra", "audience", "related", "enquiry"];
+// Same three labels as the ISO 50001 Lead Auditor page.
+const DEFAULT_DETAIL_LABELS = ["Course information", "Delivery options", "Registration support"];
 const DEFAULT_ENQUIRY_TYPES = [
   "Course dates and fees",
   "Training for my organization",
@@ -32,7 +34,7 @@ function Hero({ course }) {
       </div>
       <div className="cp_wrap cp_hero_inner">
         <div className="cp_hero_copy">
-          {hero.showCrumb !== false && (
+          {hero.showCrumb === true && (
             <p className="cp_crumb">
               <Link to="/">Home</Link>
               {" / "}
@@ -78,162 +80,6 @@ function Hero({ course }) {
         </div>
       </div>
       <div className="cp_hero_side_label">Meridian Quality Management Professionals</div>
-    </section>
-  );
-}
-
-function Intro({ data, number }) {
-  return (
-    <section className="cp_intro">
-      <div className="cp_wrap cp_intro_grid">
-        <div className="cp_intro_aside cp_reveal">
-          <Kicker number={number} label={data.kicker} />
-          {data.aside && <p>{data.aside}</p>}
-        </div>
-        <div className="cp_intro_content cp_reveal">
-          <h2>{data.heading}</h2>
-          {data.paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-          {data.statement && (
-            <div className="cp_intro_statement">
-              <span className="cp_statement_dot" />
-              {data.statement}
-            </div>
-          )}
-          {data.points && (
-            <div className="cp_points">
-              {data.points.map((point, index) => (
-                <div key={point.title}>
-                  <b>{sectionNumber(index + 1)}</b>
-                  <strong>{point.title}</strong>
-                  <p>{point.desc}</p>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const NODE_POSITIONS = [
-  [130, 75],
-  [470, 75],
-  [130, 250],
-  [470, 250],
-];
-
-function Inside({ data, number }) {
-  const [activeTopic, setActiveTopic] = useState(0);
-  const { visual } = data;
-  const headingLines = data.heading.split("\n");
-  return (
-    <section className="cp_technical">
-      <div className="cp_wrap">
-        <div className="cp_section_heading cp_reveal">
-          <div>
-            <Kicker number={number} label={data.kicker} />
-            <h2>
-              {headingLines.map((line, index) => (
-                <span key={line}>
-                  {line}
-                  {index < headingLines.length - 1 && <br />}
-                </span>
-              ))}
-            </h2>
-          </div>
-          <p>{data.text}</p>
-        </div>
-        <div className="cp_technical_grid">
-          <div className="cp_system_visual cp_reveal">
-            <div className="cp_visual_labels">
-              <span>{visual.labelLeft}</span>
-              <span>{visual.labelRight}</span>
-            </div>
-            <svg
-              className="cp_system_svg"
-              viewBox="0 0 600 330"
-              role="img"
-              aria-label={`Illustrative diagram: ${visual.core.join(" ")} connected to ${visual.nodes
-                .map((node) => node.join(" "))
-                .join(", ")}`}
-            >
-              <path
-                className="cp_line"
-                d="M300 155 L130 75 M300 155 L470 75 M300 155 L130 250 M300 155 L470 250"
-              />
-              <path className="cp_line" d="M130 75 L470 75 L470 250 L130 250 Z" />
-              {NODE_POSITIONS.map(([cx, cy], index) => (
-                <circle
-                  key={`${cx}-${cy}`}
-                  className={`cp_node ${activeTopic === index ? "is-active" : ""}`}
-                  cx={cx}
-                  cy={cy}
-                  r="46"
-                />
-              ))}
-              <circle className="cp_core" cx="300" cy="155" r="58" />
-              <text className="cp_core_text" x="300" y="151" textAnchor="middle">
-                {visual.core[0]}
-              </text>
-              <text className="cp_core_text" x="300" y="167" textAnchor="middle">
-                {visual.core[1]}
-              </text>
-              {visual.nodes.map((node, index) => {
-                const [cx, cy] = NODE_POSITIONS[index];
-                const single = !node[1];
-                return (
-                  <g key={node.join("-")}>
-                    <text x={cx} y={single ? cy + 4 : cy - 4} textAnchor="middle">
-                      {node[0]}
-                    </text>
-                    {!single && (
-                      <text x={cx} y={cy + 10} textAnchor="middle">
-                        {node[1]}
-                      </text>
-                    )}
-                  </g>
-                );
-              })}
-              <text className="cp_small" x="300" y="322" textAnchor="middle">
-                {visual.caption || "ILLUSTRATIVE SYSTEM RELATIONSHIPS"}
-              </text>
-            </svg>
-          </div>
-          <div className="cp_reveal">
-            <div className="cp_topic_list">
-              {data.topics.map((topic, index) => {
-                const isActive = activeTopic === index;
-                const detailId = `cp_topic_${index}`;
-                return (
-                  <div key={topic.title} className={`cp_topic ${isActive ? "is-active" : ""}`}>
-                    <button
-                      type="button"
-                      aria-expanded={isActive}
-                      aria-controls={detailId}
-                      onClick={() => setActiveTopic(isActive ? -1 : index)}
-                    >
-                      <span className="cp_topic_number">{sectionNumber(index + 1)}</span>
-                      <span className="cp_topic_title">{topic.title}</span>
-                      <span className="cp_topic_icon" aria-hidden="true">
-                        +
-                      </span>
-                    </button>
-                    <div className="cp_topic_detail" id={detailId}>
-                      <div>
-                        <p>{topic.desc}</p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            {data.result && <p className="cp_result">{data.result}</p>}
-          </div>
-        </div>
-      </div>
     </section>
   );
 }
@@ -296,85 +142,6 @@ function Journey({ data, number }) {
   );
 }
 
-function Extra({ data, number }) {
-  return (
-    <section className={`cp_extra ${data.tone === "tint" ? "cp_extra_tint" : ""}`}>
-      <div className="cp_wrap cp_extra_grid">
-        <div className="cp_reveal">
-          <Kicker number={number} label={data.kicker} />
-          <h2>{data.heading}</h2>
-          <p>{data.text}</p>
-        </div>
-        <div className="cp_reveal">
-          <div className="cp_list" style={{ gridTemplateColumns: "1fr", marginTop: 0 }}>
-            {data.items.map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
-          {data.note && <p className="cp_note">{data.note}</p>}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Audience({ data, number }) {
-  return (
-    <section className="cp_audience">
-      <div className="cp_wrap cp_audience_grid">
-        <div className="cp_audience_image cp_reveal">
-          <img className="cp_img" src={data.image} alt={data.imageAlt} />
-          <div className="cp_audience_tag">{data.tag}</div>
-        </div>
-        <div className="cp_audience_content cp_reveal">
-          <Kicker number={number} label={data.kicker} />
-          <h2>{data.heading}</h2>
-          {data.text && <p>{data.text}</p>}
-          <div className="cp_list">
-            {data.items.map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
-          {data.note && <p className="cp_note">{data.note}</p>}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Related({ data, number }) {
-  return (
-    <section className="cp_related">
-      <div className="cp_wrap">
-        <div className="cp_reveal">
-          <Kicker number={number} label={data.kicker} />
-          <h2 style={{ margin: "16px 0 12px" }}>{data.heading}</h2>
-          {data.text && <p>{data.text}</p>}
-        </div>
-        <div className="cp_related_grid">
-          {data.items.map((item) =>
-            item.link ? (
-              <Link key={item.title} className="cp_related_card cp_reveal" to={item.link}>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-                <span className="cp_eyebrow">View course ↗</span>
-              </Link>
-            ) : (
-              <div key={item.title} className="cp_related_card cp_reveal">
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-                <a className="cp_eyebrow" href="#enquire">
-                  Ask about this course ↗
-                </a>
-              </div>
-            ),
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // "Focus" section (preview 2): heading, paragraph, paper note and image row.
 function Focus({ data, number }) {
   return (
@@ -385,20 +152,39 @@ function Focus({ data, number }) {
           <h2>{data.heading}</h2>
         </div>
         <div className="cp_focus_right cp_reveal">
-          <p>{data.text}</p>
-          <div className="cp_paper_note">
-            <div className="cp_paper_note_label">{data.noteLabel}</div>
-            <strong>{data.note}</strong>
-          </div>
-          <div className="cp_focus_image_row">
-            <div className="cp_focus_image">
-              <img className="cp_img" src={data.image} alt={data.imageAlt} />
+          {(Array.isArray(data.text) ? data.text : [data.text]).map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+          {data.note && (
+            <div className="cp_paper_note">
+              <div className="cp_paper_note_label">{data.noteLabel}</div>
+              <strong>{data.note}</strong>
             </div>
-            <div className="cp_image_caption">
-              <strong>{data.captionNumber}</strong>
-              <span>{data.captionText}</span>
+          )}
+          {data.pointsHeading && <h3 className="cp_focus_points_heading">{data.pointsHeading}</h3>}
+          {data.pointsIntro && <p>{data.pointsIntro}</p>}
+          {data.points && (
+            <div className="cp_focus_points">
+              {data.points.map((point, index) => (
+                <div key={point.title}>
+                  <span>{sectionNumber(index + 1)}</span>
+                  <strong>{point.title}</strong>
+                  <p>{point.desc}</p>
+                </div>
+              ))}
             </div>
-          </div>
+          )}
+          {data.image && (
+            <div className="cp_focus_image_row">
+              <div className="cp_focus_image">
+                <img className="cp_img" src={data.image} alt={data.imageAlt} />
+              </div>
+              <div className="cp_image_caption">
+                <strong>{data.captionNumber}</strong>
+                <span>{data.captionText}</span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -417,7 +203,13 @@ function Diagram({ data, number }) {
             <Kicker number={number} label={data.kicker} className="cp_kicker_dark" />
             <h2>{data.heading}</h2>
           </div>
-          {data.text && <p>{data.text}</p>}
+          {data.text && (
+            <div className="cp_diagram_text">
+              {(Array.isArray(data.text) ? data.text : [data.text]).map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          )}
         </div>
         <div className="cp_flow_visual cp_reveal">
           <div className="cp_flow_topline">
@@ -465,7 +257,7 @@ function Diagram({ data, number }) {
 // Audience band (preview 2): numbered roles in a ruled three-column band.
 function AudienceBand({ data, number }) {
   return (
-    <section className="cp_aud2" id="audience">
+    <section className="cp_aud2">
       <div className="cp_wrap">
         <div className="cp_aud2_top cp_reveal">
           <div>
@@ -477,64 +269,37 @@ function AudienceBand({ data, number }) {
           </div>
         </div>
         <div className="cp_aud2_band cp_reveal">
-          {data.items.map((item, index) => (
-            <div key={item} className="cp_aud2_item">
-              <span>{sectionNumber(index + 1)}</span>
-              <strong>{item}</strong>
-            </div>
-          ))}
+          {data.items.map((item, index) => {
+            if (typeof item === "string") {
+              return (
+                <div key={item} className="cp_aud2_item">
+                  <span>{sectionNumber(index + 1)}</span>
+                  <strong>{item}</strong>
+                </div>
+              );
+            }
+            const content = (
+              <>
+                <span>{sectionNumber(index + 1)}</span>
+                <div>
+                  <strong>{item.title}</strong>
+                  {item.desc && <small>{item.desc}</small>}
+                  <em>{item.link ? "View course ↗" : "Ask about this course ↗"}</em>
+                </div>
+              </>
+            );
+            return item.link ? (
+              <Link key={item.title} to={item.link} className="cp_aud2_item cp_aud2_link">
+                {content}
+              </Link>
+            ) : (
+              <a key={item.title} href="#enquire" className="cp_aud2_item cp_aud2_link">
+                {content}
+              </a>
+            );
+          })}
         </div>
         {data.foot && <div className="cp_aud2_foot">{data.foot}</div>}
-      </div>
-    </section>
-  );
-}
-
-// Proportional weightings (e.g. PMP exam domains): one connected bar sized by real percentages.
-function Weights({ data, number }) {
-  return (
-    <section className="cp_weights">
-      <div className="cp_wrap">
-        <div className="cp_diagram_heading cp_reveal">
-          <div>
-            <Kicker number={number} label={data.kicker} className="cp_kicker_dark" />
-            <h2>{data.heading}</h2>
-          </div>
-          {data.text && <p>{data.text}</p>}
-        </div>
-        <div className="cp_weights_panel cp_reveal">
-          <div className="cp_weights_bar" role="img" aria-label={data.items.map((item) => `${item.title} ${item.pct}%`).join(", ")}>
-            {data.items.map((item, index) => (
-              <div
-                key={item.title}
-                className={`cp_weights_seg cp_weights_seg_${index + 1}`}
-                style={{
-                  flexGrow: item.pct,
-                }}
-              >
-                <b>{item.pct}%</b>
-              </div>
-            ))}
-          </div>
-          <div className="cp_weights_items">
-            {data.items.map((item, index) => (
-              <div
-                key={item.title}
-                className="cp_weights_item"
-                style={{
-                  flexGrow: item.pct,
-                }}
-              >
-                <span className={`cp_weights_dot cp_weights_seg_${index + 1}`} aria-hidden="true" />
-                <strong>
-                  {item.title} <em>{item.pct}%</em>
-                </strong>
-                <p>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-          {data.note && <p className="cp_weights_note">{data.note}</p>}
-        </div>
       </div>
     </section>
   );
@@ -593,8 +358,8 @@ function Enquiry({ course, data, number }) {
             <p key={paragraph}>{paragraph}</p>
           ))}
           <div className="cp_contact_detail">
-            {data.detailLabels ? (
-              data.detailLabels.map((label) => (
+            {data.detailLabels !== false ? (
+              (data.detailLabels || DEFAULT_DETAIL_LABELS).map((label) => (
                 <span key={label} className="cp_contact_label">
                   {label}
                 </span>
@@ -695,6 +460,123 @@ function Enquiry({ course, data, number }) {
   );
 }
 
+
+// ---------------------------------------------------------------------------
+// Every course page uses the ISO 50001 Lead Auditor section designs. Older content
+// shapes (intro / inside / extra / audience / related) are converted here.
+// ---------------------------------------------------------------------------
+const isAuditorCourse = (course) => /Auditor/.test(course.category || "");
+
+function introToFocus(data, course, { withImage }) {
+  const paragraphs = [...(data.paragraphs || [])];
+  let note = data.statement;
+  if (data.aside) {
+    if (note) {
+      paragraphs.unshift(data.aside);
+    } else {
+      note = data.aside;
+    }
+  }
+  const nodeCount = course.inside?.topics?.length || course.diagram?.nodes?.length;
+  const image = course.audience?.image || course.journey?.image || course.hero.image;
+  return {
+    kicker: data.kicker,
+    heading: data.heading,
+    text: paragraphs,
+    noteLabel: "The focus of this training",
+    note,
+    points: data.points,
+    image: withImage ? image : undefined,
+    imageAlt: course.audience?.imageAlt || course.journey?.imageAlt || course.hero.imageAlt,
+    captionNumber: nodeCount ? `01—${String(nodeCount).padStart(2, "0")}` : undefined,
+    captionText: isAuditorCourse(course)
+      ? "Key areas an auditor needs to examine"
+      : "Key areas this training covers",
+  };
+}
+
+function insideToDiagram(data, course) {
+  const { visual = {} } = data;
+  return {
+    kicker: data.kicker,
+    heading: data.heading.replace(/\n/g, " "),
+    text: data.text,
+    label: [visual.labelRight, visual.labelLeft].filter(Boolean).join(" · "),
+    hint: "Select an element to explore",
+    nodes: data.topics.map((topic) => ({ title: topic.title, detail: topic.desc })),
+    footText: data.result,
+    footLabel: "Explore each element ↗",
+  };
+}
+
+function listToBand(data) {
+  return {
+    kicker: data.kicker,
+    heading: data.heading,
+    text: data.text,
+    items: data.items,
+    foot: data.note || data.tag,
+  };
+}
+
+// Exam domain weights shown in the same interactive diagram as the ISO 50001 page.
+function weightsToDiagram(data) {
+  return {
+    kicker: data.kicker,
+    heading: data.heading,
+    text: data.text,
+    label: "Exam domains · share of the examination",
+    hint: "Select a domain to explore",
+    nodes: data.items.map((item) => ({
+      title: `${item.title} · ${item.pct}%`,
+      summary: item.desc,
+      detail: item.desc,
+    })),
+    footText: data.note,
+    footLabel: "Explore each domain ↗",
+  };
+}
+
+function relatedToBand(data) {
+  return {
+    kicker: data.kicker,
+    heading: data.heading,
+    text: data.text,
+    items: data.items,
+  };
+}
+
+function renderSection(key, course, number, isFirstFocus) {
+  // "extra2", "intro2"... reuse the layout of their base type.
+  const type = key.replace(/\d+$/, "");
+  const data = course[key];
+  switch (type) {
+    case "intro":
+      return <Focus key={key} data={introToFocus(data, course, { withImage: isFirstFocus })} number={number} />;
+    case "focus":
+      return <Focus key={key} data={data} number={number} />;
+    case "inside":
+      return <Diagram key={key} data={insideToDiagram(data, course)} number={number} />;
+    case "diagram":
+      return <Diagram key={key} data={data} number={number} />;
+    case "journey":
+      return <Journey key={key} data={data} number={number} />;
+    case "extra":
+    case "audience":
+      return <AudienceBand key={key} data={listToBand(data)} number={number} />;
+    case "audienceBand":
+      return <AudienceBand key={key} data={data} number={number} />;
+    case "related":
+      return <AudienceBand key={key} data={relatedToBand(data)} number={number} />;
+    case "weights":
+      return <Diagram key={key} data={weightsToDiagram(data)} number={number} />;
+    case "enquiry":
+      return <Enquiry key={key} course={course} data={data} number={number} />;
+    default:
+      return null;
+  }
+}
+
 export default function CoursePage({ course }) {
   const rootRef = useRef(null);
   const progressRef = useRef(null);
@@ -752,18 +634,7 @@ export default function CoursePage({ course }) {
   }, [course]);
 
   const sections = (course.sections || DEFAULT_SECTIONS).filter((key) => course[key]);
-  const SECTION_TYPES = {
-    intro: Intro,
-    inside: Inside,
-    journey: Journey,
-    extra: Extra,
-    audience: Audience,
-    related: Related,
-    focus: Focus,
-    diagram: Diagram,
-    audienceBand: AudienceBand,
-    weights: Weights,
-  };
+
   let counter = 0;
   const next = () => sectionNumber(++counter);
 
@@ -773,14 +644,12 @@ export default function CoursePage({ course }) {
       <Hero course={course} />
       {/* Target of the hero's secondary button */}
       <div id="explore" />
-      {sections.map((key) => {
-        // "extra2", "intro2"... reuse the layout of their base type.
+      {sections.map((key, index) => {
         const type = key.replace(/\d+$/, "");
-        if (type === "enquiry") {
-          return <Enquiry key={key} course={course} data={course[key]} number={next()} />;
-        }
-        const Section = SECTION_TYPES[type];
-        return Section ? <Section key={key} data={course[key]} number={next()} /> : null;
+        const isFirstFocus =
+          (type === "intro" || type === "focus") &&
+          sections.findIndex((k) => /^(intro|focus)\d*$/.test(k)) === index;
+        return renderSection(key, course, next(), isFirstFocus);
       })}
     </div>
   );

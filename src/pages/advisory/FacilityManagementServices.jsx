@@ -177,7 +177,7 @@ export default function FacilityManagementServices() {
           <div
             className="fms-crumb"
             style={{
-              color: "var(--fms-rust)",
+              color: "#000",
               marginBottom: 12,
             }}
           >
@@ -280,7 +280,7 @@ export default function FacilityManagementServices() {
             <div
               className="fms-crumb"
               style={{
-                color: "var(--fms-rust)",
+                color: "#000",
                 marginBottom: 12,
               }}
             >
@@ -311,7 +311,7 @@ export default function FacilityManagementServices() {
             <div
               className="fms-crumb"
               style={{
-                color: "var(--fms-teal)",
+                color: "#000",
                 marginBottom: 12,
               }}
             >

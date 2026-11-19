@@ -223,7 +223,7 @@ export default function Iso14001() {
             <span
               className="ems-lab"
               style={{
-                color: "#8a4f08",
+                color: "#000",
               }}
             >
               Strategic Value

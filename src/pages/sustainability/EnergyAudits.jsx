@@ -1,39 +1,58 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import EnquiryForm from "../../components/EnquiryForm";
+import usePageMeta from "../../components/usePageMeta";
 const marqueeItems = [
-  "Energy",
-  "Water",
-  "Utilities",
   "HVAC",
   "Lighting",
+  "Compressed air",
   "Boilers",
-  "Benchmarking",
-  "ROI Modeling",
+  "Motors",
+  "Production equipment",
+  "Utilities",
   "ISO 50001",
 ];
+const SITE_REVIEW =
+  "Reviewed as part of the site assessment of major energy users and their operating conditions.";
 const auditAreas = [
+  { t: "HVAC", h: "HVAC", p: SITE_REVIEW },
+  { t: "Lighting", h: "Lighting", p: SITE_REVIEW },
+  { t: "Compressed air", h: "Compressed air", p: SITE_REVIEW },
+  { t: "Boilers", h: "Boilers", p: SITE_REVIEW },
+  { t: "Motors", h: "Motors", p: SITE_REVIEW },
+  { t: "Production equipment", h: "Production equipment and other utilities", p: SITE_REVIEW },
+];
+const approach = [
   {
-    t: "Energy",
-    h: "Energy usage",
-    p: "Analyze your facility’s energy usage and pinpoint waste.",
+    h: "Energy data review",
+    p: "Examine utility bills, consumption records, operating schedules and available equipment information to establish a baseline.",
   },
   {
-    t: "Water",
-    h: "Water usage",
-    p: "Resource optimization improves water usage to drive efficiency and sustainability.",
+    h: "Site assessment",
+    p: "Review relevant systems and operating conditions, including HVAC, lighting, motors, boilers and other major energy users.",
   },
   {
-    t: "Materials",
-    h: "Material usage",
-    p: "Resource optimization improves materials usage to drive efficiency and sustainability.",
+    h: "Analysis and opportunity assessment",
+    p: "Identify inefficiencies, compare performance where suitable and estimate potential savings using stated assumptions.",
   },
   {
-    t: "Utilities",
-    h: "Utility usage",
-    p: "Resource optimization improves utility usage to drive efficiency and sustainability.",
+    h: "Recommendations and action planning",
+    p: "Prioritise improvement measures by expected energy impact, cost, implementation requirements and operational considerations.",
   },
 ];
+const findings = [
+  { b: "Excessive energy consumption in major systems.", img: "1466611653911-95081537e5b7" },
+  { b: "Inefficient operating schedules and controls.", img: "1554224155-6726b3ff858f" },
+  { b: "Equipment or maintenance issues affecting performance.", img: "1581092918056-0c4c3acd3789" },
+  { b: "Opportunities to reduce electricity, fuel and water use.", img: "1552664730-d307ca884978" },
+  { b: "Potential improvements to monitoring and maintenance.", img: "1450101499163-c8848c66ca85" },
+  { b: "Measures that may support ISO 50001 implementation.", img: "1581091226825-a6a2a5aee158" },
+];
 export default function EnergyAudits() {
+  usePageMeta(
+    "Energy Audit Services & Resource Optimization | Meridian",
+    "Identify energy and resource inefficiencies through facility and process energy audits. Get consumption analysis, improvement recommendations and action planning.",
+  );
   const [activeArea, setActiveArea] = useState(0);
   const circumference = 2 * Math.PI * 84;
   const segmentLength = circumference / auditAreas.length;
@@ -49,43 +68,40 @@ export default function EnergyAudits() {
             <Link to="/services">Services</Link>
             {" /"} <Link to="/services/sustainability">Sustainability</Link>
             {" / "}
-            <b>Energy Audits</b>
+            <b>Energy Audits &amp; Resource Optimization</b>
           </p>
           <h1>
-            Identify inefficiencies, reduce costs, and boost sustainability{" "}
-            <span>across your operations.</span>
+            Find out where energy and resources are being used,{" "}
+            <span>and where they are being wasted.</span>
           </h1>
           <p className="ea-lead">
-            Energy audits analyze your facility’s energy usage and pinpoint waste, then go further
-            to optimize water, materials, and utilities.
+            High utility costs do not always mean an organisation needs new equipment. Inefficient
+            operating schedules, poor system controls, maintenance issues and unnecessary
+            consumption can all affect performance.
+          </p>
+          <p className="ea-lead">
+            An energy audit examines how a facility, process or system uses energy and identifies
+            opportunities to improve efficiency. Meridian provides energy audit and resource
+            assessment support to help organisations understand consumption patterns, investigate
+            inefficiencies and prioritise improvement measures.
           </p>
           <div className="ea-acts">
-            <Link className="ea-btn" to="/contact-us">
-              {"Book a free consultation "}
+            <a className="ea-btn" href="#contact">
+              {"Request an Energy Audit "}
               <i>↗</i>
-            </Link>
-            <a className="ea-btn o" href="#what">
-              {"What are energy audits? "}
+            </a>
+            <a className="ea-btn o" href="#steps">
+              {"Our audit approach "}
               <i>↓</i>
             </a>
           </div>
           <div className="ea-scopes">
-            <div>
-              <small>Step 01</small>
-              <b>Baseline assessment</b>
-            </div>
-            <div>
-              <small>Step 02</small>
-              <b>Site-level walkthrough</b>
-            </div>
-            <div>
-              <small>Step 03</small>
-              <b>{"Data analysis & benchmarking"}</b>
-            </div>
-            <div>
-              <small>Step 04</small>
-              <b>{"Recommendations & ROI"}</b>
-            </div>
+            {approach.map((step, index) => (
+              <div key={step.h}>
+                <small>Step {String(index + 1).padStart(2, "0")}</small>
+                <b>{step.h}</b>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -99,37 +115,30 @@ export default function EnergyAudits() {
       <section className="ea-sec" id="what">
         <div className="ea-wrap ea-wh">
           <div>
-            <span className="ea-lab">{"What Are Energy Audits & Resource Optimization?"}</span>
+            <span className="ea-lab">01. Energy and resource use</span>
             <h2 className="ea-h2">
-              {"Every "}
-              <em>kilowatt,</em>
-              {" accounted for."}
+              {"What is driving your "}
+              <em>energy consumption?</em>
             </h2>
             <p className="ea-def">
-              {"Energy audits "}
-              <b>analyze your facility’s energy usage</b>
-              {
-                " and pinpoint waste. Resource optimization goes beyond — improving water, materials, and utility usage to drive efficiency and sustainability."
-              }
+              Energy use can be spread across several systems: HVAC, lighting, compressed air,
+              boilers, motors, production equipment and other utilities.
             </p>
-            <div className="ea-std">
-              <span>Energy</span>
-              <span>Water</span>
-              <span>Materials</span>
-              <span>Utilities</span>
-              <span>ISO 50001</span>
-            </div>
+            <p className="ea-def">
+              Without a clear picture of how these systems operate, it is difficult to distinguish
+              essential consumption from avoidable waste.
+            </p>
+            <p className="ea-def">
+              An audit provides a structured review of available data and site conditions, helping
+              identify where further investigation or corrective action is worthwhile.
+            </p>
           </div>
           <div className="ea-gauge">
             <div className="top">
-              <span>Audit focus</span>
+              <span>Major energy users</span>
               <b>Tap a segment</b>
             </div>
-            <svg
-              viewBox="0 0 240 240"
-              role="group"
-              aria-label="Energy, water, materials and utilities"
-            >
+            <svg viewBox="0 0 240 240" role="group" aria-label="Major energy-using systems">
               <circle
                 cx="120"
                 cy="120"
@@ -175,7 +184,7 @@ export default function EnergyAudits() {
                   fill: "var(--ea-soft2)",
                 }}
               >
-                FOCUS
+                SYSTEM
               </text>
             </svg>
             <div key={activeArea} className="ea-gd">
@@ -192,209 +201,75 @@ export default function EnergyAudits() {
           </div>
         </div>
       </section>
+      <section className="ea-sec ea-proc dark" id="steps">
+        <div className="ea-wrap ea-pg">
+          <div className="ea-sticky">
+            <span className="ea-lab">02. Our audit approach</span>
+            <h2 className="ea-h2">
+              {"Our audit "}
+              <em>approach.</em>
+            </h2>
+          </div>
+          <div>
+            <ul className="ea-tl">
+              {approach.map((step, index) => (
+                <li
+                  key={step.h}
+                  style={index === approach.length - 1 ? { borderBottom: "1px solid #1f3d44" } : undefined}
+                >
+                  <i>{String(index + 1).padStart(2, "0")}</i>
+                  <div>
+                    <h3>{step.h}</h3>
+                    <p>{step.p}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
       <section className="ea-sec ea-why" id="why">
         <div className="ea-wrap">
           <div className="ea-why-h">
             <div>
-              <span className="ea-lab">Why It Matters</span>
+              <span className="ea-lab">03. What the audit can identify</span>
               <h2 className="ea-h2">
-                {"Why energy "}
-                <em>audits</em>
-                {" matter."}
+                {"What the audit "}
+                <em>can identify.</em>
               </h2>
             </div>
-            <p>
-              Finding where energy and resources are wasted is the first step to lower costs and
-              better performance.
-            </p>
           </div>
           <ul className="ea-wl">
-            <li
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1000&q=75')",
-              }}
-              data-n="1"
-            >
-              <small>01</small>
-              <b>Strengthen environmental stewardship.</b>
-            </li>
-            <li
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1000&q=75')",
-              }}
-              data-n="2"
-            >
-              <small>02</small>
-              <b>Reduce operational costs and energy waste.</b>
-            </li>
-            <li
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=75')",
-              }}
-              data-n="3"
-            >
-              <small>03</small>
-              <b>Meet sustainability and ESG performance goals.</b>
-            </li>
-            <li
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1000&q=75')",
-              }}
-              data-n="4"
-            >
-              <small>04</small>
-              <b>Enhance asset performance and maintenance planning.</b>
-            </li>
-            <li
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1000&q=75')",
-              }}
-              data-n="5"
-            >
-              <small>05</small>
-              <b>Improve compliance with ISO 50001 or national regulations.</b>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section className="ea-sec ea-proc dark" id="steps">
-        <div className="ea-wrap ea-pg">
-          <div className="ea-sticky">
-            <span className="ea-lab">Our Process</span>
-            <h2 className="ea-h2">
-              {"Our audit & "}
-              <em>optimization</em>
-              {" process."}
-            </h2>
-            <p>
-              Four clear stages take you from understanding current consumption to a costed plan for
-              saving.
-            </p>
-          </div>
-          <div>
-            <ul className="ea-tl">
-              <li>
-                <i>01</i>
-                <div>
-                  <h3>Baseline Assessment</h3>
-                  <p>Analyze current energy, water, and utility consumption.</p>
-                </div>
-              </li>
-              <li>
-                <i>02</i>
-                <div>
-                  <h3>Site-Level Walkthrough</h3>
-                  <p>Inspect systems (HVAC, lighting, boilers, etc.) for inefficiencies.</p>
-                </div>
-              </li>
-              <li>
-                <i>03</i>
-                <div>
-                  <h3>{"Data Analysis & Benchmarking"}</h3>
-                  <p>Compare usage against industry standards and KPIs.</p>
-                </div>
-              </li>
+            {findings.map((item, index) => (
               <li
+                key={item.b}
                 style={{
-                  borderBottom: "1px solid #1f3d44",
+                  "--img": `url('https://images.unsplash.com/photo-${item.img}?auto=format&fit=crop&w=1000&q=75')`,
                 }}
+                data-n={index + 1}
               >
-                <i>04</i>
-                <div>
-                  <h3>{"Recommendations & ROI Modeling"}</h3>
-                  <p>Provide savings opportunities and ROI estimates.</p>
-                </div>
+                <small>{String(index + 1).padStart(2, "0")}</small>
+                <b>{item.b}</b>
               </li>
-            </ul>
-            <div className="ea-kb">
-              <small>Key Benefits</small>
-              <ul>
-                <li>Up to 30% reduction in utility costs.</li>
-                <li>Improved asset lifespan and performance.</li>
-                <li>Quick wins and long-term sustainability gains.</li>
-                <li>{"Supports green certification & ISO 50001 readiness."}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="ea-sec" id="meridian">
-        <div className="ea-wrap">
-          <div className="ea-ch-h">
-            <div>
-              <span className="ea-lab">Why Choose Meridian?</span>
-              <h2 className="ea-h2">
-                {"Why choose "}
-                <em>Meridian?</em>
-              </h2>
-            </div>
-          </div>
-          <ul className="ea-cl">
-            <li>
-              <svg
-                viewBox="0 0 40 40"
-                fill="none"
-                stroke="#093f50"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="20" cy="16" r="9" fill="#f2e6a2" />
-                <path d="m16 16 3 3 5-6" />
-                <path d="m14 24-3 11 9-4 9 4-3-11" />
-              </svg>
-              {"Certified Energy Auditors & Engineers."}
-            </li>
-            <li>
-              <svg
-                viewBox="0 0 40 40"
-                fill="none"
-                stroke="#093f50"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M6 30 15 20l6 5 13-15" />
-                <path d="M26 10h8v8" />
-                <circle cx="15" cy="20" r="3" fill="#f2e6a2" />
-                <circle cx="21" cy="25" r="3" fill="#f2e6a2" />
-              </svg>
-              Technology-Driven Insights with Real-Time Data Options.
-            </li>
-            <li>
-              <svg
-                viewBox="0 0 40 40"
-                fill="none"
-                stroke="#093f50"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="7" y="5" width="26" height="30" rx="4" />
-                <path d="M13 14h14M13 20h14M13 26h8" />
-                <circle cx="29" cy="30" r="6" fill="#f2e6a2" />
-                <path d="m26.5 30 2 2 3.5-4" />
-              </svg>
-              Sector-Specific Experience (Manufacturing, Healthcare, Hospitality, etc.).
-            </li>
+            ))}
           </ul>
         </div>
       </section>
       <section className="ea-role dark">
         <div className="ea-wrap">
-          <span className="ea-lab">Role of Energy Consultants</span>
+          <span className="ea-lab">04. Why work with Meridian?</span>
           <h2>
-            {"Hidden savings, "}
-            <em>found from the inside out.</em>
+            {"Why work with "}
+            <em>Meridian?</em>
           </h2>
           <p>
-            We help you uncover hidden savings and build efficient, sustainable operations from the
-            inside out.
+            An energy audit should give decision-makers more than a list of possible upgrades. It
+            should help them understand the reasons behind consumption and compare improvement
+            options.
+          </p>
+          <p>
+            Meridian&apos;s approach connects site observations and consumption data with
+            recommendations that can be considered by facilities, engineering and management teams.
           </p>
         </div>
       </section>
@@ -402,35 +277,17 @@ export default function EnergyAudits() {
         <div className="ea-wrap">
           <div className="ea-cta">
             <div>
-              <span className="ea-lab">Book a Free Consultation</span>
+              <span className="ea-lab">05. Request an Energy Audit</span>
               <h2>
-                {"Want to slash energy costs "}
-                <span>without sacrificing performance?</span>
+                {"Where could your facility "}
+                <span>reduce waste?</span>
               </h2>
-              <p className="t">Contact our audit experts today.</p>
-              <Link className="ea-btn dk" to="/contact-us">
-                {"Book a Free Consultation "}
-                <i>↗</i>
-              </Link>
+              <p className="t">
+                Tell us about your site, its main energy systems and the issues you want
+                investigated. We can discuss an appropriate audit scope.
+              </p>
             </div>
-            <dl className="ea-ct">
-              <div>
-                <dt>Call us</dt>
-                <dd>
-                  <a href="tel:+966509394640">+966 50 939 4640</a>
-                </dd>
-              </div>
-              <div>
-                <dt>Need support</dt>
-                <dd>
-                  <a href="mailto:info@meqmp.com">info@meqmp.com</a>
-                </dd>
-              </div>
-              <div>
-                <dt>Our global locations</dt>
-                <dd>Saudi Arabia · Bahrain · Canada · Pakistan</dd>
-              </div>
-            </dl>
+            <EnquiryForm subjectPrefix="Energy audit request" submitLabel="Request an Energy Audit" />
           </div>
         </div>
       </section>

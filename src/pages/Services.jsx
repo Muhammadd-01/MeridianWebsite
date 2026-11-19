@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
+import EnquiryForm from "../components/EnquiryForm";
 import { Link } from "react-router-dom";
 const serviceAreas = [
   {
@@ -42,162 +43,8 @@ const serviceAreas = [
     img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=82",
   },
 ];
-const sustainabilityServices = [
-  {
-    num: "01",
-    dark: true,
-    title: "ESG strategy & sustainability reporting",
-    desc: "Improve ESG performance and reporting through relevant frameworks, including GRI and applicable IFRS Sustainability Disclosure Standards. Assessments, data collection and reporting preparation.",
-    chips: ["GRI", "IFRS Sustainability"],
-  },
-  {
-    num: "02",
-    dark: false,
-    title: "Carbon footprint & climate action",
-    desc: "Measure greenhouse gas emissions, identify major sources and set priorities for reducing environmental impact through organizational carbon footprint assessments.",
-    chips: ["ISO 14064", "GHG accounting"],
-  },
-  {
-    num: "03",
-    dark: false,
-    title: "Energy management & efficiency",
-    desc: "Identify energy-saving opportunities, assess consumption and improve performance through energy audits and Energy Management Systems support.",
-    chips: ["ISO 50001", "Energy audits"],
-  },
-  {
-    num: "04",
-    dark: false,
-    title: "Green building & sustainable development",
-    desc: "Support sustainable building projects through advisory, certification preparation and guidance on applicable requirements and building performance.",
-    chips: ["LEED", "Mostadam"],
-  },
-  {
-    num: "05",
-    dark: false,
-    title: "Sustainable procurement & supply chain ESG",
-    desc: "Strengthen responsible procurement, identify ESG gaps and prepare supporting documentation for assessments and growing supply chain expectations.",
-    chips: ["EcoVadis", "Supply chain ESG"],
-  },
-  {
-    num: "06",
-    dark: true,
-    title: "Sustainability & ESG training",
-    desc: "Develop practical knowledge in sustainability, carbon accounting, environmental management and responsible business practices.",
-    chips: ["ISO 14064", "ISO 50001", "ISO 20400"],
-  },
-];
-const serviceCategories = [
-  {
-    category: "01 · ADVISORY",
-    options: [
-      "Lean Six Sigma",
-      "Supply chain optimisation",
-      "Project management",
-      "Change management",
-      "Process reengineering",
-    ],
-  },
-  {
-    category: "02 · TRAINING",
-    options: [
-      "Lead auditor",
-      "Internal auditor",
-      "Leadership & management",
-      "Exam preparation",
-      "Safety & environment",
-    ],
-  },
-  {
-    category: "03 · COMPLIANCE",
-    options: ["ISO 9001", "ISO 14001", "ISO 45001", "ISO 27001", "ISO 42001", "API Q1/Q2"],
-  },
-  {
-    category: "04 · SUSTAINABILITY",
-    options: [
-      "ESG reporting",
-      "Carbon footprint",
-      "Energy management",
-      "LEED / Mostadam",
-      "EcoVadis",
-    ],
-  },
-  {
-    category: "05 · WELLBEING",
-    options: [
-      "Counselling services",
-      "24/7 hotlines",
-      "Workshops & meditation",
-      "LMS-ready e-learning",
-    ],
-  },
-];
-const faqs = [
-  {
-    q: "Can we combine more than one service?",
-    a: "Yes. Many engagements connect advisory, training and assurance, for example building a management system, training the people who run it and preparing it for audit. We shape the mix around your priorities.",
-  },
-  {
-    q: "Which standards do you work with?",
-    a: "Frameworks include ISO 9001, ISO 14001, ISO 45001, ISO 27001, ISO 42001, ISO 50001, ISO 22000 and API Q1/Q2, among others. The right fit depends on your goals, industry and service scope.",
-  },
-  {
-    q: "Is Meridian an approved training provider?",
-    a: "Meridian is recognized as the first foreign-registered training centre approved by TVTC in Saudi Arabia and is a Highfield Approved Centre. Each approval applies within its documented scope.",
-  },
-  {
-    q: "How do we get started?",
-    a: "Talk to our team. We’ll review your goals and current situation, identify gaps and propose a practical next step, whether you’re building a first management system or improving an established one.",
-  },
-];
 export default function Services() {
   const [activePanel, setActivePanel] = useState(0);
-  const [selectedServices, setSelectedServices] = useState(new Set());
-  const [scrollProgress, setScrollProgress] = useState(20);
-  const [openFaq, setOpenFaq] = useState(0);
-  const trackRef = useRef(null);
-  const toggleService = (service) => {
-    setSelectedServices((prev) => {
-      const next = new Set(prev);
-      if (next.has(service)) {
-        next.delete(service);
-      } else {
-        next.add(service);
-      }
-      return next;
-    });
-  };
-  const handleTrackScroll = () => {
-    if (!trackRef.current) {
-      return;
-    }
-    const { scrollLeft, scrollWidth, clientWidth } = trackRef.current;
-    const maxScroll = scrollWidth - clientWidth;
-    if (maxScroll > 0) {
-      const progress = (scrollLeft / maxScroll) * 80 + 20;
-      setScrollProgress(progress);
-    }
-  };
-  const scrollTrack = (direction) => {
-    if (!trackRef.current) {
-      return;
-    }
-    trackRef.current.scrollBy({
-      left: direction * 370,
-      behavior: "smooth",
-    });
-  };
-  const selectedList = Array.from(selectedServices);
-  const mailBody = encodeURIComponent(`Hello Meridian team,
-
-I would like to discuss the following areas:
-${
-  selectedList.length
-    ? selectedList.map((item) => `- ${item}`).join(`
-`)
-    : "- (not sure yet, please advise)"
-}
-
-Thank you.`);
   return (
     <div className="services-page">
       <section className="services-hero">
@@ -316,7 +163,7 @@ Thank you.`);
                 "--ac": "#f2e6a2",
                 "--ln": "#2f6070",
                 "--btnbg": "#f2e6a2",
-                "--btnfg": "#093f50",
+                "--btnfg": "#000",
               }}
             >
               <div className="sc-left">
@@ -380,9 +227,9 @@ Thank you.`);
               style={{
                 "--i": 1,
                 "--bg": "#f2e6a2",
-                "--fg": "#093f50",
-                "--mut": "#4a6468",
-                "--ac": "#8a4f08",
+                "--fg": "#000",
+                "--mut": "#000",
+                "--ac": "#000",
                 "--ln": "#cfc17a",
                 "--btnbg": "#093f50",
                 "--btnfg": "#fff",
@@ -450,9 +297,9 @@ Thank you.`);
               style={{
                 "--i": 2,
                 "--bg": "#e8e9e0",
-                "--fg": "#093f50",
-                "--mut": "#52676a",
-                "--ac": "#a45b0b",
+                "--fg": "#000",
+                "--mut": "#000",
+                "--ac": "#000",
                 "--ln": "#bdc9c4",
                 "--btnbg": "#093f50",
                 "--btnfg": "#fff",
@@ -528,7 +375,7 @@ Thank you.`);
                 "--ac": "#f2e6a2",
                 "--ln": "#2c464c",
                 "--btnbg": "#f2e6a2",
-                "--btnfg": "#093f50",
+                "--btnfg": "#000",
               }}
             >
               <div className="sc-left">
@@ -602,7 +449,7 @@ Thank you.`);
                 "--ac": "#f2e6a2",
                 "--ln": "#3b7a84",
                 "--btnbg": "#f2e6a2",
-                "--btnfg": "#093f50",
+                "--btnfg": "#000",
                 marginBottom: 0,
               }}
             >
@@ -665,160 +512,10 @@ Thank you.`);
           </div>
         </div>
       </section>
-      <section className="sus" id="sustainability-deep">
-        <div className="wrap">
-          <div className="sus-top">
-            <div>
-              <div className="kicker">{"04+ / Sustainability & climate solutions"}</div>
-              <h2 className="big">
-                {"Practical sustainability "}
-                <em>for business.</em>
-              </h2>
-              <div className="sus-vals">
-                <span>Improve operational efficiency</span>
-                <span>{"Manage business & environmental risks"}</span>
-                <span>{"Meet customer & supply chain requirements"}</span>
-                <span>Strengthen business credibility</span>
-                <span>Prepare for changing expectations</span>
-              </div>
-            </div>
-            <p
-              className="lede"
-              style={{
-                fontSize: "15px",
-              }}
-            >
-              Sustainability is becoming an important business priority as organizations face
-              growing expectations around carbon emissions, resource efficiency, ESG reporting and
-              responsible supply chains. In Saudi Arabia, environmental sustainability is also an
-              important part of Vision 2030.
-            </p>
-          </div>
-          <div className="ctrl">
-            <button onClick={() => scrollTrack(-1)} aria-label="Previous">
-              ←
-            </button>
-            <div className="bar">
-              <span
-                style={{
-                  width: `${scrollProgress}%`,
-                }}
-              />
-            </div>
-            <button onClick={() => scrollTrack(1)} aria-label="Next">
-              →
-            </button>
-          </div>
-        </div>
-        <div className="wrap">
-          <div className="track" ref={trackRef} onScroll={handleTrackScroll}>
-            {sustainabilityServices.map((sustainabilityService) => (
-              <article
-                key={sustainabilityService.num}
-                className={`scard2 ${sustainabilityService.dark ? "dark" : ""}`}
-              >
-                <div className="n">
-                  <span>{sustainabilityService.num}</span>
-                  <span>↗</span>
-                </div>
-                <h3>{sustainabilityService.title}</h3>
-                <p>{sustainabilityService.desc}</p>
-                <div className="chips">
-                  {sustainabilityService.chips.map((chip) => (
-                    <span key={chip} className="chip">
-                      {chip}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-        <div className="wrap">
-          <div className="sus-close">
-            <h3>From assessment to implementation</h3>
-            <p>
-              We work with organizations to understand their sustainability requirements, assess
-              existing practices and identify relevant improvement priorities. This provides a
-              clearer basis for planning and implementing sustainability initiatives suited to their
-              operations and objectives.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section className="build" id="build">
-        <div className="wrap">
-          <div>
-            <div className="kicker">02 / Build your scope</div>
-            <h2 className="big">
-              Pick what matters.
-              <br />
-              <em>We’ll shape the rest.</em>
-            </h2>
-            <p className="lede">
-              Select the areas you’re interested in. Your selection becomes a ready-made message to
-              our team, with no commitment.
-            </p>
-          </div>
-          <div className="build-grid">
-            <div>
-              {serviceCategories.map((serviceCategory) => (
-                <div key={serviceCategory.category} className="grp">
-                  <div className="grp-t">
-                    <span>{serviceCategory.category}</span>
-                  </div>
-                  <div className="opts">
-                    {serviceCategory.options.map((option) => {
-                      const isSelected = selectedServices.has(option);
-                      return (
-                        <button
-                          key={option}
-                          className="opt"
-                          type="button"
-                          aria-pressed={isSelected}
-                          onClick={() => toggleService(option)}
-                        >
-                          {isSelected ? `✓ ${option}` : option}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <aside className="sum" aria-live="polite">
-              <small>YOUR SELECTION</small>
-              <div className="sum-count">{selectedList.length}</div>
-              <h3>Areas of interest</h3>
-              <ul>
-                {selectedList.length === 0 ? (
-                  <li
-                    className="empty"
-                    style={{
-                      border: 0,
-                    }}
-                  >
-                    Nothing selected yet. Tap an area on the left to begin.
-                  </li>
-                ) : (
-                  selectedList.map((item) => <li key={item}>{item}</li>)
-                )}
-              </ul>
-              <a
-                className="pill"
-                href={`mailto:info@meqmp.com?subject=${encodeURIComponent("Services enquiry")}&body=${mailBody}`}
-              >
-                {"Send to our team "}
-                <span>↗</span>
-              </a>
-            </aside>
-          </div>
-        </div>
-      </section>
       <section className="how" id="how">
         <div className="wrap how-grid">
           <div className="how-head">
-            <div className="kicker">03 / Our approach</div>
+            <div className="kicker">02 / Our approach</div>
             <h2 className="big">
               A Practical Approach.
               <br />
@@ -878,171 +575,6 @@ Thank you.`);
           </div>
         </div>
       </section>
-      <section
-        className="services-ledger"
-        style={{
-          padding: "100px 8vw",
-        }}
-      >
-        <div className="wrap">
-          <div
-            className="stack-head"
-            style={{
-              marginBottom: "40px",
-            }}
-          >
-            <div>
-              <div className="kicker">04 / Our work in numbers</div>
-              <h2 className="big">
-                Experience that
-                <br />
-                adds up.
-              </h2>
-            </div>
-            <p className="lede">
-              A growing body of work across advisory, professional training, audits and third-party
-              inspections.
-            </p>
-          </div>
-          <div
-            className="numbers-wall"
-            style={{
-              borderTopColor: "#345058",
-              borderBottomColor: "#345058",
-            }}
-          >
-            <div
-              className="about-metric"
-              style={{
-                color: "#fff",
-              }}
-            >
-              <strong
-                style={{
-                  color: "var(--yellow)",
-                }}
-              >
-                530+
-              </strong>
-              <span>Advisory engagements</span>
-              <small
-                style={{
-                  color: "#b6c5c5",
-                }}
-              >
-                Business and management system support
-              </small>
-            </div>
-            <div
-              className="about-metric"
-              style={{
-                color: "#fff",
-                borderLeftColor: "#345058",
-              }}
-            >
-              <strong
-                style={{
-                  color: "var(--yellow)",
-                }}
-              >
-                2,500+
-              </strong>
-              <span>Training programs</span>
-              <small
-                style={{
-                  color: "#b6c5c5",
-                }}
-              >
-                Professional learning and development
-              </small>
-            </div>
-            <div
-              className="about-metric"
-              style={{
-                color: "#fff",
-                borderLeftColor: "#345058",
-              }}
-            >
-              <strong
-                style={{
-                  color: "var(--yellow)",
-                }}
-              >
-                1,850+
-              </strong>
-              <span>Audits</span>
-              <small
-                style={{
-                  color: "#b6c5c5",
-                }}
-              >
-                Audit and assessment experience
-              </small>
-            </div>
-            <div
-              className="about-metric"
-              style={{
-                color: "#fff",
-                borderLeftColor: "#345058",
-              }}
-            >
-              <strong
-                style={{
-                  color: "var(--yellow)",
-                }}
-              >
-                350+
-              </strong>
-              <span>Third-party inspections</span>
-              <small
-                style={{
-                  color: "#b6c5c5",
-                }}
-              >
-                Inspection experience across requirements
-              </small>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="faq-sec">
-        <div className="wrap">
-          <div className="faq-head">
-            <div className="kicker">05 / Questions</div>
-            <h2 className="big">
-              {"Questions, "}
-              <em>answered.</em>
-            </h2>
-            <p className="lede">
-              Quick answers about our services, standards and how to get started.
-            </p>
-          </div>
-          <div>
-            {faqs.map((faq, index) => {
-              const isOpen = openFaq === index;
-              return (
-                <div key={faq.q} className={`faq-item ${isOpen ? "open" : ""}`}>
-                  <button
-                    className="faq-header"
-                    type="button"
-                    onClick={() => setOpenFaq(isOpen ? -1 : index)}
-                    aria-expanded={isOpen}
-                  >
-                    <span>0{index + 1}</span>
-                    <strong>{faq.q}</strong>
-                    <i>{isOpen ? "✕" : "+"}</i>
-                  </button>
-                  {isOpen && (
-                    <div className="faq-body">
-                      <p>{faq.a}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
       <section className="services-cta" id="contact">
         <div className="kicker">Start a conversation</div>
         <h2>
@@ -1054,22 +586,7 @@ Thank you.`);
           strengthen your systems, develop your people, improve compliance or advance
           sustainability, our team is ready to explore how Meridian can support you.
         </p>
-        <div className="row">
-          <Link className="pill" to="/contact-us">
-            Talk to our team ↗
-          </Link>
-          <Link
-            className="pill alt"
-            to="/about-us"
-            style={{
-              background: "transparent",
-              color: "var(--teal)",
-              borderColor: "var(--teal)",
-            }}
-          >
-            About Meridian ↗
-          </Link>
-        </div>
+        <EnquiryForm subjectPrefix="Services enquiry" />
       </section>
     </div>
   );

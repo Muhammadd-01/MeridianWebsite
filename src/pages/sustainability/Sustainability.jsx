@@ -582,7 +582,7 @@ export default function Sustainability() {
             <span
               className="eyebrow"
               style={{
-                color: "var(--teal)",
+                color: "#000",
               }}
             >
               Meridian by the numbers

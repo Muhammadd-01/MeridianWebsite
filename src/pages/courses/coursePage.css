@@ -8,15 +8,15 @@
   --cp-teal-mid: #185d6d;
   --cp-teal-light: #2d7887;
   --cp-primrose: #f2e6a2;
-  --cp-ink: #172b30;
-  --cp-muted: #66777a;
-  --cp-paper: #f5f6f3;
+  --cp-ink: #000;
+  --cp-muted: #000;
+  --cp-paper: #f5f3ec;
   --cp-line: #dce3df;
   --cp-gutter: clamp(20px, 5.2vw, 78px);
   --cp-max: 1280px;
   --cp-sans: "DM Sans", "Plus Jakarta Sans", Arial, sans-serif;
   --cp-display: "Manrope", "Plus Jakarta Sans", Arial, sans-serif;
-  color: var(--cp-ink);
+  color: #000;
   background: var(--cp-paper);
   font-family: var(--cp-sans);
   -webkit-font-smoothing: antialiased;
@@ -58,7 +58,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--cp-teal-light);
+  color: #000;
 }
 .cp_kicker:before {
   content: "";
@@ -87,7 +87,7 @@
   line-height: 0.98;
 }
 .cp h2 {
-  font-size: clamp(34px, 4.6vw, 62px);
+  font-size: clamp(37px, 4.8vw, 65px);
   font-weight: 600;
 }
 .cp h3 {
@@ -95,7 +95,7 @@
   font-weight: 600;
 }
 .cp p {
-  color: var(--cp-muted);
+  color: #000;
   margin-top: 0;
 }
 .cp_btn {
@@ -106,7 +106,7 @@
   padding: 15px 22px;
   min-height: 51px;
   background: var(--cp-primrose);
-  color: var(--cp-teal) !important;
+  color: #000 !important;
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -203,7 +203,7 @@
   align-items: center;
 }
 .cp_hero_copy {
-  width: min(780px, 74%);
+  width: min(760px, 72%);
   padding: 130px 0 80px;
 }
 .cp_hero .cp_eyebrow {
@@ -309,7 +309,7 @@
   max-width: 280px;
   margin-top: 22px;
   font-size: 15px;
-  color: var(--cp-teal);
+  color: #000;
   font-weight: 600;
   line-height: 1.55;
 }
@@ -330,7 +330,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  color: var(--cp-teal);
+  color: #000;
   font-size: 13px;
   font-weight: 700;
 }
@@ -356,7 +356,7 @@
 .cp_points b {
   font-size: 10px;
   font-weight: 800;
-  color: var(--cp-teal-light);
+  color: #000;
   letter-spacing: 0.1em;
 }
 .cp_points strong {
@@ -366,7 +366,7 @@
   font-size: 17px;
   line-height: 1.25;
   letter-spacing: -0.02em;
-  color: var(--cp-teal);
+  color: #000;
 }
 .cp_points p {
   font-size: 13px;
@@ -492,12 +492,12 @@
   text-align: left;
   padding: 20px 0;
   cursor: pointer;
-  color: var(--cp-ink);
+  color: #000;
 }
 .cp_topic_number {
   font-size: 10px;
   font-weight: 800;
-  color: var(--cp-teal-light);
+  color: #000;
 }
 .cp_topic_title {
   font-size: 16px;
@@ -505,7 +505,7 @@
   letter-spacing: -0.02em;
 }
 .cp_topic_icon {
-  color: var(--cp-teal-light);
+  color: #000;
   font-size: 22px;
   transition: transform 0.25s;
 }
@@ -534,7 +534,7 @@
   padding: 18px 20px;
   border-left: 3px solid var(--cp-primrose);
   background: rgba(255, 255, 255, 0.55);
-  color: var(--cp-teal) !important;
+  color: #000 !important;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.65;
@@ -554,10 +554,10 @@
 }
 .cp_audit_heading h2 {
   margin: 16px 0 0;
-  max-width: 660px;
+  max-width: 640px;
 }
 .cp_audit_heading p {
-  max-width: 470px;
+  max-width: 460px;
   margin: 0 0 6px;
 }
 .cp_audit_feature {
@@ -702,7 +702,7 @@
   right: -18px;
   bottom: 25px;
   background: var(--cp-primrose);
-  color: var(--cp-teal);
+  color: #000;
   padding: 15px 18px;
   font-size: 9px;
   text-transform: uppercase;
@@ -729,13 +729,13 @@
   padding: 12px 0;
   font-size: 12.5px;
   font-weight: 700;
-  color: #354b50;
+  color: #000;
   display: flex;
   gap: 9px;
 }
 .cp_list span:before {
   content: "↗";
-  color: var(--cp-teal-light);
+  color: #000;
   flex: none;
 }
 .cp_note {
@@ -772,14 +772,14 @@ a.cp_related_card:hover {
 .cp_related_card h3 {
   font-size: clamp(20px, 2vw, 26px);
   margin: 0;
-  color: var(--cp-teal);
+  color: #000;
 }
 .cp_related_card p {
   margin: 0;
   font-size: 14px;
 }
 .cp_related_card .cp_eyebrow {
-  color: var(--cp-teal-light);
+  color: #000;
   margin-top: auto;
 }
 
@@ -816,13 +816,13 @@ a.cp_related_card:hover {
   color: var(--cp-primrose);
 }
 .cp_contact_copy h2 {
-  max-width: 640px;
+  max-width: 600px;
   margin: 18px 0;
   color: #fff;
 }
 .cp_contact_copy > p {
   color: rgba(255, 255, 255, 0.72) !important;
-  max-width: 460px;
+  max-width: 440px;
   font-size: 15px;
 }
 .cp_contact_detail {
@@ -842,7 +842,7 @@ a.cp_related_card:hover {
 }
 .cp_form {
   background: #fff;
-  color: var(--cp-ink);
+  color: #000;
   padding: 28px;
   width: 100%;
   max-width: 520px;
@@ -861,7 +861,7 @@ a.cp_related_card:hover {
 }
 .cp_form_top span {
   font-size: 9px;
-  color: var(--cp-muted);
+  color: #000;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -880,7 +880,7 @@ a.cp_related_card:hover {
   grid-column: 1 / -1;
 }
 .cp_field label {
-  color: #53666a;
+  color: #000;
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -897,7 +897,7 @@ a.cp_related_card:hover {
   padding: 12px;
   min-height: 45px;
   outline: none;
-  color: var(--cp-ink);
+  color: #000;
   font-size: 14px;
 }
 .cp_field input:focus,
@@ -915,13 +915,13 @@ a.cp_related_card:hover {
 }
 .cp_form_note {
   font-size: 11px !important;
-  color: #7b898b !important;
+  color: #000 !important;
   margin: 10px 0 0;
 }
 .cp_form_status {
   font-size: 12px !important;
   margin: 10px 0 0;
-  color: var(--cp-teal) !important;
+  color: #000 !important;
   font-weight: 600;
 }
 .cp_form_status.is-error {
@@ -1127,7 +1127,7 @@ a.cp_related_card:hover {
   gap: 18px;
   min-height: 52px;
   padding: 0 22px;
-  color: #062f3c !important;
+  color: #000 !important;
   letter-spacing: 0.11em;
 }
 .cp_hero_bottom .cp_btn_ghost {
@@ -1138,18 +1138,18 @@ a.cp_related_card:hover {
 .cp_hero_bottom .cp_btn_ghost:hover {
   background: #fff;
   border-color: #fff;
-  color: var(--cp-teal) !important;
+  color: #000 !important;
 }
 
 /* Shared for preview-2 sections */
 .cp_kicker_dark {
-  color: var(--cp-teal);
+  color: #000;
   letter-spacing: 0.19em;
 }
 .cp_focus h2,
 .cp_diagram h2,
 .cp_aud2 h2 {
-  font-size: clamp(34px, 4.2vw, 58px);
+  font-size: clamp(37px, 4.8vw, 65px);
   line-height: 1.08;
   letter-spacing: -0.055em;
   font-weight: 600;
@@ -1235,7 +1235,7 @@ a.cp_related_card:hover {
   font-size: 9px;
   letter-spacing: 0.19em;
   font-weight: 800;
-  color: #62573e;
+  color: #000;
   margin-bottom: 12px;
   text-transform: uppercase;
 }
@@ -1288,7 +1288,7 @@ a.cp_related_card:hover {
 /* Diagram section — preview 2 (Inside the system)                     */
 /* ------------------------------------------------------------------ */
 .cp_diagram {
-  background: #f4f1e9;
+  background: #f5f3ec;
   padding: 115px 0 125px;
   overflow: hidden;
 }
@@ -1388,7 +1388,7 @@ a.cp_related_card:hover {
 .cp_flow_no {
   font-size: 10px;
   font-weight: 800;
-  color: var(--cp-teal);
+  color: #000;
 }
 .cp_flow_node strong {
   font: 700 14px/1.3 var(--cp-display);
@@ -1468,7 +1468,7 @@ a.cp_related_card:hover {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 800;
-  color: var(--cp-teal);
+  color: #000;
   white-space: nowrap;
 }
 
@@ -1527,7 +1527,7 @@ a.cp_related_card:hover {
 }
 .cp_aud2_item span {
   font-size: 10px;
-  color: var(--cp-teal);
+  color: #000;
   font-weight: 800;
   letter-spacing: 0.1em;
 }
@@ -1742,7 +1742,7 @@ a.cp_related_card:hover {
 
 /* Weightings section (proportional bar) */
 .cp_weights {
-  background: #f4f1e9;
+  background: #f5f3ec;
   padding: 115px 0 125px;
 }
 .cp_weights h2 {
@@ -1782,7 +1782,7 @@ a.cp_related_card:hover {
 }
 .cp_weights_seg_2 {
   background: var(--cp-primrose);
-  color: var(--cp-teal);
+  color: #000;
 }
 .cp_weights_seg_3 {
   background: var(--cp-teal-light);
@@ -1814,12 +1814,12 @@ a.cp_related_card:hover {
 }
 .cp_weights_item strong em {
   font-style: normal;
-  color: var(--cp-teal-light);
+  color: #000;
 }
 .cp_weights_item p {
   font-size: 13.5px;
   line-height: 1.65;
-  color: #333;
+  color: #000;
   margin: 0;
 }
 .cp_weights_note {
@@ -1878,4 +1878,88 @@ a.cp_related_card:hover {
   .cp_flow_compact .cp_flow_node strong {
     font-size: 14px;
   }
+}
+
+/* Focus section: several paragraphs and the optional three focus points */
+.cp_focus_right > p + p {
+  margin-top: -12px;
+}
+.cp_focus_points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 24px;
+  margin-top: 40px;
+  border-top: 1px solid #000;
+}
+.cp_focus_points > div {
+  padding-top: 18px;
+}
+.cp_focus_points span {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #000;
+}
+.cp_focus_points strong {
+  display: block;
+  margin: 8px 0;
+  font: 700 16px/1.3 var(--cp-display);
+  letter-spacing: -0.02em;
+  color: #000;
+}
+.cp_focus_points p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #000;
+}
+
+/* Band items that link to another course */
+.cp_aud2_link {
+  align-items: flex-start;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.cp_aud2_link:hover {
+  background: #f7f5ef;
+}
+.cp_aud2_link small {
+  display: block;
+  margin-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #000;
+}
+.cp_aud2_link em {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+@media (max-width: 720px) {
+  .cp_focus_points {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Diagram heading with several paragraphs, focus list heading */
+.cp_diagram_text {
+  max-width: 390px;
+}
+.cp_diagram_text p {
+  color: #000;
+  margin: 0 0 12px;
+}
+.cp_diagram_text p:last-child {
+  margin-bottom: 4px;
+}
+.cp_focus_points_heading {
+  font-size: clamp(22px, 2.2vw, 28px) !important;
+  margin: 46px 0 10px;
+  color: #000;
 }

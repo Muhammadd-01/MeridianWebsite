@@ -59,8 +59,10 @@ const leadAuditor50001 = {
     titleLead: "ISO",
     titleAccent: "50001:2018",
     subtitle: ["Energy Management Systems", "Lead Auditor Training"],
-    description:
-      "Develop the knowledge to examine energy management performance, lead the audit process and report findings against ISO 50001 requirements.",
+    description: [
+      "Take responsibility for leading the audit. Auditing an Energy Management System takes more than knowing the requirements of ISO 50001. You need to know how to examine the system, lead the audit team and determine whether the organisation is managing its energy performance effectively.",
+      "Meridian's ISO 50001:2018 Lead Auditor Training develops your understanding of the standard and the skills needed to plan, lead and report audits of Energy Management Systems. Whether you work in energy management, engineering, sustainability or auditing, this training helps you build the knowledge to take on the responsibilities of a Lead Auditor.",
+    ],
     reference: [
       { label: "Standard", value: "ISO 50001:2018" },
       { label: "Subject", value: "Energy Management" },
@@ -79,6 +81,18 @@ const leadAuditor50001 = {
     text: "An energy management system involves more than policies, targets and documented procedures. The real test is how well an organisation manages its energy use, monitors performance and acts when results fall short.",
     noteLabel: "The focus of this training",
     note: "This training focuses on auditing the system behind the results.",
+    pointsHeading: "What should an auditor examine?",
+    pointsIntro:
+      "An effective audit looks at how the organisation identifies, controls and improves its energy performance.",
+    points: [
+      { title: "Energy reviews", desc: "How the organisation understands its energy use." },
+      { title: "Significant energy uses", desc: "Which operations and equipment have the greatest impact." },
+      { title: "Energy baselines and EnPIs", desc: "How energy performance is measured and compared." },
+      { title: "Objectives and action plans", desc: "Whether improvement targets are supported by practical action." },
+      { title: "Operational controls", desc: "How energy performance is managed in day-to-day operations." },
+      { title: "Monitoring and evaluation", desc: "Whether results are measured, reviewed and acted upon." },
+      { title: "Corrective action", desc: "How the organisation addresses problems and improves its system." },
+    ],
     image: MEQMP_50001_AUDIT,
     imageAlt: "Industrial energy management and operations",
     captionNumber: "01—07",
@@ -88,12 +102,15 @@ const leadAuditor50001 = {
   diagram: {
     kicker: "Inside the system",
     heading: "What does effective energy management look like in practice?",
-    text: "An organisation may have energy targets and performance indicators in place. But do its processes support those targets? Are significant energy uses properly controlled? Can the organisation demonstrate improvement?",
+    text: [
+      "An organisation may have energy targets and performance indicators in place. But do its processes support those targets? Are significant energy uses properly controlled? Can the organisation demonstrate improvement?",
+      "The diagram explores the key elements an auditor needs to examine and how they connect to one another.",
+    ],
     label: "ISO 50001 · Energy management system",
     hint: "Select an element to explore",
     nodes: [
       {
-        title: "Energy reviews",
+        title: "Energy review",
         summary: "Understand energy use and consumption.",
         detail:
           "Examine how the organisation analyses energy use and consumption, identifies opportunities and establishes a clear understanding of its energy performance.",
@@ -137,7 +154,7 @@ const leadAuditor50001 = {
   journey: {
     kicker: "The auditor's role",
     heading: "Learn to lead the audit, not just take part in it.",
-    text: "Lead Auditor responsibilities extend across the full audit process. The training develops your understanding of how to prepare, coordinate, investigate and report.",
+    text: "A Lead Auditor has responsibility for more than collecting evidence. The role involves organising the audit, guiding the team, evaluating findings and reaching clear conclusions.",
     image: MEQMP_50001_AUDIT,
     imageAlt: "Industrial energy management systems",
     label: "The audit process",
@@ -146,22 +163,22 @@ const leadAuditor50001 = {
       {
         tab: "Plan",
         title: "Plan the audit",
-        text: "Set the audit objectives, scope and criteria. Review relevant information and prepare an audit plan that gives the team a clear direction.",
+        text: "Set the audit objectives, scope and criteria. Review relevant documents and prepare an audit plan that gives the team a clear direction.",
       },
       {
-        tab: "Coordinate",
-        title: "Coordinate the team",
-        text: "Organize the audit team, allocate responsibilities and coordinate with the organization so the audit can be carried out effectively.",
+        tab: "Lead",
+        title: "Lead the team",
+        text: "Coordinate the audit team, allocate responsibilities and manage communication with the organisation being audited.",
       },
       {
-        tab: "Investigate",
-        title: "Investigate and evaluate",
-        text: "Use interviews, observation and document review to gather evidence. Assess that evidence against the requirements of ISO 50001.",
+        tab: "Examine",
+        title: "Examine the system",
+        text: "Conduct interviews, observe activities, review records and gather evidence to determine whether the Energy Management System meets ISO 50001 requirements.",
       },
       {
         tab: "Report",
         title: "Report the findings",
-        text: "Evaluate the audit evidence, document findings, communicate conclusions and establish the need for follow-up.",
+        text: "Evaluate the evidence, identify nonconformities, communicate audit conclusions and establish the need for follow-up.",
       },
     ],
   },
@@ -183,9 +200,10 @@ const leadAuditor50001 = {
   // Section 5 — preview 1
   enquiry: {
     kicker: NEXT_STEP,
-    heading: "Interested in ISO 50001 Lead Auditor Training?",
+    heading: "Ready to take the next step in energy management auditing?",
     paragraphs: [
-      "Contact Meridian for course dates, fees, delivery options and registration information. Our team will help you with the details.",
+      "Build the knowledge to plan, lead and report Energy Management System audits against ISO 50001:2018.",
+      "Contact Meridian for course dates, fees, delivery options and registration details.",
     ],
     detailLabels: ["Course information", "Delivery options", "Registration support"],
     watermark: "50001",

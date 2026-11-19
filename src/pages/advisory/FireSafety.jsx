@@ -187,7 +187,7 @@ export default function FireSafety() {
             <div
               className="fs-crumb"
               style={{
-                color: "var(--fs-rust)",
+                color: "#000",
                 marginBottom: 12,
               }}
             >
@@ -246,7 +246,7 @@ export default function FireSafety() {
             <div
               className="fs-crumb"
               style={{
-                color: "var(--fs-rust)",
+                color: "#000",
                 marginBottom: 12,
               }}
             >
@@ -299,7 +299,7 @@ export default function FireSafety() {
             <div
               className="fs-crumb"
               style={{
-                color: "var(--fs-rust)",
+                color: "#000",
                 marginBottom: 12,
               }}
             >

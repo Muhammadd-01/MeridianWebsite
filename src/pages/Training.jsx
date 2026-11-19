@@ -1,5 +1,5 @@
-import { useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { coursePath } from "./courses/courseData";
 const unsplashImage = (t) =>
   `https://images.unsplash.com/photo-${t}?auto=format&fit=crop&w=800&q=80`;
@@ -319,9 +319,42 @@ const filterCategories = [
 ];
 export default function Training() {
   const [activePanel, setActivePanel] = useState(0);
-  const [activeFilter, setActiveFilter] = useState("All Trainings");
+  // The selected category (and how many courses are shown) live in the address,
+  // e.g. ?category=Lead+Auditor, so returning from a course page keeps the same filter.
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryParam = searchParams.get("category");
+  const activeFilter = filterCategories.includes(categoryParam) ? categoryParam : "All Trainings";
+  const visibleCount = Math.max(6, Number(searchParams.get("show")) || 6);
+  const updateCatalogueParams = (filter, count) => {
+    const next = {};
+    if (filter !== "All Trainings") {
+      next.category = filter;
+    }
+    if (count > 6) {
+      next.show = String(count);
+    }
+    setSearchParams(next, { replace: true, preventScrollReset: true });
+  };
+  const setVisibleCount = (value) => {
+    const count = typeof value === "function" ? value(visibleCount) : value;
+    updateCatalogueParams(activeFilter, count);
+  };
   const [searchQuery, setSearchQuery] = useState("");
-  const [visibleCount, setVisibleCount] = useState(6);
+  // Coming back to a filtered catalogue: bring the course list into view.
+  useEffect(() => {
+    if (!categoryParam) {
+      return undefined;
+    }
+    const timer = setTimeout(() => {
+      const catalogue = document.getElementById("catalogue");
+      if (catalogue) {
+        window.scrollTo({ top: catalogue.getBoundingClientRect().top + window.scrollY - 90 });
+      }
+    }, 80);
+    return () => clearTimeout(timer);
+    // Only on arrival, not on every filter change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [enquiry, setEnquiry] = useState({
     name: "",
     email: "",
@@ -346,8 +379,7 @@ export default function Training() {
     }
   };
   const selectFilter = (filter) => {
-    setActiveFilter(filter);
-    setVisibleCount(6);
+    updateCatalogueParams(filter, 6);
   };
   const filteredCourses = useMemo(
     () =>
@@ -458,10 +490,25 @@ export default function Training() {
           <b>✦</b>
         </div>
       </div>
+      <section className="section training-accred" id="accreditations">
+        <div className="wrap training-accred-grid">
+          <div>
+            <div className="kicker">01 / Accreditations &amp; recognition</div>
+            <h2 className="big">
+              {"Recognized Training. "}
+              <em>Professional Standards.</em>
+            </h2>
+          </div>
+          <p className="lede">
+            Our training credentials and professional affiliations reflect our commitment to
+            structured learning and recognized standards.
+          </p>
+        </div>
+      </section>
       <section className="section" id="catalogue">
         <div className="wrap">
           <div className="training-cat-head">
-            <div className="kicker">01 / Our training portfolio</div>
+            <div className="kicker">02 / Our training portfolio</div>
             <h2 className="big">
               {"Explore Our Training "}
               <em>Programmes.</em>
@@ -603,294 +650,6 @@ export default function Training() {
               </button>
             </div>
           )}
-        </div>
-      </section>
-      <section className="section training-pathways" id="pathways">
-        <div className="wrap">
-          <div className="stack-head">
-            <div>
-              <div className="kicker">02 / Learning pathways</div>
-              <h2 className="big">
-                {"Three ways to "}
-                <em>grow.</em>
-              </h2>
-            </div>
-            <p className="lead">
-              Scroll through each pathway. Mix and match them as your people progress.
-            </p>
-          </div>
-          <div className="stack">
-            <article
-              className="training-scard"
-              style={{
-                "--i": 0,
-                "--bg2": "#093f50",
-                "--fg": "#fff",
-                "--mut": "#c9d8d7",
-                "--ac": "#f2e6a2",
-                "--ln": "#2f6070",
-              }}
-            >
-              <div className="sc-left">
-                <div>
-                  <div className="sc-top">
-                    <span className="sc-no">01</span>
-                    <span className="sc-tag">FOUNDATION</span>
-                  </div>
-                  <h3>
-                    {"Start with the "}
-                    <em>basics.</em>
-                  </h3>
-                  <p className="desc">
-                    Short, practical courses that give new team members a shared language for
-                    quality, safety and environmental management.
-                  </p>
-                </div>
-                <div>
-                  <a
-                    className="btn"
-                    href="#enquire"
-                    onClick={(event) => {
-                      event.preventDefault();
-                      enquireAbout("Standards awareness (Foundation)");
-                    }}
-                  >
-                    {"Plan this pathway "}
-                    <i>↗</i>
-                  </a>
-                </div>
-              </div>
-              <div className="sc-right">
-                <div
-                  className="sc-img"
-                  style={{
-                    "--img":
-                      "url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=80')",
-                  }}
-                />
-                <ul className="sc-list">
-                  <li>Standards awareness</li>
-                  <li>Internal auditor basics</li>
-                  <li>Document control</li>
-                  <li>Risk fundamentals</li>
-                </ul>
-                <div className="sc-out">
-                  <span>OUTCOME</span>
-                  <strong>Everyone speaks the same language.</strong>
-                </div>
-              </div>
-            </article>
-            <article
-              className="training-scard light"
-              style={{
-                "--i": 1,
-                "--bg2": "#f2e6a2",
-                "--fg": "#093f50",
-                "--mut": "#4a6468",
-                "--ac": "#8a4f08",
-                "--ln": "#cfc17a",
-              }}
-            >
-              <div className="sc-left">
-                <div>
-                  <div className="sc-top">
-                    <span className="sc-no">02</span>
-                    <span className="sc-tag">PRACTITIONER</span>
-                  </div>
-                  <h3>
-                    {"Build working "}
-                    <em>skill.</em>
-                  </h3>
-                  <p className="desc">
-                    Hands-on programs with case studies, role-play audits and coached practice for
-                    the people who run your systems day to day.
-                  </p>
-                </div>
-                <div>
-                  <a
-                    className="btn"
-                    href="#enquire"
-                    onClick={(event) => {
-                      event.preventDefault();
-                      enquireAbout("Lead Auditor / Practitioner Pathway");
-                    }}
-                  >
-                    {"Plan this pathway "}
-                    <i>↗</i>
-                  </a>
-                </div>
-              </div>
-              <div className="sc-right">
-                <div
-                  className="sc-img"
-                  style={{
-                    "--img":
-                      "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80')",
-                  }}
-                />
-                <ul className="sc-list">
-                  <li>Lead auditor</li>
-                  <li>Root cause analysis</li>
-                  <li>Audit reporting</li>
-                  <li>Corrective action</li>
-                </ul>
-                <div className="sc-out">
-                  <span>OUTCOME</span>
-                  <strong>Teams that apply the standard, not just pass the exam.</strong>
-                </div>
-              </div>
-            </article>
-            <article
-              className="training-scard"
-              style={{
-                "--i": 2,
-                "--bg2": "#145d68",
-                "--fg": "#fff",
-                "--mut": "#cfe0de",
-                "--ac": "#f2e6a2",
-                "--ln": "#3b7a84",
-                marginBottom: 0,
-              }}
-            >
-              <div className="sc-left">
-                <div>
-                  <div className="sc-top">
-                    <span className="sc-no">03</span>
-                    <span className="sc-tag">LEADERSHIP</span>
-                  </div>
-                  <h3>
-                    {"Lead with "}
-                    <em>confidence.</em>
-                  </h3>
-                  <p className="desc">
-                    Executive and manager programs that connect strategy, culture and continual
-                    improvement across departments and sites.
-                  </p>
-                </div>
-                <div>
-                  <a
-                    className="btn"
-                    href="#enquire"
-                    onClick={(event) => {
-                      event.preventDefault();
-                      enquireAbout("Quality Leadership Executive Series");
-                    }}
-                  >
-                    {"Plan this pathway "}
-                    <i>↗</i>
-                  </a>
-                </div>
-              </div>
-              <div className="sc-right">
-                <div
-                  className="sc-img"
-                  style={{
-                    "--img":
-                      "url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=80')",
-                  }}
-                />
-                <ul className="sc-list">
-                  <li>Quality leadership</li>
-                  <li>Change management</li>
-                  <li>Management review</li>
-                  <li>Coaching for managers</li>
-                </ul>
-                <div className="sc-out">
-                  <span>OUTCOME</span>
-                  <strong>Leaders who make improvement a habit.</strong>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-      <section className="section proof">
-        <div className="wrap">
-          <div className="proof-top">
-            <div>
-              <div className="kicker">03 / Training in numbers</div>
-              <h2 className="big">
-                Skills that
-                <br />
-                add up.
-              </h2>
-            </div>
-            <p>
-              Accredited faculty, proven curricula and trusted results across GCC and international
-              cohorts.
-            </p>
-          </div>
-          <div className="nums">
-            <div className="num">
-              <strong>2,500+</strong>
-              <span>Programs delivered</span>
-              <small>Public and in-house sessions</small>
-            </div>
-            <div className="num">
-              <strong>18,000+</strong>
-              <span>Learners trained</span>
-              <small>Across industries and regions</small>
-            </div>
-            <div className="num">
-              <strong>96%</strong>
-              <span>Satisfaction score</span>
-              <small>Average post-course rating</small>
-            </div>
-            <div className="num">
-              <strong>40+</strong>
-              <span>Certified trainers</span>
-              <small>Internationally qualified faculty</small>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="section" id="sessions">
-        <div className="wrap">
-          <div>
-            <div className="kicker">04 / Upcoming sessions</div>
-            <h2 className="big">
-              {"Next dates "}
-              <em>on the calendar.</em>
-            </h2>
-            <p
-              className="lead"
-              style={{
-                marginTop: "20px",
-              }}
-            >
-              Reserve a seat in an upcoming public session or request custom delivery dates for your
-              corporate team.
-            </p>
-          </div>
-          <div className="training-sess-list">
-            {upcomingSessions.map((upcomingSession, index) => (
-              <div key={index} className="training-sess">
-                <div className="d">
-                  <b>{upcomingSession.d}</b>
-                  <span>{upcomingSession.m}</span>
-                </div>
-                <div>
-                  <h3>{upcomingSession.t}</h3>
-                  <small>{upcomingSession.s}</small>
-                </div>
-                <div className="m">{upcomingSession.w}</div>
-                <div>
-                  <span className="seat">{upcomingSession.n}</span>
-                </div>
-                <a
-                  className="btn"
-                  href="#enquire"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    enquireAbout(upcomingSession.t);
-                  }}
-                >
-                  {"Reserve "}
-                  <i>↗</i>
-                </a>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
       <section
@@ -1155,26 +914,6 @@ export default function Training() {
           </div>
         </div>
       </section>
-      <div className="wrap">
-        <section className="cta">
-          <div className="kicker">Make the next step count</div>
-          <h2>
-            {"Not sure which course fits? "}
-            <em>Let’s find out.</em>
-          </h2>
-          <p>Tell us where your team is today and we’ll recommend a practical learning path.</p>
-          <div className="row">
-            <a className="btn" href="#enquire">
-              {"Talk to our team "}
-              <i>↗</i>
-            </a>
-            <Link className="btn alt" to="/services">
-              {"All services "}
-              <i>↗</i>
-            </Link>
-          </div>
-        </section>
-      </div>
     </div>
   );
 }

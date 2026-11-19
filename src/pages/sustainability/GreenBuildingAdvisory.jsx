@@ -1,5 +1,36 @@
 import { Link } from "react-router-dom";
+import EnquiryForm from "../../components/EnquiryForm";
+import usePageMeta from "../../components/usePageMeta";
+const support = [
+  {
+    h: "Sustainability objectives and project review",
+    p: "Understand the project brief, intended building use, sustainability targets and applicable requirements.",
+  },
+  {
+    h: "Design and material advice",
+    p: "Review opportunities involving the building envelope, materials, lighting, water systems and other relevant design decisions.",
+  },
+  {
+    h: "Building performance coordination",
+    p: "Work with the project team to consider energy, water and indoor environmental performance, including coordination with specialist modelling where required.",
+  },
+  {
+    h: "Certification and operational planning",
+    p: "Support the selection and pursuit of relevant green building pathways, such as LEED and Mostadam, and consider the requirements for ongoing building performance.",
+  },
+];
+const outcomes = [
+  "Lower energy and water demand.",
+  "Better consideration of indoor comfort and environmental quality.",
+  "More informed material and system selection.",
+  "Improved readiness for green building assessments.",
+  "Reduced operational inefficiencies over the building's life.",
+];
 export default function GreenBuildingAdvisory() {
+  usePageMeta(
+    "Green Building Consultancy and Advisory | Meridian",
+    "Improve building sustainability through advisory support for energy, water, materials, indoor environmental quality and green building certification.",
+  );
   return (
     <div className="gba-page">
       <section className="gba-hero" id="top">
@@ -15,34 +46,41 @@ export default function GreenBuildingAdvisory() {
               <b>Green Building Advisory</b>
             </p>
             <h1>
-              {"Design healthier, more efficient, and sustainable spaces "}
-              <i>from the ground up.</i>
+              {"Make sustainability part of the building decisions "}
+              <i>that matter.</i>
             </h1>
             <p className="gba-lead">
-              A strategic service for architects, developers, and building owners who want
-              high-performance, environmentally responsible structures.
+              A building&apos;s environmental performance is shaped by decisions made throughout its
+              life. Site selection, orientation, building envelope, materials, lighting, HVAC
+              systems, water use and operational controls all influence how a building performs.
+            </p>
+            <p className="gba-lead">
+              Green building advisory helps owners, developers, architects and project teams
+              consider these factors together rather than treating sustainability as a requirement
+              added at the end. Meridian provides sustainability guidance for building projects,
+              from early planning and design through construction and operational considerations.
             </p>
             <div className="gba-acts">
-              <Link className="gba-pill" to="/contact-us">
-                Book a free consultation →
-              </Link>
+              <a className="gba-pill" href="#contact">
+                Discuss Your Building Project →
+              </a>
               <a className="gba-pill g" href="#help">
-                How we can help
+                How Meridian can support your project
               </a>
             </div>
           </div>
           <div className="gba-cert">
             <div>
-              <small>Certification support</small>
+              <small>Green building pathway</small>
               <b>LEED</b>
             </div>
             <div>
-              <small>Certification support</small>
+              <small>Green building pathway</small>
               <b>Mostadam</b>
             </div>
             <div>
-              <small>Certification support</small>
-              <b>WELL</b>
+              <small>Project stages</small>
+              <b>Planning to operation</b>
             </div>
           </div>
         </div>
@@ -50,79 +88,36 @@ export default function GreenBuildingAdvisory() {
       <section className="gba-sec" id="why">
         <div className="gba-wrap">
           <div className="gba-sh">
-            <span className="gba-k">Why It Matters</span>
+            <span className="gba-k">01. Building performance</span>
             <h2 className="gba-h2">
-              {"Why green building advisory "}
-              <i>matters.</i>
+              {"Where can your building "}
+              <i>perform better?</i>
             </h2>
           </div>
-          <div className="gba-bn">
+          <div className="gba-bn gba-bn-single">
             <article className="gba-bt def">
               <div>
-                <span className="gba-k">What is Green Building Advisory?</span>
                 <p>
-                  {"It’s a "}
-                  <em>strategic service</em>
-                  {
-                    " that supports architects, developers, and building owners in creating high-performance, environmentally responsible structures."
-                  }
+                  A building can have efficient equipment and still{" "}
+                  <em>consume more energy than necessary</em> if the envelope, controls and systems
+                  are not properly coordinated.
+                </p>
+                <p>
+                  The same applies to water use, material selection, waste management and indoor
+                  conditions.
+                </p>
+                <p>
+                  Reviewing these decisions together helps project teams identify opportunities
+                  before they become expensive to change.
                 </p>
               </div>
               <div className="ch">
-                <span>Architects</span>
-                <span>Developers</span>
-                <span>Building owners</span>
+                <span>Envelope</span>
+                <span>Controls and systems</span>
+                <span>Water</span>
+                <span>Materials</span>
+                <span>Indoor conditions</span>
               </div>
-            </article>
-            <article
-              className="gba-bt a"
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=75')",
-              }}
-            >
-              <small>01</small>
-              <b>Support ESG and CSR initiatives.</b>
-            </article>
-            <article
-              className="gba-bt a"
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=75')",
-              }}
-            >
-              <small>02</small>
-              <b>Future-proof real estate investments.</b>
-            </article>
-            <article
-              className="gba-bt t"
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=75')",
-              }}
-            >
-              <small>03</small>
-              <b>Improve occupant comfort and health.</b>
-            </article>
-            <article
-              className="gba-bt t"
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=75')",
-              }}
-            >
-              <small>04</small>
-              <b>Lower energy and water consumption.</b>
-            </article>
-            <article
-              className="gba-bt t"
-              style={{
-                "--img":
-                  "url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=75')",
-              }}
-            >
-              <small>05</small>
-              <b>Achieve green certifications (LEED, Mostadam, etc.).</b>
             </article>
           </div>
         </div>
@@ -130,127 +125,79 @@ export default function GreenBuildingAdvisory() {
       <section className="gba-sec gba-help" id="help">
         <div className="gba-wrap">
           <div className="gba-sh">
-            <span className="gba-k">How We Can Help?</span>
+            <span className="gba-k">02. How Meridian can support your project</span>
             <h2 className="gba-h2">
-              {"How we "}
-              <i>can help.</i>
+              {"How Meridian can "}
+              <i>support your project.</i>
             </h2>
           </div>
           <ol className="gba-st">
-            <li data-n="1">
-              <h3>Sustainability Goal Setting</h3>
-              <p>Align project vision with all of the sustainability targets.</p>
-            </li>
-            <li data-n="2">
-              <h3>{"Design & Material Guidance"}</h3>
-              <p>Integrate the eco-friendly materials and systems.</p>
-            </li>
-            <li data-n="3">
-              <h3>Performance Modeling</h3>
-              <p>Simulate energy, lighting, and HVAC efficiencies.</p>
-            </li>
-            <li data-n="4">
-              <h3>Certification Support</h3>
-              <p>Prepare for LEED, Mostadam, and WELL certification.</p>
-            </li>
+            {support.map((step, index) => (
+              <li key={step.h} data-n={index + 1}>
+                <h3>{step.h}</h3>
+                <p>{step.p}</p>
+              </li>
+            ))}
           </ol>
         </div>
       </section>
       <section className="gba-kb">
         <div className="gba-wrap gba-kg">
           <div>
-            <span className="gba-k">Key Benefits</span>
+            <span className="gba-k">03. What better building decisions can deliver</span>
             <h2
               className="gba-h2"
               style={{
                 marginTop: "14px",
               }}
             >
-              Key benefits.
+              What better building decisions can deliver.
             </h2>
           </div>
           <ul className="gba-kl">
-            <li>Stronger ESG alignment.</li>
-            <li>Reduced operational costs.</li>
-            <li>Improved wellbeing and air quality.</li>
-            <li>Higher asset value and occupancy rates.</li>
-          </ul>
-        </div>
-      </section>
-      <section className="gba-sec gba-ch3 lt" id="meridian">
-        <div className="gba-wrap">
-          <div>
-            <span className="gba-k">Why Choose Meridian?</span>
-            <h2
-              className="gba-h2"
-              style={{
-                marginTop: "16px",
-              }}
-            >
-              {"Why choose "}
-              <i>Meridian?</i>
-            </h2>
-          </div>
-          <ul className="gba-cc">
-            <li data-n="01">
-              <b>Cross-Disciplinary Insights.</b>
-            </li>
-            <li data-n="02">
-              <b>{"Architects & Engineers On Board."}</b>
-            </li>
-            <li data-n="03">
-              <b>{"Integration Across Design, Construction & O&M."}</b>
-            </li>
+            {outcomes.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
           </ul>
         </div>
       </section>
       <section className="gba-role">
         <div className="gba-wrap">
-          <span className="gba-k">Role of Green Building Advisors</span>
+          <span className="gba-k">04. Why work with Meridian?</span>
           <h2 className="gba-h2">
-            {"Where environmental science "}
-            <i>meets design.</i>
+            {"Why work with "}
+            <i>Meridian?</i>
           </h2>
           <p>
-            We bridge environmental science and design — helping you build smart and sustainably
-            from concept to completion.
+            Sustainable building decisions affect several disciplines. Our advisory approach
+            connects environmental objectives with the technical and operational decisions made by
+            the project team.
+          </p>
+          <p>
+            We help owners and developers understand which measures are relevant to their project
+            and where specialist input or certification support is needed.
           </p>
         </div>
       </section>
       <section className="gba-cta" id="contact">
         <div className="gba-wrap">
-          <span className="gba-k">Book a Free Consultation</span>
+          <span className="gba-k">05. Request Green Building Advisory</span>
           <h2
             className="gba-h2"
             style={{
               marginTop: "20px",
             }}
           >
-            {"Planning a "}
-            <i>green project?</i>
+            {"Planning a new building "}
+            <i>or upgrading an existing one?</i>
           </h2>
-          <p>Our building sustainability team will help you.</p>
-          <Link className="gba-pill" to="/contact-us">
-            Book a Free Consultation →
-          </Link>
-          <dl className="gba-cn">
-            <div>
-              <dt>Call us</dt>
-              <dd>
-                <a href="tel:+966509394640">+966 50 939 4640</a>
-              </dd>
-            </div>
-            <div>
-              <dt>Need support</dt>
-              <dd>
-                <a href="mailto:info@meqmp.com">info@meqmp.com</a>
-              </dd>
-            </div>
-            <div>
-              <dt>Our global locations</dt>
-              <dd>Saudi Arabia · Bahrain · Canada · Pakistan</dd>
-            </div>
-          </dl>
+          <p>
+            Tell us about your building, its stage and the performance goals you want to achieve.
+          </p>
+          <EnquiryForm
+            subjectPrefix="Green building advisory request"
+            submitLabel="Request Green Building Advisory"
+          />
         </div>
       </section>
     </div>

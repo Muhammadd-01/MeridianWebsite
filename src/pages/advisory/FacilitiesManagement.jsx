@@ -164,7 +164,7 @@ export default function FacilitiesManagement() {
             <div
               className="fm-crumb"
               style={{
-                color: "var(--fm-rust)",
+                color: "#000",
                 marginBottom: 12,
               }}
             >
@@ -273,7 +273,7 @@ export default function FacilitiesManagement() {
             <div
               className="fm-crumb"
               style={{
-                color: "var(--fm-rust)",
+                color: "#000",
                 marginBottom: 12,
               }}
             >
@@ -329,7 +329,7 @@ export default function FacilitiesManagement() {
             <div
               className="fm-crumb"
               style={{
-                color: "var(--fm-rust)",
+                color: "#000",
                 marginBottom: 12,
               }}
             >

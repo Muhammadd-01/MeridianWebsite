@@ -306,7 +306,7 @@ export default function Iso20121() {
             <span
               className="sem-eyebrow"
               style={{
-                color: "var(--sem-rust)",
+                color: "#000",
               }}
             >
               What you gain

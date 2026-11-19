@@ -174,7 +174,7 @@ export default function ApiQ1Q2() {
               <div
                 className="api-crumb"
                 style={{
-                  color: "var(--api-rust)",
+                  color: "#000",
                   marginBottom: 12,
                 }}
               >
@@ -224,7 +224,7 @@ export default function ApiQ1Q2() {
               <div
                 className="api-crumb"
                 style={{
-                  color: "var(--api-rust)",
+                  color: "#000",
                   marginBottom: 12,
                 }}
               >
@@ -283,7 +283,7 @@ export default function ApiQ1Q2() {
             <div
               className="api-crumb"
               style={{
-                color: "var(--api-rust)",
+                color: "#000",
                 marginBottom: 12,
               }}
             >
@@ -313,7 +313,7 @@ export default function ApiQ1Q2() {
             <div
               className="api-crumb"
               style={{
-                color: "var(--api-teal)",
+                color: "#000",
                 marginBottom: 12,
               }}
             >

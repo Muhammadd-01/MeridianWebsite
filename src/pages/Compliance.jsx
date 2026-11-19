@@ -290,7 +290,7 @@ export default function Compliance() {
               marginTop: "20px",
               maxWidth: "620px",
               lineHeight: 1.75,
-              color: "#52676a",
+              color: "#000",
             }}
             >
               Compliance affects more than whether an organization passes an assessment. It
@@ -312,7 +312,7 @@ export default function Compliance() {
                         fontWeight: 400,
                         letterSpacing: 0,
                         lineHeight: 1.6,
-                        color: "#52676a",
+                        color: "#000",
                       }}
                     >
                       {benefit.desc}
@@ -419,7 +419,7 @@ export default function Compliance() {
               marginTop: "20px",
               maxWidth: "620px",
               lineHeight: 1.75,
-              color: "#52676a",
+              color: "#000",
             }}
         >
           A successful compliance programme starts with understanding the organization, its
@@ -449,7 +449,7 @@ export default function Compliance() {
               marginTop: "20px",
               maxWidth: "620px",
               lineHeight: 1.75,
-              color: "#52676a",
+              color: "#000",
             }}
         >
           Understanding a standard is one thing. Applying it to the realities of an organization is

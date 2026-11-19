@@ -1,51 +1,82 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import EnquiryForm from "../../components/EnquiryForm";
+import usePageMeta from "../../components/usePageMeta";
 const marqueeItems = [
   "ESG",
-  "Climate action",
-  "GRI",
-  "SDG",
-  "SASB",
-  "TCFD",
+  "GRI Standards",
+  "IFRS Sustainability Disclosure Standards",
+  "SASB Standards",
+  "SDG mapping",
+  "Scope 1, 2 and 3",
+  "ISO 14001",
+  "ISO 50001",
   "LEED",
   "Mostadam",
-  "ISO 14064",
   "Circular economy",
-  "Vision 2030",
 ];
 const courses = [
   {
-    n: "ESG & Sustainability Fundamentals",
-    d: "These sustainability trainings will help you to understand the principles of ESG and their application across industries and roles.",
-    t: ["ESG", "Principles", "All roles"],
+    n: "ESG and Sustainability Fundamentals",
+    d: "Understand environmental, social and governance issues, material topics, business responsibilities and the role of sustainability in organisational decisions.",
+    t: ["ESG", "Material topics", "Business responsibilities"],
   },
   {
-    n: "Sustainability Reporting (GRI, SDG, SASB, TCFD)",
-    d: "Learn how to prepare investor-grade sustainability reports aligned with global frameworks.",
-    t: ["GRI", "SDG", "SASB", "TCFD"],
+    n: "Sustainability Reporting and Disclosure",
+    d: "Explore GRI Standards, IFRS Sustainability Disclosure Standards, SASB Standards and SDG mapping, including the information needed for reporting.",
+    t: ["GRI Standards", "IFRS", "SASB Standards", "SDG mapping"],
   },
   {
-    n: "LEED & Mostadam Awareness",
-    d: "This training will let you equip your facilities and project teams to meet green building requirements and certifications.",
-    t: ["LEED", "Mostadam", "Green building"],
+    n: "Carbon Footprint and Climate Action",
+    d: "Develop an understanding of greenhouse gas emissions, Scope 1, Scope 2 and Scope 3, carbon accounting and emissions reduction planning.",
+    t: ["Scope 1, 2 and 3", "Carbon accounting", "Emissions reduction"],
   },
   {
-    n: "Carbon Footprint & Climate Action",
-    d: "Train staff to measure, monitor, and reduce GHG emissions under ISO 14064 and decarbonization frameworks.",
-    t: ["GHG", "ISO 14064", "Decarbonization"],
+    n: "Environmental and Energy Management Standards",
+    d: "Build knowledge of ISO 14001, ISO 50001 and relevant environmental and energy management practices.",
+    t: ["ISO 14001", "ISO 50001"],
   },
   {
-    n: "Circular Economy & Waste Management",
-    d: "Train the staff to promote sustainable resource use and waste minimization through circular design and operations.",
-    t: ["Circular design", "Waste minimization"],
+    n: "Green Building and Resource Efficiency",
+    d: "Introduce LEED, Mostadam, building performance, energy efficiency, water conservation and sustainable resource use.",
+    t: ["LEED", "Mostadam", "Energy efficiency", "Water conservation"],
   },
   {
-    n: "ISO Standards for Sustainability",
-    d: "This sustainability trainings includes the internal auditor and awareness training for ISO 14001, ISO 50001, ISO 26000, and ISO 14064.",
-    t: ["ISO 14001", "ISO 50001", "ISO 26000", "ISO 14064"],
+    n: "Circular Economy and Waste Management",
+    d: "Understand waste prevention, material efficiency, resource recovery and circular approaches in operations and product design.",
+    t: ["Waste prevention", "Material efficiency", "Resource recovery"],
+  },
+];
+const takeaways = [
+  "Better understanding of sustainability responsibilities.",
+  "Greater awareness of environmental and resource impacts.",
+  "Improved familiarity with relevant standards and frameworks.",
+  "Better preparation for internal sustainability initiatives.",
+  "Stronger coordination between departments working towards sustainability objectives.",
+];
+const steps = [
+  {
+    b: "Understand the need",
+    p: "Discuss your organisation's objectives, audience and existing knowledge.",
+  },
+  {
+    b: "Select the subject and level",
+    p: "Identify relevant modules and the depth of training required for each group.",
+  },
+  {
+    b: "Plan the delivery",
+    p: "Agree the programme structure, schedule and delivery format.",
+  },
+  {
+    b: "Review the learning needs",
+    p: "Discuss participant feedback and areas where further development may be useful.",
   },
 ];
 export default function SustainabilityTraining() {
+  usePageMeta(
+    "Sustainability Training Courses for Organisations | Meridian",
+    "Develop your team's sustainability knowledge through training in ESG, reporting, carbon accounting, ISO standards, green buildings and resource efficiency.",
+  );
   const [activeCourse, setActiveCourse] = useState(0);
   return (
     <div className="st-page">
@@ -61,21 +92,31 @@ export default function SustainabilityTraining() {
               <b>Sustainability Training</b>
             </p>
             <h1>
-              {"Build internal capacity for long-term sustainability "}
-              <span>and ESG success.</span>
+              {"Give your people the knowledge to put sustainability "}
+              <span>into practice.</span>
             </h1>
             <p className="st-lead">
-              At Meridian, we don’t just consult — we empower. Our sustainability training programs
-              are designed to upskill your workforce in ESG compliance, climate action, green
-              building standards, and sustainable business practices.
+              Sustainability responsibilities now reach across departments. Facilities teams
+              influence energy and water use. Procurement teams affect supply chain performance. HR
+              and management teams influence social practices, while reporting teams need reliable
+              information from across the organisation.
+            </p>
+            <p className="st-lead">
+              A sustainability strategy cannot depend on one department alone. People need to
+              understand what sustainability means in their roles and how their decisions affect
+              organisational performance.
+            </p>
+            <p className="st-lead">
+              Meridian provides sustainability training for professionals and teams working with
+              ESG, environmental management, climate action and sustainable operations.
             </p>
             <div className="st-acts">
-              <Link className="st-btn" to="/contact-us">
-                {"Book a free training needs assessment "}
+              <a className="st-btn" href="#contact">
+                {"Request a Training Needs Assessment "}
                 <i>↗</i>
-              </Link>
+              </a>
               <a className="st-btn o" href="#modules">
-                {"See the modules "}
+                {"See the training areas "}
                 <i>↓</i>
               </a>
             </div>
@@ -83,12 +124,12 @@ export default function SustainabilityTraining() {
           <div className="st-vis">
             <div className="st-ph" role="img" aria-label="Team in a training session" />
             <div className="st-chip2">
-              <small>Aligned with</small>
-              <b>Vision 2030 · SDGs</b>
+              <small>Training areas</small>
+              <b>Six subject areas</b>
             </div>
             <div className="st-chip">
               <small>Delivery</small>
-              <b>On-site · Online · Hybrid</b>
+              <b>Online · Onsite · Hybrid</b>
             </div>
           </div>
         </div>
@@ -102,81 +143,41 @@ export default function SustainabilityTraining() {
       </div>
       <section className="st-sec st-what" id="what">
         <div className="st-wrap">
-          <span className="st-lab">What Are Sustainability Trainings?</span>
+          <span className="st-lab">01. Training that relates to the work people do</span>
           <h2 className="st-h2">
-            {"Learning that "}
-            <em>changes</em>
-            {" how you work."}
+            {"Training that relates to "}
+            <em>the work people do.</em>
           </h2>
           <p className="st-def">
-            {
-              "Sustainability training are structured learning programs that equip teams across your organization with the knowledge and tools to "
-            }
-            <em>drive responsible growth</em>, reduce environmental impact, and comply with ESG
-            frameworks. These programs are essential for embedding sustainability into your culture,
-            operations, and decision-making.
+            General awareness is a useful starting point, but different roles need different
+            knowledge. A facilities team may need to understand energy and water performance. A
+            reporting team may need to work with ESG disclosures. A procurement team may need to
+            assess supplier sustainability information.
+          </p>
+          <p className="st-def">
+            Our training can be selected around the organisation&apos;s objectives, workforce
+            responsibilities and existing level of sustainability knowledge.
           </p>
           <div className="st-std">
-            <span>ESG compliance</span>
-            <span>Climate action</span>
-            <span>Green building standards</span>
-            <span>Sustainable business practices</span>
+            <span>Facilities teams</span>
+            <span>Reporting teams</span>
+            <span>Procurement teams</span>
+            <span>HR and management teams</span>
           </div>
-        </div>
-      </section>
-      <section className="st-sec st-why" id="why">
-        <div className="st-wrap st-wg">
-          <div className="st-sticky">
-            <span className="st-lab">Why It Matters</span>
-            <h2 className="st-h2">
-              {"Why sustainability "}
-              <em>trainings</em>
-              {" matter."}
-            </h2>
-            <p>Trained teams turn sustainability targets into everyday practice.</p>
-          </div>
-          <ul className="st-wr">
-            <li>
-              <i>01</i>
-              <b>Improve regulatory and reporting readiness.</b>
-              <em>→</em>
-            </li>
-            <li>
-              <i>02</i>
-              <b>Embed sustainability into day-to-day operations.</b>
-              <em>→</em>
-            </li>
-            <li>
-              <i>03</i>
-              <b>Develop internal ESG champions and green teams.</b>
-              <em>→</em>
-            </li>
-            <li>
-              <i>04</i>
-              <b>Strengthen stakeholder trust and corporate reputation.</b>
-              <em>→</em>
-            </li>
-            <li>
-              <i>05</i>
-              <b>Align staff actions with Vision 2030, SDGs, and corporate goals.</b>
-              <em>→</em>
-            </li>
-          </ul>
         </div>
       </section>
       <section className="st-sec st-mods dark" id="modules">
         <div className="st-wrap">
           <div className="st-mh">
-            <span className="st-lab">Our Training Modules</span>
+            <span className="st-lab">02. Training areas</span>
             <h2 className="st-h2">
-              {"Our training "}
-              <em>modules</em>
-              {" include."}
+              {"Training "}
+              <em>areas.</em>
             </h2>
-            <p>Pick a module to see what your team will learn.</p>
+            <p>Select a training area to see what it covers.</p>
           </div>
           <div className="st-mx">
-            <div className="st-tabs" role="tablist" aria-label="Training modules">
+            <div className="st-tabs" role="tablist" aria-label="Training areas">
               {courses.map((course, index) => (
                 <button
                   key={course.n}
@@ -203,7 +204,7 @@ export default function SustainabilityTraining() {
             >
               <div>
                 <small>
-                  {"Module "}
+                  {"Training area "}
                   {String(activeCourse + 1).padStart(2, "0")}
                   {" of "}
                   {String(courses.length).padStart(2, "0")}
@@ -220,69 +221,64 @@ export default function SustainabilityTraining() {
           </div>
         </div>
       </section>
-      <section className="st-ben" id="benefits">
-        <div className="st-wrap">
-          <div>
-            <span className="st-lab">Key Benefits</span>
-            <h2 className="st-h2">Key benefits.</h2>
+      <section className="st-sec st-why" id="why">
+        <div className="st-wrap st-wg">
+          <div className="st-sticky">
+            <span className="st-lab">03. What your team can take away</span>
+            <h2 className="st-h2">
+              {"What your team "}
+              <em>can take away.</em>
+            </h2>
           </div>
-          <ul className="st-bl">
-            <li>Improve audit and certification readiness.</li>
-            <li>Enhance brand image and industry leadership.</li>
-            <li>Strengthen ESG scores and investor confidence.</li>
-            <li>Boost employee engagement in sustainability.</li>
-            <li>Build a long-term culture of responsibility and resilience.</li>
+          <ul className="st-wr">
+            {takeaways.map((item, index) => (
+              <li key={item}>
+                <i>{String(index + 1).padStart(2, "0")}</i>
+                <b>{item}</b>
+                <em>→</em>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
-      <section className="st-sec" id="meridian">
+      <section className="st-sec" id="how">
         <div className="st-wrap">
           <div className="st-ch-h">
-            <span className="st-lab">Why Choose Meridian?</span>
+            <span className="st-lab">04. How we organise the training</span>
             <h2 className="st-h2">
-              {"Why choose "}
-              <em>Meridian?</em>
+              {"How we organise "}
+              <em>the training.</em>
             </h2>
           </div>
           <ul className="st-cl">
-            <li>
-              <small>01</small>
-              <b>Flexible Delivery</b>
-              <p>On-site, online, or hybrid option.</p>
-            </li>
-            <li>
-              <small>02</small>
-              <b>Expert Instructors</b>
-              <p>Certified trainers with cross-sector experience.</p>
-            </li>
-            <li>
-              <small>03</small>
-              <b>Tailored Content</b>
-              <p>Customized by industry, role, and maturity level.</p>
-            </li>
-            <li>
-              <small>04</small>
-              <b>Action-Oriented</b>
-              <p>Focused on practical application, not just theory.</p>
-            </li>
-            <li>
-              <small>05</small>
-              <b>Vision 2030 Alignment</b>
-              <p>Designed for regional relevance and global compliance.</p>
-            </li>
+            {steps.map((step, index) => (
+              <li key={step.b}>
+                <small>{String(index + 1).padStart(2, "0")}</small>
+                <b>{step.b}</b>
+                <p>{step.p}</p>
+              </li>
+            ))}
           </ul>
+          <p className="st-note">
+            Training can be arranged online, onsite or through a hybrid format, subject to programme
+            requirements.
+          </p>
         </div>
       </section>
       <section className="st-role dark">
         <div className="st-wrap">
-          <span className="st-lab">Role of Sustainability Training Providers</span>
+          <span className="st-lab">05. Why work with Meridian?</span>
           <h2>
-            {"Learning partners, "}
-            <em>not just trainers.</em>
+            {"Why work with "}
+            <em>Meridian?</em>
           </h2>
           <p>
-            We act as learning partners — translating complex standards and ESG trends into
-            actionable, digestible learning that inspires real organizational change.
+            Our sustainability work spans reporting, carbon assessment, management systems, energy
+            performance and green building requirements.
+          </p>
+          <p>
+            That experience helps us connect training subjects with the issues organisations face
+            in their operations, projects and reporting responsibilities.
           </p>
         </div>
       </section>
@@ -290,35 +286,20 @@ export default function SustainabilityTraining() {
         <div className="st-wrap">
           <div className="st-cta">
             <div>
-              <span className="st-lab">Book a Free Training Needs Assessment</span>
+              <span className="st-lab">06. Request a Sustainability Training Needs Assessment</span>
               <h2>
-                {"Ready to equip your team "}
-                <span>for sustainable success?</span>
+                {"What does your team "}
+                <span>need to learn?</span>
               </h2>
-              <p className="t">Design a learning path that meets your sustainability goals.</p>
-              <Link className="st-btn dk" to="/contact-us">
-                {"Book a Free Training Needs Assessment "}
-                <i>↗</i>
-              </Link>
+              <p className="t">
+                Tell us about your industry, the people who need training and the sustainability
+                goals you are working towards. We can help identify a suitable training programme.
+              </p>
             </div>
-            <dl className="st-ct">
-              <div>
-                <dt>Call us</dt>
-                <dd>
-                  <a href="tel:+966509394640">+966 50 939 4640</a>
-                </dd>
-              </div>
-              <div>
-                <dt>Need support</dt>
-                <dd>
-                  <a href="mailto:info@meqmp.com">info@meqmp.com</a>
-                </dd>
-              </div>
-              <div>
-                <dt>Our global locations</dt>
-                <dd>Saudi Arabia · Bahrain · Canada · Pakistan</dd>
-              </div>
-            </dl>
+            <EnquiryForm
+              subjectPrefix="Sustainability Training Needs Assessment"
+              submitLabel="Request a Sustainability Training Needs Assessment"
+            />
           </div>
         </div>
       </section>

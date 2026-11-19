@@ -1,82 +1,54 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import EnquiryForm from "../../components/EnquiryForm";
+import usePageMeta from "../../components/usePageMeta";
 const marqueeItems = [
   "Environmental",
   "Social",
   "Governance",
-  "GRI",
-  "SASB",
-  "UN SDGs",
-  "TCFD",
+  "GRI Standards",
+  "IFRS Sustainability Disclosure Standards",
+  "SASB Standards",
+  "SDG mapping",
   "Materiality",
-  "Gap analysis",
-  "Stakeholder trust",
-  "Green capital",
+  "ESG data",
+  "Report preparation",
 ];
-const benefits = [
+const steps = [
   {
     num: "01",
-    title: "Data collection & gap analysis",
-    desc: "Assess current metrics, data availability and readiness for sustainability reporting.",
+    title: "Reporting scope and framework selection",
+    desc: "Determine the purpose, intended audience and appropriate reporting basis. This may include GRI Standards, IFRS Sustainability Disclosure Standards, SASB Standards and relevant SDG mapping.",
   },
   {
     num: "02",
-    title: "Report development",
-    desc: "Draft and design sustainability reports aligned with GRI, SASB or SDG frameworks.",
+    title: "Materiality assessment",
+    desc: "Identify and prioritise the sustainability impacts and topics relevant to the organisation, with appropriate stakeholder input.",
   },
   {
     num: "03",
-    title: "Materiality assessment",
-    desc: "Identify the ESG factors most relevant to your business and stakeholders.",
+    title: "Data and performance review",
+    desc: "Review available information, identify gaps and establish the evidence needed to support disclosures.",
   },
   {
     num: "04",
-    title: "Publishing & communication",
-    desc: "Deliver final reports with visual design, digital publishing and stakeholder distribution.",
+    title: "Report preparation and publication",
+    desc: "Develop the report, organise disclosures, prepare visualisations and support review and publication.",
   },
 ];
-const frameworks = [
-  {
-    code: "GRI",
-    name: "Global Reporting Initiative",
-    points: [
-      "Widely used standards for reporting an organisation’s impacts on the economy, environment and people.",
-      "Supports clear, consistent and comparable disclosure.",
-      "A strong foundation for stakeholder-facing reports.",
-    ],
-  },
-  {
-    code: "SASB",
-    name: "Sustainability Accounting Standards Board",
-    points: [
-      "Industry-specific topics and metrics focused on issues that matter most to investors.",
-      "Helps benchmark performance against sector peers.",
-      "Useful for improving ESG ratings and access to green capital.",
-    ],
-  },
-  {
-    code: "SDGs",
-    name: "UN Sustainable Development Goals",
-    points: [
-      "Map your activities and results to goals stakeholders already recognise.",
-      "Showcase alignment with the UN SDGs clearly and credibly.",
-      "Connects local initiatives to international priorities.",
-    ],
-  },
-  {
-    code: "TCFD",
-    name: "Task Force on Climate-related Financial Disclosures",
-    points: [
-      "Structured disclosure of climate-related risks and opportunities.",
-      "Supports risk mitigation through transparency.",
-      "Strengthens regulatory and compliance readiness.",
-    ],
-  },
+const gains = [
+  "A structured account of sustainability performance.",
+  "Better visibility of material ESG issues and information gaps.",
+  "More consistent reporting across reporting periods.",
+  "Clearer communication with customers, investors and other stakeholders.",
+  "A stronger basis for sustainability targets and improvement plans.",
 ];
 export default function SustainabilityReporting() {
+  usePageMeta(
+    "Sustainability Reporting Services | ESG Reports | Meridian",
+    "Prepare sustainability and ESG reports with Meridian. Get support with materiality assessments, reporting frameworks, ESG data and report development.",
+  );
   const [activeStep, setActiveStep] = useState(0);
-  const [activeFramework, setActiveFramework] = useState(0);
-  const currentFramework = frameworks[activeFramework];
   return (
     <div className="rep-page">
       <section className="rep-hero dark">
@@ -90,19 +62,26 @@ export default function SustainabilityReporting() {
               <b>Sustainability Reporting</b>
             </p>
             <h1 className="rep-h1">
-              {"Turn transparency "}
-              <span>into trust.</span>
+              {"Give stakeholders a clear account of your environmental and social impact, "}
+              <span>and how your business manages it.</span>
             </h1>
             <p className="rep-lead">
-              Globally aligned sustainability reports that show stakeholders what your organisation
-              stands for, and how it performs.
+              Customers, investors, regulators and business partners increasingly want more than
+              general sustainability commitments. They want information about an organisation&apos;s
+              impacts, its priorities, the way it manages ESG issues and the progress it can
+              demonstrate.
+            </p>
+            <p className="rep-lead">
+              Meridian helps organisations collect and assess sustainability information, identify
+              material topics and prepare reports using recognised reporting standards and
+              disclosure frameworks.
             </p>
             <div className="rep-acts">
-              <Link className="rep-btn" to="/contact-us">
-                Book a free consultation ↗
-              </Link>
-              <a className="rep-btn o" href="#frameworks">
-                Explore frameworks ↓
+              <a className="rep-btn" href="#contact">
+                Discuss Your Reporting Requirements ↗
+              </a>
+              <a className="rep-btn o" href="#process">
+                Our reporting support ↓
               </a>
             </div>
           </div>
@@ -114,13 +93,13 @@ export default function SustainabilityReporting() {
                 </defs>
                 <g className="rep-rot">
                   <text
-                    font-family="ui-monospace,Menlo,monospace"
+                    fontFamily="ui-monospace,Menlo,monospace"
                     fontSize="13"
                     letterSpacing="5.2"
                     fill="#c1d2d1"
                   >
                     <textPath href="#cp">
-                      GRI ◆ SASB ◆ UN SDGs ◆ TCFD ◆ GRI ◆ SASB ◆ UN SDGs ◆ TCFD ◆
+                      GRI STANDARDS ◆ IFRS ◆ SASB STANDARDS ◆ SDG MAPPING ◆ GRI STANDARDS ◆ IFRS ◆
                     </textPath>
                   </text>
                 </g>
@@ -213,24 +192,19 @@ export default function SustainabilityReporting() {
         <div className="rep-wrap">
           <div className="rep-sh">
             <div>
-              <span className="rep-lab">What it is</span>
+              <span className="rep-lab">01. What your report should communicate</span>
               <h2
                 className="rep-h2"
                 style={{
                   marginTop: "18px",
                 }}
               >
-                {"Disclosure that "}
-                <em>earns</em>
-                {" belief."}
+                {"What should your sustainability report "}
+                <em>communicate?</em>
               </h2>
             </div>
-            <p>
-              Why sustainability reporting matters for your stakeholders, your investors and your
-              people.
-            </p>
           </div>
-          <div className="rep-bento">
+          <div className="rep-bento rep-bento-single">
             <div className="rep-cell rep-c-def">
               <div>
                 <span
@@ -239,163 +213,27 @@ export default function SustainabilityReporting() {
                     color: "var(--primrose)",
                   }}
                 >
-                  Definition
+                  A useful report
                 </span>
               </div>
               <div>
                 <h3>
-                  {"What is sustainability reporting? It is how you disclose your "}
-                  <em>environmental, social and governance</em>
-                  {" impacts."}
+                  {"A useful report should explain "}
+                  <em>what matters</em>
+                  {
+                    " to your organisation and its stakeholders, what the organisation is doing about those issues and what the results show."
+                  }
                 </h3>
                 <p>
-                  It follows recognised frameworks like GRI, SASB and the SDGs to ensure clarity,
-                  consistency and comparability.
+                  That starts with identifying material impacts, understanding stakeholder
+                  expectations and reviewing the information already available across the business.
                 </p>
                 <p>
-                  The result is a published report that explains what your organisation does about
-                  the issues that affect people, communities and the planet, and backs it up with
-                  measurable data.
+                  A report built around unsupported claims or disconnected figures will not give
+                  readers a reliable picture of performance.
                 </p>
               </div>
             </div>
-            <div className="rep-cell rep-c-sm">
-              <b>01</b>
-              <h3>Showcase alignment with the UN SDGs.</h3>
-            </div>
-            <div className="rep-cell rep-c-sm">
-              <b>02</b>
-              <h3>Build credibility with stakeholders and investors.</h3>
-            </div>
-            <div className="rep-cell rep-c-sm">
-              <b>03</b>
-              <h3>Benchmark ESG performance year-over-year.</h3>
-            </div>
-            <div className="rep-cell rep-c-sm">
-              <b>04</b>
-              <h3>Improve regulatory and compliance readiness.</h3>
-            </div>
-            <div className="rep-cell rep-c-sm">
-              <b>05</b>
-              <h3>Attract sustainability-conscious partners and talent.</h3>
-            </div>
-            <div className="rep-cell rep-c-wide">
-              <b>↗</b>
-              <h3>
-                Reporting turns scattered ESG data into a story stakeholders can verify, compare and
-                trust.
-              </h3>
-            </div>
-          </div>
-          <div className="rep-xp">
-            <div>
-              <span className="rep-lab">In plain words</span>
-              <h3>
-                A sustainability report is your organisation's account of how it affects people and
-                the planet, and how it manages that impact.
-              </h3>
-              <p className="rep-def">
-                Alongside your financial statements, it covers the topics that shape long-term
-                value: energy and emissions, water and waste, workforce health and safety, community
-                impact, ethics, and how the organisation is governed.
-              </p>
-              <p className="rep-def">
-                Instead of general claims, a good report uses defined metrics, a stated reporting
-                period and an agreed framework. That lets readers check the figures and compare them
-                with other organisations and with your own past years.
-              </p>
-              <p className="rep-def">
-                It is also a management tool. Collecting the data shows where you are efficient,
-                where your risks sit, and which targets are realistic.
-              </p>
-            </div>
-            <div className="rep-esg">
-              <div>
-                <b>E</b>
-                <div>
-                  <h4>Environmental</h4>
-                  <p>
-                    Energy use, greenhouse gas emissions, water, waste, materials and biodiversity.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <b>S</b>
-                <div>
-                  <h4>Social</h4>
-                  <p>
-                    Employee wellbeing, health and safety, diversity, human rights, supply chain and
-                    community relations.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <b>G</b>
-                <div>
-                  <h4>Governance</h4>
-                  <p>
-                    Board oversight, ethics and anti-corruption, risk management, policies and
-                    transparency.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="rep-inc">
-            <span
-              className="rep-lab"
-              style={{
-                color: "var(--primrose)",
-              }}
-            >
-              Inside the report
-            </span>
-            <h3>
-              {"What a sustainability report "}
-              <em>typically includes.</em>
-            </h3>
-            <p>
-              The exact structure depends on the framework you follow, but most reports cover the
-              same core elements.
-            </p>
-            <ul>
-              <li>
-                <b>Leadership message</b>Senior management's commitment and view of the year.
-              </li>
-              <li>
-                <b>About the organisation</b>Activities, operations, markets and value chain.
-              </li>
-              <li>
-                <b>Materiality and stakeholders</b>The ESG topics that matter most, and who you
-                consulted to decide.
-              </li>
-              <li>
-                <b>Strategy and targets</b>Goals, policies and progress against them.
-              </li>
-              <li>
-                <b>ESG performance data</b>Metrics with units, reporting boundaries and prior-year
-                comparisons.
-              </li>
-              <li>
-                <b>Framework index</b>A content index mapping disclosures to GRI, SASB, SDGs or
-                TCFD, and external assurance where chosen.
-              </li>
-            </ul>
-          </div>
-          <div className="rep-who">
-            <span className="rep-lab">Who reads it</span>
-            <ul>
-              <li>Investors and lenders</li>
-              <li>Customers and clients</li>
-              <li>Regulators</li>
-              <li>Employees and candidates</li>
-              <li>Suppliers and partners</li>
-              <li>Communities and NGOs</li>
-            </ul>
-            <p>
-              Whether reporting is voluntary or required depends on your country, sector and size.
-              We confirm what applies to you during the first step of the process.
-            </p>
           </div>
         </div>
       </section>
@@ -408,7 +246,7 @@ export default function SustainabilityReporting() {
       >
         <div className="rep-wrap rep-pg dark">
           <div className="rep-sticky">
-            <span className="rep-lab">Our 4-step reporting process</span>
+            <span className="rep-lab">02. Our reporting support</span>
             <h2
               className="rep-h2"
               style={{
@@ -416,123 +254,54 @@ export default function SustainabilityReporting() {
                 marginTop: "18px",
               }}
             >
-              {"From data to "}
-              <span>disclosure.</span>
+              {"Our reporting "}
+              <span>support.</span>
             </h2>
-            <p>A clear path from framework selection to final publication.</p>
             <div className="rep-meter" aria-hidden="true">
               <i
                 style={{
-                  width: `${((activeStep + 1) / 4) * 100}%`,
+                  width: ((activeStep + 1) / steps.length) * 100 + "%",
                 }}
               />
             </div>
             <small>
               {"STEP "}
               {activeStep + 1}
-              {" OF 4"}
+              {" OF "}
+              {steps.length}
             </small>
           </div>
           <div className="rep-stack">
-            {benefits.map((benefit, index) => (
+            {steps.map((step, index) => (
               <article
-                key={benefit.num}
-                className={`rep-sc ${activeStep === index ? "act" : ""}`}
+                key={step.num}
+                className={"rep-sc " + (activeStep === index ? "act" : "")}
                 onClick={() => setActiveStep(index)}
               >
-                <div className="rep-n">{benefit.num}</div>
+                <div className="rep-n">{step.num}</div>
                 <div>
-                  <h3>{benefit.title}</h3>
-                  <p>{benefit.desc}</p>
+                  <h3>{step.title}</h3>
+                  <p>{step.desc}</p>
                 </div>
               </article>
             ))}
           </div>
         </div>
       </section>
-      <section className="rep-sec" id="frameworks">
-        <div className="rep-wrap rep-fr">
-          <div>
-            <span className="rep-lab">Framework expertise</span>
-            <h2
-              className="rep-h2"
-              style={{
-                marginTop: "18px",
-              }}
-            >
-              {"Pick a framework. "}
-              <em>See the fit.</em>
-            </h2>
-            <p
-              style={{
-                marginTop: "20px",
-                color: "var(--mut)",
-                lineHeight: 1.7,
-                maxWidth: "420px",
-              }}
-            >
-              We select and combine GRI, SASB, SDGs and TCFD to suit your sector, stakeholders and
-              region.
-            </p>
-            <div className="rep-chips" role="tablist" aria-label="Frameworks">
-              {frameworks.map((framework, index) => (
-                <button
-                  key={framework.code}
-                  className="rep-chip"
-                  role="tab"
-                  aria-selected={activeFramework === index}
-                  onClick={() => setActiveFramework(index)}
-                >
-                  {framework.code}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="rep-fc" data-big={currentFramework.code}>
-            <div key={currentFramework.code} className="rep-fp" role="tabpanel">
-              <h3>{currentFramework.code}</h3>
-              <span className="rep-full">{currentFramework.name}</span>
-              <ul>
-                {currentFramework.points.map((point, index) => (
-                  <li key={index}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        className="rep-sec"
-        style={{
-          paddingTop: 0,
-        }}
-      >
+      <section className="rep-sec">
         <div className="rep-wrap rep-vs">
           <div className="rep-pn a">
-            <span className="rep-lab">Key benefits</span>
+            <span className="rep-lab">03. What your organisation gains</span>
             <h2 className="rep-h2">
-              {"What you "}
-              <em>gain.</em>
+              {"What your organisation "}
+              <em>gains.</em>
             </h2>
             <ul>
-              <li>
-                <span>Greater stakeholder engagement and trust.</span>
-              </li>
-              <li>
-                <span>Risk mitigation through transparent disclosure.</span>
-              </li>
-              <li>
-                <span>Performance benchmarking across industries.</span>
-              </li>
-              <li>
-                <span>Improved ESG ratings and access to green capital.</span>
-              </li>
-              <li>
-                <span>Attract sustainability-conscious partners and talent.</span>
-              </li>
-              <li>
-                <span>Regulatory and compliance readiness.</span>
-              </li>
+              {gains.map((item) => (
+                <li key={item}>
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="rep-pn b dark">
@@ -542,7 +311,7 @@ export default function SustainabilityReporting() {
                 color: "var(--primrose)",
               }}
             >
-              Why choose Meridian?
+              04. Why work with Meridian?
             </span>
             <h2
               className="rep-h2"
@@ -550,63 +319,39 @@ export default function SustainabilityReporting() {
                 color: "#fff",
               }}
             >
-              {"Built for "}
-              <span>insight.</span>
+              {"Why work with "}
+              <span>Meridian?</span>
             </h2>
-            <ul>
-              <li>
-                <span>Framework expertise: GRI, SASB, SDGs, TCFD.</span>
-              </li>
-              <li>
-                <span>Local and global alignment for regional and international audiences.</span>
-              </li>
-              <li>
-                <span>Insight-driven — more than data, we tell your sustainability story.</span>
-              </li>
-              <li>
-                <span>End-to-end support from data collection to final publication.</span>
-              </li>
-            </ul>
+            <p className="rep-pn-copy">
+              We connect sustainability reporting with the operational information behind it. Our
+              work considers the organisation&apos;s activities, available evidence, reporting
+              requirements and the needs of its intended readers.
+            </p>
+            <p className="rep-pn-copy">
+              We support the reporting process from initial assessment through report preparation,
+              rather than treating publication as a design exercise alone.
+            </p>
           </div>
-        </div>
-      </section>
-      <section className="rep-role">
-        <div className="rep-wrap">
-          <span className="rep-lab">Role of sustainability reporting consultants</span>
-          <p className="rep-q">
-            {"We guide you from "}
-            <span>framework selection</span>
-            {" to final publication."}
-          </p>
-          <p className="rep-s">Reports that are insightful, compliant and compelling.</p>
         </div>
       </section>
       <section className="rep-cta dark" id="contact">
         <div className="rep-wrap rep-cg">
           <div>
+            <span className="rep-lab">05. Request a Sustainability Reporting Consultation</span>
             <h2>
-              {"Ready to report "}
-              <span>with confidence?</span>
+              {"Preparing your next "}
+              <span>sustainability report?</span>
             </h2>
-            <p className="rep-t">To craft a sustainability report that speaks volumes.</p>
-            <Link className="rep-btn" to="/contact-us">
-              Book a free consultation ↗
-            </Link>
+            <p className="rep-t">
+              Whether you are preparing your first report or improving an existing one, speak with
+              Meridian about the reporting requirements, data and framework relevant to your
+              organisation.
+            </p>
           </div>
-          <dl className="rep-ct">
-            <div>
-              <dt>Call us</dt>
-              <dd>+966 50 939 4640</dd>
-            </div>
-            <div>
-              <dt>Need support</dt>
-              <dd>info@meqmp.com</dd>
-            </div>
-            <div>
-              <dt>Our global locations</dt>
-              <dd>Saudi Arabia · Bahrain · Canada · Pakistan</dd>
-            </div>
-          </dl>
+          <EnquiryForm
+            subjectPrefix="Sustainability reporting consultation"
+            submitLabel="Request a Sustainability Reporting Consultation"
+          />
         </div>
       </section>
     </div>

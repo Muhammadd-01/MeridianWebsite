@@ -167,7 +167,7 @@ export default function FoodSafety() {
             <div
               className="fsh-crumb"
               style={{
-                color: "var(--fsh-rust)",
+                color: "#000",
                 marginBottom: 12,
               }}
             >
@@ -253,7 +253,7 @@ export default function FoodSafety() {
             <div
               className="fsh-crumb"
               style={{
-                color: "var(--fsh-rust)",
+                color: "#000",
                 marginBottom: 12,
               }}
             >
@@ -312,7 +312,7 @@ export default function FoodSafety() {
             <div
               className="fsh-crumb"
               style={{
-                color: "var(--fsh-rust)",
+                color: "#000",
                 marginBottom: 12,
               }}
             >

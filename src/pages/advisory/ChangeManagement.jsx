@@ -256,7 +256,7 @@ export default function ChangeManagement() {
             <span
               className="cm-tag"
               style={{
-                color: "#8a4f08",
+                color: "#000",
               }}
             >
               Key Benefits
