@@ -46844,3 +46844,33 @@ small.tag,
     gap: 14px;
   }
 }
+
+/* Advisory mega menu: anchored beside/below the Services dropdown so the
+   "Advisory" item stays visible and clickable while the panel is open. */
+.nav-dd.force-open .nav-dd-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.nav-dd-menu a.nav-sub-trigger.is-open {
+  background: var(--primrose);
+  color: var(--teal);
+}
+.adv-mega-menu-portal.is-anchored {
+  position: fixed;
+  transform: none;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  animation: megaAnchoredIn 0.18s ease;
+}
+@keyframes megaAnchoredIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

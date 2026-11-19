@@ -6,6 +6,7 @@ export default function Navbar() {
   const [isSustainabilityOpen, setIsSustainabilityOpen] = useState(false);
   const [isAdvisoryOpen, setIsAdvisoryOpen] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+  const [megaPosition, setMegaPosition] = useState(null);
   const closeTimerRef = useRef(null);
   const location = useLocation();
   useEffect(() => {
@@ -22,8 +23,22 @@ export default function Navbar() {
     setIsAdvisoryOpen(false);
     setIsMegaMenuOpen(false);
   }, [location.pathname]);
-  const openMegaMenu = () => {
+  // Opens the Advisory mega menu beside the Services dropdown (or below it when
+  // there is not enough room), so it never covers the "Advisory" item itself.
+  const openMegaMenu = (event) => {
     clearTimeout(closeTimerRef.current);
+    const dropdown = event?.currentTarget?.closest?.(".nav-dd-menu");
+    if (dropdown) {
+      const rect = dropdown.getBoundingClientRect();
+      const gap = 10;
+      const margin = 16;
+      const spaceRight = window.innerWidth - rect.right - gap - margin;
+      setMegaPosition(
+        spaceRight >= 740
+          ? { top: rect.top, left: rect.right + gap, width: Math.min(spaceRight, 980) }
+          : { top: rect.bottom + gap, left: margin, width: window.innerWidth - margin * 2 },
+      );
+    }
     setIsMegaMenuOpen(true);
   };
   const scheduleMegaMenuClose = () => {
@@ -251,7 +266,7 @@ export default function Navbar() {
             >
               About
             </Link>
-            <div className="nav-dd">
+            <div className={`nav-dd ${isMegaMenuOpen ? "force-open" : ""}`}>
               <Link
                 to="/services"
                 className={location.pathname.startsWith("/services") ? "active-link" : ""}
@@ -372,7 +387,7 @@ export default function Navbar() {
                 >
                   <Link
                     to="/services/advisory"
-                    className={`nav-sub-trigger ${sectionLinkClass("/services/advisory")}`}
+                    className={`nav-sub-trigger ${sectionLinkClass("/services/advisory")} ${isMegaMenuOpen ? "is-open" : ""}`}
                     role="menuitem"
                   >
                     <span>Advisory</span>
@@ -432,9 +447,15 @@ export default function Navbar() {
             {isMenuOpen ? "✕" : "☰"}
           </button>
         </div>
-        {isMegaMenuOpen && (
+        {isMegaMenuOpen && megaPosition && (
           <div
-            className="adv-mega-menu-portal"
+            className="adv-mega-menu-portal is-anchored"
+            style={{
+              top: `${megaPosition.top}px`,
+              left: `${megaPosition.left}px`,
+              width: `${megaPosition.width}px`,
+              maxHeight: `calc(100vh - ${megaPosition.top + 16}px)`,
+            }}
             onMouseEnter={openMegaMenu}
             onMouseLeave={scheduleMegaMenuClose}
             role="menu"
