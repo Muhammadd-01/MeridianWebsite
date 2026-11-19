@@ -230,7 +230,9 @@ export default function Navbar() {
       "/services/advisory/corporate-wellbeing",
       "/corporate-wellbeing",
       "/wellbeing",
-    ].includes(location.pathname);
+    ].includes(location.pathname) &&
+    // Course detail pages have a dark hero, so the header stays transparent over it.
+    !location.pathname.startsWith("/services/training/");
   const exactLinkClass = (path) => (location.pathname === path ? "active-sublink" : "");
   const sectionLinkClass = (path) => (location.pathname.startsWith(path) ? "active-sublink" : "");
   return (
@@ -277,7 +279,7 @@ export default function Navbar() {
               <div className="nav-dd-menu" role="menu">
                 <Link
                   to="/services/training"
-                  className={exactLinkClass("/services/training")}
+                  className={sectionLinkClass("/services/training")}
                   role="menuitem"
                 >
                   Trainings

@@ -9,6 +9,7 @@ import News from "./pages/News";
 import ProjectsEvents from "./pages/ProjectsEvents";
 import Services from "./pages/Services";
 import Training from "./pages/Training";
+import CourseRoute from "./pages/courses/CourseRoute";
 import ViewCertificate from "./pages/ViewCertificate";
 import Advisory from "./pages/advisory/Advisory";
 import AiGovernance from "./pages/advisory/AiGovernance";
@@ -520,6 +521,19 @@ export default function App() {
         <Route path="/services/trainings" element={<Navigate to="/services/training" replace />} />
         <Route path="/training" element={<Navigate to="/services/training" replace />} />
         <Route path="/trainings" element={<Navigate to="/services/training" replace />} />
+        <Route path="/services/training/:slug" element={<CourseRoute />} />
+        <Route
+          path="/fire-safety-awareness-and-fire-fighting"
+          element={<Navigate to="/services/training/fire-safety-awareness-and-fire-fighting" replace />}
+        />
+        <Route
+          path="/first-aid-cpr-aed"
+          element={<Navigate to="/services/training/first-aid-cpr-aed" replace />}
+        />
+        <Route
+          path="/osha-10-30-hours-gi-ci-compliance"
+          element={<Navigate to="/services/training/osha-10-30-hours-gi-ci-compliance" replace />}
+        />
         <Route path="/services/compliance" element={<Compliance />} />
         <Route path="/compliance" element={<Navigate to="/services/compliance" replace />} />
         <Route path="/services/sustainability" element={<Sustainability />} />

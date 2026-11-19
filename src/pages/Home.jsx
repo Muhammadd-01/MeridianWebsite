@@ -163,16 +163,14 @@ export default function Home() {
   const [isSwitchingTab, setIsSwitchingTab] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [slideIndex, setSlideIndex] = useState(0);
-  const [isSliderPaused, setIsSliderPaused] = useState(false);
+  // Hero slider advances automatically every 5.5s. The timer restarts whenever the
+  // slide changes, so a manual click on an arrow or dot gets a full interval too.
   useEffect(() => {
-    if (isSliderPaused) {
-      return;
-    }
-    const intervalId = setInterval(() => {
+    const timeoutId = setTimeout(() => {
       setSlideIndex((prev) => (prev + 1) % heroSlides.length);
     }, 5500);
-    return () => clearInterval(intervalId);
-  }, [isSliderPaused]);
+    return () => clearTimeout(timeoutId);
+  }, [slideIndex]);
   const nextSlide = () => {
     setSlideIndex((prev) => (prev + 1) % heroSlides.length);
   };
@@ -214,10 +212,6 @@ export default function Home() {
     <div className="home-page" onPointerMove={handlePointerMove}>
       <section
         className="hero hero-slider-wrap"
-        onMouseEnter={() => setIsSliderPaused(true)}
-        onMouseLeave={() => setIsSliderPaused(false)}
-        onFocus={() => setIsSliderPaused(true)}
-        onBlur={() => setIsSliderPaused(false)}
         aria-roledescription="carousel"
         aria-label="Meridian highlights"
       >

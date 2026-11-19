@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import BackToTop from "./BackToTop";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import ScrollToTop from "./ScrollToTop";
@@ -18,6 +19,7 @@ export default function Layout({ children }) {
       <Navbar />
       <main id="main">{children}</main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }

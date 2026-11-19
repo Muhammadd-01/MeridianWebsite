@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { coursePath } from "./courses/courseData";
 const unsplashImage = (t) =>
   `https://images.unsplash.com/photo-${t}?auto=format&fit=crop&w=800&q=80`;
 const trainingTracks = [
@@ -233,6 +234,32 @@ const courses = [
     img: unsplashImage("1581092160562-40aa08e78837"),
   },
 ];
+// Courses that have their own detail page.
+const coursePageSlugs = {
+  "ISO 9001:2015 Internal Auditor": "iso-9001-internal-auditor",
+  "ISO 45001:2018 Internal Auditor": "iso-45001-internal-auditor",
+  "ISO 41001:2018 Internal Auditor": "iso-41001-internal-auditor",
+  "ISO 22000:2018 Internal Auditor": "iso-22000-internal-auditor",
+  "ISO 50001:2018 Internal Auditor": "iso-50001-internal-auditor",
+  "ISO 27001:2022 Internal Auditor": "iso-27001-internal-auditor",
+  "ISO 14001:2015 Internal Auditor": "iso-14001-internal-auditor",
+  "ISO 45001:2018 Lead Auditor": "iso-45001-lead-auditor",
+  "ISO 41001:2018 Lead Auditor": "iso-41001-lead-auditor",
+  "ISO 31000:2018 Lead Auditor": "iso-31000-lead-auditor",
+  "ISO 50001:2018 Lead Auditor": "iso-50001-lead-auditor",
+  "ISO 27001:2022 Lead Auditor": "iso-27001-lead-auditor",
+  "ISO 9001:2015 Lead Auditor": "iso-9001-lead-auditor",
+  "ISO 14001:2015 Lead Auditor": "iso-14001-lead-auditor",
+  "First Aid, CPR & AED": "first-aid-cpr-aed",
+  "OSHA 10 & 30 Hours GI/CI Compliance": "osha-10-30-hours-gi-ci-compliance",
+  "Fire Safety Awareness and Fire Fighting": "fire-safety-awareness-and-fire-fighting",
+};
+courses.forEach((course) => {
+  const slug = coursePageSlugs[course.title];
+  if (slug) {
+    course.link = coursePath(slug);
+  }
+});
 const featuredCourse = {
   cat: "Lead Auditor",
   level: "Flagship",
@@ -506,30 +533,48 @@ export default function Training() {
               {visibleCourses.map((visibleCourse) => (
                 <article key={visibleCourse.id} className="training-post">
                   <div className="p-img">
-                    <img src={visibleCourse.img} alt={visibleCourse.title} loading="lazy" />
+                    {visibleCourse.link ? (
+                      <Link to={visibleCourse.link} aria-label={`View ${visibleCourse.title}`}>
+                        <img src={visibleCourse.img} alt={visibleCourse.title} loading="lazy" />
+                      </Link>
+                    ) : (
+                      <img src={visibleCourse.img} alt={visibleCourse.title} loading="lazy" />
+                    )}
                     {visibleCourse.level && <span className="level">{visibleCourse.level}</span>}
                   </div>
                   <div className="p-body">
                     <div className="meta">
                       <span className="tag">{visibleCourse.cat}</span>
                     </div>
-                    <h3>{visibleCourse.title}</h3>
+                    <h3>
+                      {visibleCourse.link ? (
+                        <Link to={visibleCourse.link}>{visibleCourse.title}</Link>
+                      ) : (
+                        visibleCourse.title
+                      )}
+                    </h3>
                     {visibleCourse.text && <p>{visibleCourse.text}</p>}
                     <div className="info">
                       {visibleCourse.info.map((item) => (
                         <span key={item}>{item}</span>
                       ))}
                     </div>
-                    <a
-                      className="more"
-                      href="#enquire"
-                      onClick={(event) => {
-                        event.preventDefault();
-                        enquireAbout(visibleCourse.title);
-                      }}
-                    >
-                      Enquire ↗
-                    </a>
+                    {visibleCourse.link ? (
+                      <Link className="more" to={visibleCourse.link}>
+                        View course
+                      </Link>
+                    ) : (
+                      <a
+                        className="more"
+                        href="#enquire"
+                        onClick={(event) => {
+                          event.preventDefault();
+                          enquireAbout(visibleCourse.title);
+                        }}
+                      >
+                        Enquire
+                      </a>
+                    )}
                   </div>
                 </article>
               ))}
