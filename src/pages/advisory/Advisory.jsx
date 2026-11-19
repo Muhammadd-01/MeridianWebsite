@@ -10,144 +10,261 @@ const marqueeItems = [
   "ISO",
   "API Q1 / Q2",
 ];
+const advisoryAreas = [
+  {
+    num: "01",
+    title: "Business & Operational Improvement",
+    desc: "Reviewing processes, management practices and organizational performance.",
+    link: "#what",
+  },
+  {
+    num: "02",
+    title: "Sustainability & ESG Advisory",
+    desc: "Addressing environmental impacts, sustainability requirements and reporting needs.",
+    link: "#esg",
+  },
+  {
+    num: "03",
+    title: "Standards & Management Systems",
+    desc: "Developing and improving systems around relevant international standards and industry requirements.",
+    link: "#standards",
+  },
+];
 const advisoryServices = [
   {
     num: "01",
-    title: "Supply Chain",
+    title: "Supply Chain Optimization",
+    desc: "Reviewing procurement, supplier relationships, logistics and supply chain processes to identify inefficiencies and improve coordination.",
     link: "/services/advisory/supply-chain",
   },
   {
     num: "02",
     title: "Lean Six Sigma",
+    desc: "Using structured process improvement methods to reduce waste, address variation and improve the consistency of operations.",
     link: "/services/advisory/lean-six-sigma",
   },
   {
     num: "03",
     title: "Project Management",
+    desc: "Supporting project planning, governance, coordination and delivery through structured project management practices.",
     link: "/services/advisory/project-management",
   },
   {
     num: "04",
     title: "Change Management",
+    desc: "Helping organizations prepare for and manage changes to their structures, processes, systems and working practices.",
     link: "/services/advisory/change-management",
   },
   {
     num: "05",
-    title: "Corporate Wellbeing",
-    link: "/services/corporate-wellbeing",
+    title: "Business Process Reengineering",
+    desc: "Examining existing workflows and redesigning processes to remove unnecessary steps, improve accountability and make operations more effective.",
+    link: "/services/advisory/process-reengineering",
   },
   {
     num: "06",
-    title: "Process Reengineering",
-    link: "/services/advisory/process-reengineering",
+    title: "Corporate Wellbeing",
+    desc: "Developing workplace wellbeing initiatives and programmes that address employee needs and support healthier working environments.",
+    link: "/services/corporate-wellbeing",
   },
 ];
 const processSteps = [
   {
     step: "1",
     title: "Initial Consultation",
-    desc: "Understand your needs and define tailored objectives.",
+    desc: "We discuss your objectives, business challenges and expectations to establish what the engagement needs to address.",
   },
   {
     step: "2",
-    title: "Strategic Planning",
-    desc: "Develop customized action plans aligned with your goals.",
+    title: "Assessment & Analysis",
+    desc: "We review existing processes, management systems and relevant requirements to identify gaps, constraints and opportunities.",
   },
   {
     step: "3",
-    title: "Implementation Support",
-    desc: "Guide execution with hands-on support to ensure success.",
+    title: "Strategic Planning",
+    desc: "We establish priorities and develop an action plan with defined activities, responsibilities and intended outcomes.",
   },
   {
     step: "4",
-    title: "Monitoring & Evaluation",
-    desc: "Track progress and refine strategies for sustainable results.",
+    title: "Implementation Support",
+    desc: "We work with your team to put agreed recommendations into practice, develop systems and address challenges during implementation.",
   },
   {
     step: "5",
-    title: "Continuous Advisory & Capacity Building",
-    desc: "Provide ongoing guidance and facilitate knowledge transfer to empower your team.",
+    title: "Monitoring & Evaluation",
+    desc: "We review progress against agreed objectives and identify where further adjustments or improvements are needed.",
   },
   {
     step: "6",
-    title: "Assessment & Analysis",
-    desc: "Conduct deep evaluations to identify critical challenges and improvement opportunities.",
+    title: "Ongoing Advisory & Capacity Building",
+    desc: "Where required, we provide continued guidance, professional development and knowledge transfer to support the organization's internal capabilities.",
+  },
+];
+const sustainabilityGroups = [
+  {
+    className: "a",
+    label: "Group A",
+    title: "Measurement & Reporting",
+    services: [
+      {
+        name: "Sustainability Reporting",
+        desc: "Support with sustainability disclosures and reporting based on relevant frameworks and organizational requirements.",
+        link: "/services/sustainability/reporting",
+      },
+      {
+        name: "Carbon Footprint Assessment",
+        desc: "Assessing greenhouse gas emissions across relevant operational boundaries, including Scope 1, Scope 2 and Scope 3 where applicable.",
+        link: "/services/sustainability/carbon-footprint",
+      },
+      {
+        name: "Product Life Cycle Assessment",
+        desc: "Examining environmental impacts across a product's life cycle, from raw materials and production to use and end of life.",
+        link: "/services/sustainability/lca",
+      },
+    ],
+  },
+  {
+    className: "b dark",
+    label: "Group B",
+    title: "Buildings & Assessment",
+    services: [
+      {
+        name: "Green Building Advisory",
+        desc: "Advisory support relating to sustainable building requirements and assessment frameworks, including LEED, WELL and BREEAM.",
+        link: "/services/sustainability/green-building-advisory",
+      },
+      {
+        name: "Mostadam Advisory",
+        desc: "Supporting organizations with applicable Mostadam requirements and preparation for assessment under Saudi Arabia's green building framework.",
+        link: "/services/sustainability/mostadam",
+      },
+      {
+        name: "EcoVadis Assessment Preparation",
+        desc: "Reviewing sustainability practices, identifying gaps and helping organizations prepare the information and evidence required for EcoVadis assessment.",
+        link: "/services/sustainability/ecovadis",
+      },
+    ],
+  },
+  {
+    className: "c",
+    label: "Group C",
+    title: "Energy & Resources",
+    services: [
+      {
+        name: "Energy Audits & Resource Optimization",
+        desc: "Reviewing energy consumption and resource use to identify opportunities for more efficient operations.",
+        link: "/services/sustainability/energy-audits",
+      },
+      {
+        name: "Energy Management Systems",
+        desc: "Supporting the development and implementation of energy management systems aligned with ISO 50001.",
+        link: "/services/sustainability/iso-50001",
+      },
+    ],
   },
 ];
 const standards = [
   {
-    code: "ISO 31000",
-    name: "Risk Management",
-    link: "/services/advisory/iso-31000",
-  },
-  {
-    code: "ISO 50001",
-    name: "Energy Management",
-    link: "/services/advisory/iso-50001",
-  },
-  {
     code: "ISO 9001",
-    name: "Quality Management",
+    name: "Quality Management Systems",
     link: "/services/advisory/iso-9001",
   },
   {
-    code: "ISO 41001",
-    name: "Facility Management",
-    link: "/services/advisory/iso-41001",
-  },
-  {
-    code: "ISO 27001",
-    name: "Information Security",
-    link: "/services/advisory/iso-27001",
-  },
-  {
-    code: "ISO 42001",
-    name: "AI Management Systems",
-    link: "/services/advisory/ai-governance",
-  },
-  {
-    code: "ISO 22000",
-    name: "Food Safety Management",
-    link: "/services/advisory/iso-22000",
-  },
-  {
-    code: "ISO 37001",
-    name: "Anti-Bribery Management",
+    code: "ISO 31000",
+    name: "Risk Management Guidelines",
+    link: "/services/advisory/iso-31000",
   },
   {
     code: "ISO 14001",
-    name: "Environmental Management",
+    name: "Environmental Management Systems",
     link: "/services/advisory/iso-14001-environmental-management",
   },
   {
-    code: "ISO 20121",
-    name: "Sustainable Event Management",
-    link: "/services/advisory/iso-20121",
-  },
-  {
-    code: "ISO 17020",
-    name: "Inspection Body Requirements",
-    link: "/services/advisory/iso-17020",
-  },
-  {
     code: "ISO 45001",
-    name: "Occupational Health & Safety",
+    name: "Occupational Health and Safety Management Systems",
     link: "/services/advisory/iso-45001",
   },
   {
-    code: "ISO 17021",
-    name: "Certification Body Requirements",
+    code: "ISO 50001",
+    name: "Energy Management Systems",
+    link: "/services/advisory/iso-50001",
   },
   {
-    code: "ISO 17025",
-    name: "Laboratory Testing & Calibration",
+    code: "ISO/IEC 27001",
+    name: "Information Security Management Systems",
+    link: "/services/advisory/iso-27001",
   },
   {
-    code: "API Q1 / Q2",
-    name: "Oil & Gas Quality Standards",
+    code: "ISO/IEC 42001",
+    name: "Artificial Intelligence Management Systems",
+    link: "/services/advisory/ai-governance",
+  },
+  {
+    code: "ISO 37001",
+    name: "Anti-Bribery Management Systems",
+  },
+  {
+    code: "ISO 22000",
+    name: "Food Safety Management Systems",
+    link: "/services/advisory/iso-22000",
+  },
+  {
+    code: "ISO 41001",
+    name: "Facility Management Systems",
+    link: "/services/advisory/iso-41001",
+  },
+  {
+    code: "ISO 20121",
+    name: "Event Sustainability Management Systems",
+    link: "/services/advisory/iso-20121",
+  },
+  {
+    code: "API Q1 / API Q2",
+    name: "Quality Management Requirements for Relevant Oil and Gas Organizations",
     link: "/services/advisory/oil-and-gas",
   },
+  {
+    code: "ISO/IEC 17020",
+    name: "Requirements for Inspection Bodies",
+    link: "/services/advisory/iso-17020",
+  },
+  {
+    code: "ISO/IEC 17021-1",
+    name: "Requirements for Bodies Providing Audit and Certification of Management Systems",
+  },
+  {
+    code: "ISO/IEC 17025",
+    name: "Requirements for Testing and Calibration Laboratories",
+  },
 ];
+const valuePoints = [
+  {
+    num: "01",
+    title: "Start with the Actual Problem",
+    desc: "We begin by understanding the organization's situation rather than assuming that the same solution will work everywhere.",
+  },
+  {
+    num: "02",
+    title: "Connect the Different Requirements",
+    desc: "Business processes, management systems, people and sustainability objectives often affect one another. We consider these relationships when developing recommendations.",
+  },
+  {
+    num: "03",
+    title: "Focus on Application",
+    desc: "We consider how recommendations will work within existing operations, resources and responsibilities.",
+  },
+  {
+    num: "04",
+    title: "Develop Internal Capability",
+    desc: "We support knowledge transfer and professional development so that people within the organization can understand and maintain the improvements.",
+  },
+];
+const cardTextStyle = {
+  margin: "18px 0 0",
+  fontSize: "15px",
+  lineHeight: 1.6,
+  color: "var(--mut)",
+};
 export default function Advisory() {
   return (
     <div className="adv-page">
@@ -157,23 +274,23 @@ export default function Advisory() {
           <p className="adv-crumb">
             <Link to="/">Home</Link>
             {" / "}
-            <Link to="/services">Services</Link>
-            {" / "}
             <b>Advisory</b>
           </p>
           <h1 className="adv-h1">
-            Comprehensive advisory solutions
-            <span>{"Strategies, standards & sustainable growth"}</span>
+            Better Decisions. Better Business Systems.
+            <span>Advisory for the way your business needs to work.</span>
           </h1>
           <p className="adv-lead">
-            Empowering your business with sustainable strategies and people-centered excellence.
+            From operational improvement and international standards to sustainability and
+            organizational development, Meridian helps businesses identify what needs to change and
+            put practical solutions in place.
           </p>
           <div className="adv-acts">
             <Link className="adv-btn" to="/contact-us">
-              Book a free consultation ↗
+              Talk to Our Advisory Team ↗
             </Link>
-            <a className="adv-btn o" href="#standards">
-              View our standards ↓
+            <a className="adv-btn o" href="#expertise">
+              Explore Our Expertise ↓
             </a>
           </div>
         </div>
@@ -182,11 +299,11 @@ export default function Advisory() {
         <div className="adv-strip">
           <div>
             <b>6</b>
-            <span>{"Management & excellence disciplines"}</span>
+            <span>{"Business & operational improvement services"}</span>
           </div>
           <div>
-            <b>9</b>
-            <span>{"Sustainability & ESG services"}</span>
+            <b>8</b>
+            <span>{"Sustainability & ESG advisory services"}</span>
           </div>
           <div>
             <b>15</b>
@@ -214,24 +331,87 @@ export default function Advisory() {
             ))}
         </div>
       </div>
+      <section className="adv-sec" id="intro">
+        <div className="adv-wrap">
+          <div className="adv-ctr">
+            <span className="adv-lab">The work behind better performance</span>
+            <h2 className="adv-h2">
+              {"Good Advice Starts with "}
+              <em>Understanding the Business.</em>
+            </h2>
+            <p>
+              Every organization has its own way of working. Its processes, people, systems and
+              priorities determine where problems develop and where improvements can make a
+              difference. Meridian begins by understanding those conditions. We examine the issues
+              affecting performance, identify areas that need attention and work with organizations
+              to develop practical responses.
+            </p>
+            <p
+              style={{
+                marginTop: "16px",
+              }}
+            >
+              Our advisory work brings together three connected areas:
+            </p>
+          </div>
+          <div className="adv-mg">
+            {advisoryAreas.map((advisoryArea) => (
+              <a key={advisoryArea.num} className="adv-mc" href={advisoryArea.link}>
+                <b>{advisoryArea.num}</b>
+                <div>
+                  <h3>{advisoryArea.title}</h3>
+                  <p style={cardTextStyle}>{advisoryArea.desc}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="adv-sec" id="expertise">
+        <div className="adv-wrap">
+          <div
+            className="adv-ctr"
+            style={{
+              marginBottom: 0,
+            }}
+          >
+            <span className="adv-lab">Where we can help</span>
+            <h2 className="adv-h2">
+              {"Different Challenges. "}
+              <em>Connected Expertise.</em>
+            </h2>
+            <p>
+              Organizations approach advisory work for different reasons. Some need to improve
+              operational performance. Others need to address sustainability requirements or develop
+              management systems. Meridian brings these areas together to help organizations
+              identify the work that matters and determine how to approach it.
+            </p>
+          </div>
+        </div>
+      </section>
       <section className="adv-sec" id="what">
         <div className="adv-wrap">
           <div className="adv-ctr">
-            <span className="adv-lab">{"Management strategies & excellence models"}</span>
+            <span className="adv-lab">{"01 / Business & Operational Improvement"}</span>
             <h2 className="adv-h2">
-              {"Streamline operations. "}
-              <em>Boost efficiency.</em>
+              {"Improve the Work "}
+              <em>Behind the Results.</em>
             </h2>
             <p>
-              Streamline operations, boost efficiency, and embed sustainability with our expert
-              advisory services.
+              Inefficient processes, unclear responsibilities and disconnected business functions
+              can affect performance across an organization. We help businesses review how work is
+              currently carried out, identify areas for improvement and introduce better ways of
+              managing operations.
             </p>
           </div>
           <div className="adv-mg">
             {advisoryServices.map((advisoryService) => (
               <Link key={advisoryService.num} className="adv-mc" to={advisoryService.link}>
                 <b>{advisoryService.num}</b>
-                <h3>{advisoryService.title}</h3>
+                <div>
+                  <h3>{advisoryService.title}</h3>
+                  <p style={cardTextStyle}>{advisoryService.desc}</p>
+                </div>
               </Link>
             ))}
           </div>
@@ -240,12 +420,16 @@ export default function Advisory() {
       <section className="adv-sec adv-proc dark" id="process">
         <div className="adv-wrap">
           <div className="adv-ctr">
-            <span className="adv-lab">Our advisory process</span>
+            <span className="adv-lab">How we approach the work</span>
             <h2 className="adv-h2">
-              {"Your roadmap to "}
-              <span>transformation.</span>
+              {"Understand the Situation. Set the Priorities. "}
+              <span>Make the Changes.</span>
             </h2>
-            <p>Your roadmap to transformation — a simple journey.</p>
+            <p>
+              Each advisory engagement starts with the organization's requirements and current
+              position. The work then moves from assessment and planning to implementation and
+              review.
+            </p>
           </div>
           <div className="adv-tl">
             {processSteps.map((processStep) => (
@@ -263,14 +447,16 @@ export default function Advisory() {
       <section className="adv-sec" id="esg">
         <div className="adv-wrap">
           <div className="adv-ctr">
-            <span className="adv-lab">{"Sustainability & ESG Integration"}</span>
+            <span className="adv-lab">{"02 / Sustainability & ESG Advisory"}</span>
             <h2 className="adv-h2">
-              {"Growth that is "}
-              <em>sustainable.</em>
+              {"Put Sustainability "}
+              <em>into Practice.</em>
             </h2>
             <p>
-              Integrate environmental, social, and governance (ESG) principles seamlessly across all
-              operational levels to drive sustainable growth.
+              Environmental performance, resource consumption and sustainability requirements
+              increasingly affect how organizations plan, operate and report their activities.
+              Meridian helps businesses assess their current position, understand relevant
+              requirements and identify practical areas for improvement.
             </p>
             <div
               style={{
@@ -278,158 +464,107 @@ export default function Advisory() {
               }}
             >
               <Link
-                to="/services/advisory/sustainability-esg-integration"
+                to="/services/sustainability"
                 className="adv-btn"
                 style={{
                   padding: "10px 18px",
                   fontSize: "13px",
                 }}
               >
-                {"Explore Sustainability & ESG Integration ↗"}
+                Explore Sustainability Services ↗
               </Link>
             </div>
           </div>
           <div className="adv-vs3">
-            <div className="adv-pn a">
-              <span className="adv-lab">Certifications</span>
-              <h3>Recognised credentials.</h3>
-              <ul>
-                <li>
-                  <Link
-                    to="/services/sustainability/leed"
-                    style={{
-                      color: "inherit",
-                    }}
-                  >
-                    LEED Certification ↗
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/sustainability/ecovadis"
-                    style={{
-                      color: "inherit",
-                    }}
-                  >
-                    EcoVadis Certification (CSR, ethics, environment) ↗
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/sustainability/mostadam"
-                    style={{
-                      color: "inherit",
-                    }}
-                  >
-                    Mostadam Certification (Saudi Arabia Vision 2030) ↗
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="adv-pn b dark">
-              <span
-                className="adv-lab"
-                style={{
-                  color: "var(--primrose)",
-                }}
-              >
-                {"Reporting & impact"}
-              </span>
-              <h3>Measure what matters.</h3>
-              <ul>
-                <li>
-                  <Link
-                    to="/services/sustainability/reporting"
-                    style={{
-                      color: "inherit",
-                    }}
-                  >
-                    Sustainability Reporting (GRI / SASB / SDGs) ↗
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/sustainability/carbon-footprint"
-                    style={{
-                      color: "inherit",
-                    }}
-                  >
-                    Carbon Footprint Assessment ↗
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/sustainability/lca"
-                    style={{
-                      color: "inherit",
-                    }}
-                  >
-                    Product Life Cycle Analysis (LCA) ↗
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="adv-pn c">
-              <span className="adv-lab">{"Buildings & energy"}</span>
-              <h3>Efficient by design.</h3>
-              <ul>
-                <li>
-                  <Link
-                    to="/services/sustainability/green-building-advisory"
-                    style={{
-                      color: "inherit",
-                    }}
-                  >
-                    Green Building Advisory ↗
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/sustainability/energy-audits"
-                    style={{
-                      color: "inherit",
-                    }}
-                  >
-                    {"Energy Audits & Resource Optimization ↗"}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/sustainability/iso-50001"
-                    style={{
-                      color: "inherit",
-                    }}
-                  >
-                    {"Energy Management Systems & ISO 50001 ↗"}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services/sustainability/training"
-                    style={{
-                      color: "inherit",
-                    }}
-                  >
-                    {"Sustainability Training & Capacity Building ↗"}
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            {sustainabilityGroups.map((group) => (
+              <div key={group.label} className={`adv-pn ${group.className}`}>
+                <span
+                  className="adv-lab"
+                  style={
+                    group.className.startsWith("b")
+                      ? {
+                          color: "var(--primrose)",
+                        }
+                      : undefined
+                  }
+                >
+                  {group.label}
+                </span>
+                <h3>{group.title}</h3>
+                <ul>
+                  {group.services.map((service) => (
+                    <li key={service.name}>
+                      <span>
+                        <Link
+                          to={service.link}
+                          style={{
+                            color: "inherit",
+                          }}
+                        >
+                          {service.name} ↗
+                        </Link>
+                        <small
+                          style={{
+                            display: "block",
+                            marginTop: "6px",
+                            fontWeight: 400,
+                            opacity: 0.8,
+                          }}
+                        >
+                          {service.desc}
+                        </small>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
       <section className="adv-sec adv-stdwrap" id="standards">
         <div className="adv-wrap">
           <div className="adv-ctr">
-            <span className="adv-lab">{"International standards & certification frameworks"}</span>
+            <span className="adv-lab">{"03 / Standards & Management Systems"}</span>
             <h2 className="adv-h2">
-              {"Certified with "}
-              <em>confidence.</em>
+              {"Build Systems Around the "}
+              <em>Requirements That Matter.</em>
             </h2>
             <p>
-              We guide your organization to achieve and maintain global certifications with ease and
-              confidence.
+              International standards provide organizations with structured ways to manage quality,
+              risk, safety, environmental performance, information security and other business
+              requirements. Meridian helps organizations understand the standards relevant to their
+              activities and apply their requirements through management system development,
+              implementation support, internal audits, training and preparation for external
+              certification assessments.
             </p>
+            <p
+              style={{
+                marginTop: "16px",
+                fontSize: "14px",
+              }}
+            >
+              Meridian provides consultancy, management system implementation and
+              certification-readiness support within its confirmed scope. It does not award external
+              ISO certifications or grant accreditation. Certification and accreditation decisions
+              remain with the relevant independent bodies.
+            </p>
+            <div
+              style={{
+                marginTop: "16px",
+              }}
+            >
+              <Link
+                to="/services/compliance"
+                className="adv-btn"
+                style={{
+                  padding: "10px 18px",
+                  fontSize: "13px",
+                }}
+              >
+                Explore Compliance Services ↗
+              </Link>
+            </div>
           </div>
           <ul className="adv-std">
             {standards.map((standard) => (
@@ -440,7 +575,7 @@ export default function Advisory() {
                     ? {
                         border: "1px solid var(--accent, #a6ff00)",
                       }
-                    : void 0
+                    : undefined
                 }
               >
                 {standard.link ? (
@@ -456,10 +591,7 @@ export default function Advisory() {
                       {standard.code}
                       {" ↗"}
                     </b>
-                    <span>
-                      {standard.name}
-                      {" (Lead Auditor)"}
-                    </span>
+                    <span>{standard.name}</span>
                   </Link>
                 ) : (
                   <>
@@ -470,6 +602,40 @@ export default function Advisory() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+      <section className="adv-sec" id="why">
+        <div className="adv-wrap">
+          <div className="adv-ctr">
+            <span className="adv-lab">The value of the work</span>
+            <h2 className="adv-h2">
+              {"Advice Should Lead to "}
+              <em>Better Ways of Working.</em>
+            </h2>
+            <p>
+              An advisory engagement should leave an organization with more than a set of
+              recommendations. It should help people understand what needs to change, why it
+              matters and what to do next. Meridian brings together business improvement,
+              management systems, professional training and specialist advisory services to address
+              the practical requirements of each organization.
+            </p>
+          </div>
+          <div
+            className="adv-mg"
+            style={{
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))",
+            }}
+          >
+            {valuePoints.map((valuePoint) => (
+              <div key={valuePoint.num} className="adv-mc">
+                <b>{valuePoint.num}</b>
+                <div>
+                  <h3>{valuePoint.title}</h3>
+                  <p style={cardTextStyle}>{valuePoint.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       <section className="adv-role">
@@ -491,15 +657,17 @@ export default function Advisory() {
                 color: "#fff",
               }}
             >
-              {"Need to reach "}
-              <span>us?</span>
+              {"What Needs to Work Better "}
+              <span>in Your Organization?</span>
             </h2>
             <p className="adv-t">
-              We’re here to answer all your questions. Fill out our contact form and we’ll connect
-              you with the people who can help.
+              Whether the priority is improving operations, reviewing management systems, addressing
+              sustainability requirements or managing organizational change, start with a discussion
+              about the issue you need to address. Meridian can help you identify the areas that
+              need attention and determine the next steps.
             </p>
             <Link className="adv-btn" to="/contact-us">
-              Contact us ↗
+              Talk to Our Advisory Team ↗
             </Link>
           </div>
           <dl className="adv-ct">

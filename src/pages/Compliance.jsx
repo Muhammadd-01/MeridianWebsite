@@ -4,204 +4,189 @@ const unsplashImage = (t) =>
 const complianceServices = [
   {
     num: "01",
-    title: "Management strategies and excellence models",
-    desc: "Frameworks that drive continuous improvement and embed a culture of quality and innovation.",
-    img: unsplashImage("1524178232363-1fb2b075b655"),
+    title: "International Standards & Certification Readiness",
+    desc: "A standard only creates value when its requirements are understood and applied throughout the organization. We support businesses in assessing, implementing and improving management systems against relevant international standards. Our work can include gap assessments, documentation, implementation support, internal audits, training and preparation for external certification assessments.",
+    img: unsplashImage("1531482615713-2afd69097998"),
     topics: [
       {
-        name: "Lean Six Sigma",
-        desc: "Drive continuous improvement by eliminating waste and enhancing process capability across functions.",
+        name: "Quality & Business Management",
+        desc: "ISO 9001: Quality Management Systems · ISO 31000: Risk Management Guidelines",
       },
       {
-        name: "Supply chain optimization",
-        desc: "Improve procurement, logistics and compliance while building agile and risk-aware supply chains.",
+        name: "Environment, Energy & Occupational Health and Safety",
+        desc: "ISO 14001: Environmental Management Systems · ISO 45001: Occupational Health and Safety Management Systems · ISO 50001: Energy Management Systems",
       },
       {
-        name: "Change management",
-        desc: "Enable cultural, digital or structural transformation with strategic frameworks and engagement models.",
+        name: "Governance, Information & Technology",
+        desc: "ISO 37001: Anti-Bribery Management Systems · ISO/IEC 27001: Information Security Management Systems · ISO/IEC 42001: Artificial Intelligence Management Systems",
       },
       {
-        name: "Business process reengineering",
-        desc: "Redesign operational workflows to reduce costs, streamline output and enable cross-functional synergy.",
+        name: "Industry & Specialist Management Systems",
+        desc: "ISO 22000: Food Safety Management Systems · ISO 41001: Facility Management Systems · ISO 20121: Event Sustainability Management Systems · API Q1 and API Q2: Quality Management Requirements for Relevant Oil and Gas Organizations",
       },
       {
-        name: "Project management",
-        desc: "Deliver value-driven outcomes using global methodologies like PMI and PRINCE2, ensuring timely and efficient execution.",
-      },
-      {
-        name: "Excellence models",
-        desc: "Apply globally recognized frameworks to benchmark performance and embed a culture of quality and innovation.",
-      },
-      {
-        name: "Corporate wellbeing compliance",
-        desc: "Align wellbeing programs with ESG, HR and occupational health standards to promote a resilient workforce.",
+        name: "Inspection, Certification & Testing Environments",
+        desc: "ISO/IEC 17020: Inspection Bodies · ISO/IEC 17021-1: Management System Certification Bodies · ISO/IEC 17025: Testing and Calibration Laboratories",
       },
     ],
   },
   {
     num: "02",
-    title: "Sustainability and ESG integration",
-    desc: "Disclosures, certifications and measurement that reflect your ESG commitments and performance.",
-    img: unsplashImage("1473341304170-971dccb5ac1e"),
+    title: "Sector-Specific Compliance & Assurance",
+    desc: "Requirements differ from one industry to another. A manufacturing facility, an oil and gas operator and a healthcare organization do not face the same operational risks. Meridian helps organizations address the standards, controls and industry requirements relevant to their operating environments.",
+    img: unsplashImage("1581092160562-40aa08e78837"),
     topics: [
       {
-        name: "Sustainability reporting",
-        desc: "Prepare GRI- or SASB-aligned disclosures that reflect your ESG commitments and performance.",
+        name: "Oil & Gas",
+        desc: "Quality management, operational requirements and relevant API standards, including API Q1 and API Q2.",
       },
       {
-        name: "LEED certification",
-        desc: "Meet U.S. Green Building Council criteria for environmentally responsible construction and operation.",
+        name: "Industrial Operations",
+        desc: "Operational controls, management systems, process improvement and compliance requirements for industrial environments.",
       },
       {
-        name: "Mostadam certification",
-        desc: "Support your project’s sustainability goals in alignment with Vision 2030’s green development framework.",
+        name: "IT & Cybersecurity",
+        desc: "Information security, technology governance and artificial intelligence management, including ISO/IEC 27001 and ISO/IEC 42001.",
       },
       {
-        name: "EcoVadis certification support",
-        desc: "Streamline supplier evaluations through compliance with CSR, ethics and environmental performance indicators.",
+        name: "Facilities Management",
+        desc: "Management systems and operational practices for facility management, including ISO 41001.",
       },
       {
-        name: "Product life cycle analysis",
-        desc: "Quantify environmental impact at every product stage to support eco-design and net-zero strategies.",
+        name: "Health, Safety & Fire Risk",
+        desc: "Occupational health and safety management, risk controls and relevant fire safety requirements, including ISO 45001 and applicable NFPA standards.",
       },
       {
-        name: "Carbon footprint assessment",
-        desc: "Measure, monitor and mitigate GHG emissions in line with Scope 1, 2 and 3 requirements.",
+        name: "Food Safety & Hygiene",
+        desc: "Food safety management, hazard controls and hygiene practices, including ISO 22000 and HACCP.",
       },
       {
-        name: "Green building advisory",
-        desc: "Design sustainable spaces that maximize energy efficiency and wellness certifications like WELL and BREEAM.",
-      },
-      {
-        name: "ISO 50001 and energy audits",
-        desc: "Establish robust energy management systems backed by targeted audits to reduce consumption and cost.",
+        name: "Hospitality, Retail & Healthcare",
+        desc: "Operational controls, service quality, safety and sector-specific management requirements.",
       },
     ],
   },
   {
     num: "03",
-    title: "Sector-specific excellence",
-    desc: "Compliance tailored to the technical, operational and regulatory demands of your industry.",
-    img: unsplashImage("1581092160562-40aa08e78837"),
+    title: "Sustainability & ESG",
+    desc: "Environmental and sustainability requirements increasingly influence business operations, investment decisions and market access. Meridian supports organizations in understanding their environmental impacts, measuring performance and preparing for relevant sustainability frameworks and assessment requirements.",
+    img: unsplashImage("1473341304170-971dccb5ac1e"),
     topics: [
       {
-        name: "Industrial optimization and compliance",
-        desc: "Optimize operations with process audits, regulatory assessments and lean transformation initiatives.",
+        name: "Reporting & Measurement",
+        desc: "Sustainability and ESG Reporting · Carbon Footprint Assessment · Product Life Cycle Analysis",
       },
       {
-        name: "IT and cybersecurity (ISO 27001, 42001)",
-        desc: "Ensure information governance, AI ethics and data protection using international information security standards.",
+        name: "Buildings & Certification Support",
+        desc: "LEED Advisory and Certification Preparation · Mostadam Advisory and Certification Preparation · WELL and BREEAM Advisory · EcoVadis Assessment Preparation",
       },
       {
-        name: "Oil and gas (API Q1/Q2, ISO)",
-        desc: "Achieve rigorous industry-specific compliance with technical, operational and HSE requirements.",
-      },
-      {
-        name: "Facilities management (ISO 41001)",
-        desc: "Align service delivery and asset performance with globally recognized FM best practices.",
-      },
-      {
-        name: "Health, safety and fire risk",
-        desc: "Conduct risk assessments, fire safety audits and compliance checks aligned with ISO 45001 and NFPA codes.",
-      },
-      {
-        name: "Food safety and hygiene audits (ISO 22000)",
-        desc: "Validate hygiene standards across supply chains with HACCP-based inspections and food safety management systems.",
-      },
-      {
-        name: "Hospitality, retail and healthcare",
-        desc: "Deliver compliance excellence tailored to high-contact service industries, enhancing customer trust and experience.",
+        name: "Environmental & Energy Management",
+        desc: "ISO 50001 Implementation Support · Energy Audits · Environmental Management Systems",
       },
     ],
   },
   {
     num: "04",
-    title: "International standards and certification",
-    desc: "Structured management systems that take you from gap assessment to certification.",
-    img: unsplashImage("1531482615713-2afd69097998"),
+    title: "Management & Operational Excellence",
+    desc: "Compliance requirements are easier to maintain when the underlying business processes work effectively. Meridian also supports organizations in improving the way they plan, manage and deliver their operations.",
+    img: unsplashImage("1524178232363-1fb2b075b655"),
     topics: [
       {
-        name: "ISO 9001 – Quality management",
-        desc: "Build structured QMS frameworks that improve customer satisfaction, consistency and continuous improvement.",
+        name: "Business Process Reengineering",
+        desc: "Reviewing and redesigning business processes to improve efficiency, consistency and accountability.",
       },
       {
-        name: "API Q1 / Q2 – Oil and gas",
-        desc: "Ensure reliable, industry-aligned quality assurance systems that meet petroleum sector standards for manufacturing and operations.",
+        name: "Project Management",
+        desc: "Supporting structured project delivery through recognized project management approaches, including relevant PMI and PRINCE2 practices.",
       },
       {
-        name: "ISO 14001 – Environmental management",
-        desc: "Minimize environmental impact through effective environmental planning, policies and audits.",
+        name: "Business Excellence Models",
+        desc: "Helping organizations assess organizational performance and identify opportunities for improvement through relevant excellence frameworks.",
       },
       {
-        name: "ISO 45001 – Occupational health and safety",
-        desc: "Establish workplace safety systems that prevent injury and ensure employee wellbeing.",
+        name: "Lean Six Sigma",
+        desc: "Identifying inefficiencies, reducing process variation and improving operational performance.",
       },
       {
-        name: "ISO 41001 – Facilities management",
-        desc: "Standardize your FM operations to align with lifecycle cost optimization and performance metrics.",
+        name: "Supply Chain Optimization",
+        desc: "Improving supply chain processes, coordination, risk management and operational reliability.",
       },
       {
-        name: "ISO 20121 – Sustainable events",
-        desc: "Implement sustainability principles for event planning, procurement and stakeholder inclusion.",
+        name: "Change Management",
+        desc: "Supporting organizations through organizational and operational change with clearer planning, communication and implementation.",
       },
       {
-        name: "ISO 22000 – Food safety management",
-        desc: "Build transparent, controlled food systems that manage hazards and assure product safety.",
-      },
-      {
-        name: "ISO 50001 – Energy management",
-        desc: "Create energy performance baselines, targets and continuous improvement systems.",
-      },
-      {
-        name: "ISO 27001 – Information security",
-        desc: "Safeguard data with systematic risk management, security controls and business continuity planning.",
-      },
-      {
-        name: "ISO 31000 – Risk management",
-        desc: "Integrate enterprise-wide risk assessment models for strategic and operational resilience.",
-      },
-      {
-        name: "ISO 37001 – Anti-bribery",
-        desc: "Strengthen your organization’s integrity through compliance programs and due diligence frameworks.",
-      },
-      {
-        name: "ISO 42001 – AI management systems",
-        desc: "Implement responsible AI governance, transparency and ethical safeguards in alignment with future standards.",
-      },
-      {
-        name: "ISO 17020 / 17021 / 17025",
-        desc: "Achieve competence in inspections, testing and certifications as required for labs, certification bodies and inspection bodies.",
+        name: "Workforce Wellbeing & Occupational Health",
+        desc: "Supporting workplace wellbeing and organizational practices that contribute to healthier, safer and more sustainable working environments.",
       },
     ],
   },
 ];
 const benefits = [
-  "Minimize legal, reputational and financial risk.",
-  "Accelerate market access and global credibility.",
-  "Boost operational consistency and system resilience.",
-  "Streamline certification processes and documentation.",
-  "Strengthen stakeholder trust and regulatory alignment.",
+  {
+    title: "Control Exposure",
+    desc: "Identify regulatory, operational and business risks before they become costly problems.",
+  },
+  {
+    title: "Protect Continuity",
+    desc: "Strengthen processes and controls that help operations remain consistent and reliable.",
+  },
+  {
+    title: "Meet Market Requirements",
+    desc: "Respond to the standards and expectations of customers, regulators and business partners.",
+  },
+  {
+    title: "Prepare for Scrutiny",
+    desc: "Maintain the evidence, documentation and operational practices needed for internal and external assessments.",
+  },
+  {
+    title: "Build Confidence",
+    desc: "Give employees, customers and stakeholders greater confidence in the way the organization operates.",
+  },
+];
+const approachSteps = [
+  {
+    num: "1",
+    title: "Assess",
+    desc: "Understand the organization's current position, applicable requirements, existing systems and areas of exposure.",
+  },
+  {
+    num: "2",
+    title: "Prioritize",
+    desc: "Identify the gaps that matter most and establish a practical sequence of actions based on risk, business needs and available resources.",
+  },
+  {
+    num: "3",
+    title: "Implement",
+    desc: "Support the development, improvement and integration of systems, processes, documentation and employee capabilities.",
+  },
+  {
+    num: "4",
+    title: "Review",
+    desc: "Evaluate progress, strengthen implementation and prepare the organization for ongoing monitoring and external assessments where applicable.",
+  },
 ];
 const processSteps = [
   {
     num: "1",
-    title: "Certified compliance consultants",
-    desc: "Experts in multi-sector audits, regulatory frameworks and certification bodies.",
+    title: "Standards in Context",
+    desc: "We help organizations interpret international standards alongside the regulatory, industry and operational requirements relevant to their business.",
   },
   {
     num: "2",
-    title: "Globally recognized methodology",
-    desc: "We combine ISO, ESG and national frameworks for holistic assurance.",
+    title: "Beyond Documentation",
+    desc: "Our focus is on systems, processes and controls that work in everyday operations, not simply documents prepared for an audit.",
   },
   {
     num: "3",
-    title: "Audit-ready documentation",
-    desc: "Clear, organized and aligned with certification and regulatory needs.",
+    title: "Experience Across Industries",
+    desc: "We bring experience across different sectors, organizational structures and operational environments, adapting our approach to each organization's requirements.",
   },
   {
     num: "4",
-    title: "End-to-end partnership",
-    desc: "From gap assessments to successful certification, we’re with you at every step.",
+    title: "Support Through Implementation",
+    desc: "From initial assessment and gap identification to implementation, internal audits and certification readiness, we help organizations progress through each stage.",
   },
 ];
 export default function Compliance() {
@@ -215,29 +200,31 @@ export default function Compliance() {
             position: "relative",
           }}
         >
-          <span className="tag">Compliance services</span>
+          <span className="tag">{"Compliance & Assurance"}</span>
           <h1>
-            {"Your license to operate, "}
-            <em>compete</em>
-            {" and grow."}
+            {"Compliance Must Work "}
+            <em>Beyond</em>
+            {" the Certificate."}
           </h1>
           <p className="lead">
-            Compliance is more than a checklist. We align your operations with international
-            standards, local regulations and industry best practices, for lower risk, stronger
-            operations and audit readiness.
+            Meeting a requirement is only the beginning. The real test is whether your systems,
+            processes and people can deliver consistently. Meridian helps organizations navigate
+            international standards, regulatory obligations and industry requirements. We identify
+            gaps, strengthen management systems and prepare businesses for the demands of external
+            assessments and changing expectations.
           </p>
           <div className="acts">
             <Link className="btn p" to="/contact-us">
-              Book a free consultation ↗
+              Discuss Your Requirements ↗
             </Link>
             <a className="btn line" href="#areas">
-              Explore service areas ↓
+              Explore Our Capabilities ↓
             </a>
           </div>
           <div className="compliance-stats">
             <div>
               <b>4</b>
-              <span>Compliance service areas</span>
+              <span>Compliance capabilities</span>
             </div>
             <div>
               <b>13+</b>
@@ -276,13 +263,14 @@ export default function Compliance() {
       <section className="compliance-band">
         <div className="compliance-band-in">
           <h2>
-            {"Integrated compliance for "}
-            <em>risk mitigation, operational excellence</em>
-            {" and audit readiness."}
+            {"Different Requirements. "}
+            <em>One Connected Approach.</em>
           </h2>
           <p>
-            Comprehensive support for conformance, auditing, documentation, internal controls and
-            certification readiness.
+            Every organization faces a different combination of standards, regulatory expectations
+            and operational challenges. Meridian brings together compliance advisory, standards
+            implementation, sector-specific expertise, sustainability support and business
+            improvement to help organizations address those requirements in a connected way.
           </p>
         </div>
       </section>
@@ -294,14 +282,42 @@ export default function Compliance() {
           <div>
             <span className="eyebrow">Why compliance matters</span>
             <h2>
-              {"Compliance protects what "}
-              <em>you build.</em>
+              {"A Failed Audit Is "}
+              <em>Not the Only Risk.</em>
             </h2>
+            <p
+              style={{
+              marginTop: "20px",
+              maxWidth: "620px",
+              lineHeight: 1.75,
+              color: "#52676a",
+            }}
+            >
+              Compliance affects more than whether an organization passes an assessment. It
+              influences how decisions are made, how risks are controlled and how confidently a
+              business can operate. When requirements are understood and built into everyday
+              operations, organizations are better positioned to:
+            </p>
             <ul className="compliance-wl">
               {benefits.map((benefit, index) => (
                 <li key={index}>
                   <b>0{index + 1}</b>
-                  <span>{benefit}</span>
+                  <span>
+                    {benefit.title}
+                    <small
+                      style={{
+                        display: "block",
+                        marginTop: "8px",
+                        fontSize: "15px",
+                        fontWeight: 400,
+                        letterSpacing: 0,
+                        lineHeight: 1.6,
+                        color: "#52676a",
+                      }}
+                    >
+                      {benefit.desc}
+                    </small>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -376,7 +392,7 @@ export default function Compliance() {
           </div>
           <div>
             <span className="eyebrow">
-              {"Service area "}
+              {"Capability "}
               {complianceService.num}
             </span>
             <h2>{complianceService.title}</h2>
@@ -392,13 +408,55 @@ export default function Compliance() {
           </div>
         </section>
       ))}
-      <section className="sec">
-        <span className="eyebrow">Why choose Meridian?</span>
+      <section className="sec" id="approach">
+        <span className="eyebrow">Our approach</span>
         <h2>
-          {"Compliance that "}
-          <em>stands up</em>
-          {" to audit."}
+          {"First, Understand What Is Happening. "}
+          <em>Then Fix What Matters.</em>
         </h2>
+        <p
+          style={{
+              marginTop: "20px",
+              maxWidth: "620px",
+              lineHeight: 1.75,
+              color: "#52676a",
+            }}
+        >
+          A successful compliance programme starts with understanding the organization, its
+          requirements and the gaps between current practices and expected performance. We work
+          through four connected stages.
+        </p>
+        <div className="compliance-wc">
+          {approachSteps.map((approachStep) => (
+            <div key={approachStep.num}>
+              <b>{approachStep.num}</b>
+              <div>
+                <h3>{approachStep.title}</h3>
+                <p>{approachStep.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="sec">
+        <span className="eyebrow">The Meridian approach</span>
+        <h2>
+          {"Compliance Knowledge. "}
+          <em>Practical Business Experience.</em>
+        </h2>
+        <p
+          style={{
+              marginTop: "20px",
+              maxWidth: "620px",
+              lineHeight: 1.75,
+              color: "#52676a",
+            }}
+        >
+          Understanding a standard is one thing. Applying it to the realities of an organization is
+          another. Meridian helps businesses translate requirements into practical systems, clearer
+          processes and stronger operational controls. Our approach connects international
+          standards with the way organizations actually work.
+        </p>
         <div className="compliance-wc">
           {processSteps.map((processStep) => (
             <div key={processStep.num}>
@@ -442,15 +500,17 @@ export default function Compliance() {
       <section className="compliance-cta cr" id="contact">
         <div>
           <h2>
-            {"Ready to strengthen your "}
-            <em>compliance framework?</em>
+            {"Where Does Your Organization "}
+            <em>Need to Be More Certain?</em>
           </h2>
           <p>
-            Assess your current compliance posture and discover how Meridian can streamline your
-            certification journey.
+            Whether you are preparing for certification, addressing regulatory requirements or
+            strengthening existing management systems, Meridian can help you identify what needs
+            attention and determine the next steps. Speak with Meridian about your requirements and
+            the practical steps involved.
           </p>
           <Link className="btn p" to="/contact-us">
-            Book a free consultation ↗
+            Discuss Your Requirements ↗
           </Link>
         </div>
         <dl>

@@ -6,165 +6,231 @@ const trainingTracks = [
   {
     num: "01",
     cat: "Lead Auditor",
-    title: "Auditor training",
-    desc: "Lead auditor and internal auditor courses that build real audit skill, not just exam technique.",
+    title: "Lead Auditor",
+    desc: "ISO 45001, ISO 41001, ISO 31000, ISO 50001, ISO 27001, ISO 9001 and ISO 14001.",
     img: unsplashImage("1524178232363-1fb2b075b655"),
   },
   {
     num: "02",
-    cat: "Leadership",
-    title: "Leadership & management",
-    desc: "Programs for supervisors and senior managers on risk-based thinking, accountability and change.",
-    img: unsplashImage("1521737711867-e3b97375f902"),
+    cat: "Internal Auditor",
+    title: "Internal Auditor",
+    desc: "ISO 9001, ISO 45001, ISO 41001, ISO 22000, ISO 50001, ISO 27001 and ISO 14001.",
+    img: unsplashImage("1573164713988-8665fc963095"),
   },
   {
     num: "03",
-    cat: "Safety",
-    title: "Safety & environment",
-    desc: "Practical health, safety and environmental training aligned with recognised qualifications.",
-    img: unsplashImage("1581092160562-40aa08e78837"),
+    cat: "Leadership & Management",
+    title: "Leadership & Management",
+    desc: "Train The Trainer, Business Continuity Management, Lean Six Sigma Green and Black Belt, and ARAMCO Schedule Q Awareness.",
+    img: unsplashImage("1521737711867-e3b97375f902"),
   },
   {
     num: "04",
-    cat: "Sustainability",
-    title: "Sustainability & ESG",
-    desc: "Carbon accounting, energy management and responsible business practices for working teams.",
-    img: unsplashImage("1497366754035-f200968a6e72"),
+    cat: "Safety & Environment",
+    title: "Safety & Environment",
+    desc: "First Aid, CPR & AED, OSHA 10 & 30 Hours GI/CI Compliance, and Fire Safety Awareness and Fire Fighting.",
+    img: unsplashImage("1581092160562-40aa08e78837"),
   },
   {
     num: "05",
-    cat: "Exam Prep",
-    title: "Exam preparation",
-    desc: "Focused revision, mock exams and coaching so candidates sit assessments with confidence.",
+    cat: "Exam Preparation Courses",
+    title: "Exam Preparation",
+    desc: "RMP Exam Preparation and PMP Exam Preparation.",
     img: unsplashImage("1522202176988-66273c2fd55f"),
   },
 ];
 const courses = [
   {
     id: "c1",
-    cat: "Lead Auditor",
-    level: "Advanced",
-    title: "ISO 9001 Lead Auditor",
-    text: "Audit principles, planning, interviewing and reporting, with a final assessment.",
-    info: ["5 days", "Hybrid", "Certificate"],
-    img: unsplashImage("1524178232363-1fb2b075b655"),
+    cat: "Exam Preparation Courses",
+    title: "RMP Exam Preparation",
+    text: "",
+    info: [],
+    img: unsplashImage("1522202176988-66273c2fd55f"),
   },
   {
     id: "c2",
-    cat: "Internal Auditor",
-    level: "Intermediate",
-    title: "ISO 14001 Internal Auditor",
-    text: "Learn to audit environmental management systems and raise useful findings.",
-    info: ["2 days", "In person"],
-    img: unsplashImage("1573164713988-8665fc963095"),
+    cat: "Exam Preparation Courses",
+    title: "PMP Exam Preparation",
+    text: "",
+    info: [],
+    img: unsplashImage("1516321318423-f06f85e504b3"),
   },
   {
     id: "c3",
     cat: "Internal Auditor",
-    level: "Intermediate",
-    title: "ISO 45001 Internal Auditor",
-    text: "Practical health and safety audit skills using realistic workplace scenarios.",
-    info: ["2 days", "Online"],
+    title: "ISO 9001:2015 Internal Auditor",
+    text: "Develop the knowledge and auditing skills to assess a Quality Management System, examine how processes perform and identify where the system needs attention.",
+    info: [],
     img: unsplashImage("1524178232363-1fb2b075b655"),
   },
   {
     id: "c4",
-    cat: "Leadership",
-    level: "Advanced",
-    title: "Quality Leadership for Senior Managers",
-    text: "Risk-based thinking, accountability and continual improvement for decision makers.",
-    info: ["3 days", "In person"],
-    img: unsplashImage("1521737711867-e3b97375f902"),
+    cat: "Internal Auditor",
+    title: "ISO 45001:2018 Internal Auditor",
+    text: "Develop the knowledge and auditing skills to assess an Occupational Health and Safety Management System and report where controls, responsibilities or processes need attention.",
+    info: [],
+    img: unsplashImage("1581092160562-40aa08e78837"),
   },
   {
     id: "c5",
-    cat: "Leadership",
-    level: "Foundation",
-    title: "Supervisor Essentials",
-    text: "Core people and process skills for first-time supervisors and team leads.",
-    info: ["2 days", "Hybrid"],
-    img: unsplashImage("1540575467063-178a50c2df87"),
+    cat: "Internal Auditor",
+    title: "ISO 41001:2018 Internal Auditor",
+    text: "Develop the knowledge and auditing skills to assess a Facility Management System, examine service delivery and evaluate whether facility management processes meet requirements.",
+    info: [],
+    img: unsplashImage("1573164713988-8665fc963095"),
   },
   {
     id: "c6",
-    cat: "Leadership",
-    level: "Intermediate",
-    title: "Change Management in Practice",
-    text: "Plan, communicate and embed change without losing momentum.",
-    info: ["2 days", "Online"],
-    img: unsplashImage("1521737711867-e3b97375f902"),
-  },
-  {
-    id: "c7",
-    cat: "Safety",
-    level: "Foundation",
-    title: "Workplace Safety Awareness",
-    text: "Hazard recognition, reporting and everyday safe behaviours for all staff.",
-    info: ["1 day", "In person"],
-    img: unsplashImage("1581092160562-40aa08e78837"),
-  },
-  {
-    id: "c8",
-    cat: "Safety",
-    level: "Intermediate",
-    title: "Risk Assessment Workshop",
-    text: "Build usable risk registers and controls your teams will keep up to date.",
-    info: ["1 day", "In person"],
+    cat: "Internal Auditor",
+    title: "ISO 22000:2018 Internal Auditor",
+    text: "Develop the knowledge and auditing skills to assess a Food Safety Management System, evaluate its implementation and report findings that deserve attention.",
+    info: [],
     img: unsplashImage("1567789884554-0b844b597180"),
   },
   {
+    id: "c7",
+    cat: "Internal Auditor",
+    title: "ISO 50001:2018 Internal Auditor",
+    text: "Develop the skills to examine an Energy Management System, review how energy performance is managed and assess whether the organization is meeting its energy objectives.",
+    info: [],
+    img: unsplashImage("1497366754035-f200968a6e72"),
+  },
+  {
+    id: "c8",
+    cat: "Internal Auditor",
+    title: "ISO 27001:2022 Internal Auditor",
+    text: "Develop the knowledge and auditing skills to examine an Information Security Management System and assess whether the required controls are working.",
+    info: [],
+    img: unsplashImage("1516321318423-f06f85e504b3"),
+  },
+  {
     id: "c9",
-    cat: "Safety",
-    level: "Intermediate",
-    title: "Environmental Management Fundamentals",
-    text: "Environmental aspects, legal registers and objective setting made simple.",
-    info: ["2 days", "Online"],
-    img: unsplashImage("1581092160562-40aa08e78837"),
+    cat: "Internal Auditor",
+    title: "ISO 14001:2015 Internal Auditor",
+    text: "Develop the knowledge and auditing skills to examine an Environmental Management System, assess how environmental requirements are applied and identify where improvements are needed.",
+    info: [],
+    img: unsplashImage("1524178232363-1fb2b075b655"),
   },
   {
     id: "c10",
-    cat: "Sustainability",
-    level: "Intermediate",
-    title: "Carbon Accounting Fundamentals",
-    text: "Measure greenhouse gas emissions and identify priorities for reduction.",
-    info: ["2 days", "Online"],
-    img: unsplashImage("1497366754035-f200968a6e72"),
+    cat: "Lead Auditor",
+    title: "ISO 45001:2018 Lead Auditor",
+    text: "Develop the knowledge to examine how an organization identifies workplace hazards, manages health and safety risks, leads audit teams and reports findings against ISO 45001 requirements.",
+    info: [],
+    img: unsplashImage("1581092160562-40aa08e78837"),
   },
   {
     id: "c11",
-    cat: "Sustainability",
-    level: "Foundation",
-    title: "ESG Reporting for First-Time Reporters",
-    text: "Materiality, data ownership and reporting calendars explained step by step.",
-    info: ["1 day", "Online"],
-    img: unsplashImage("1473341304170-971dccb5ac1e"),
+    cat: "Lead Auditor",
+    title: "ISO 41001:2018 Lead Auditor",
+    text: "Develop the knowledge to examine how an organization plans and delivers facility management, evaluates service performance, leads audit teams and reports findings against ISO 41001 requirements.",
+    info: [],
+    img: unsplashImage("1573164713988-8665fc963095"),
   },
   {
     id: "c12",
-    cat: "Sustainability",
-    level: "Intermediate",
-    title: "Energy Management Systems",
-    text: "Understand energy audits, baselines and performance improvement.",
-    info: ["2 days", "Hybrid"],
-    img: unsplashImage("1497366754035-f200968a6e72"),
+    cat: "Lead Auditor",
+    title: "ISO 31000:2018 Lead Auditor",
+    text: "Develop the knowledge to examine how organisations identify, assess and manage risks, lead the audit process and report findings against ISO 31000 guidelines.",
+    info: [],
+    img: unsplashImage("1521737711867-e3b97375f902"),
   },
   {
     id: "c13",
-    cat: "Exam Prep",
-    level: "Advanced",
-    title: "Lead Auditor Exam Bootcamp",
-    text: "Intensive revision, mock papers and coaching ahead of your assessment.",
-    info: ["2 days", "Online"],
-    img: unsplashImage("1522202176988-66273c2fd55f"),
+    cat: "Lead Auditor",
+    title: "ISO 50001:2018 Lead Auditor",
+    text: "Develop your understanding of the standard and the skills needed to plan, lead and report audits of Energy Management Systems.",
+    info: [],
+    img: unsplashImage("1497366754035-f200968a6e72"),
   },
   {
     id: "c14",
-    cat: "Exam Prep",
-    level: "Foundation",
-    title: "Standards Fundamentals Revision",
-    text: "Structured review of clauses, terms and typical exam questions.",
-    info: ["1 day", "Online"],
+    cat: "Lead Auditor",
+    title: "ISO 27001:2022 Lead Auditor",
+    text: "Develop the knowledge to examine how an organization protects information, assesses security risks, evaluates controls, leads audit teams and reports findings against ISO/IEC 27001 requirements.",
+    info: [],
     img: unsplashImage("1516321318423-f06f85e504b3"),
+  },
+  {
+    id: "c15",
+    cat: "Lead Auditor",
+    title: "ISO 9001:2015 Lead Auditor",
+    text: "Develop the knowledge to examine how an organization manages quality, evaluates its processes, leads audit teams and reports findings.",
+    info: [],
+    img: unsplashImage("1524178232363-1fb2b075b655"),
+  },
+  {
+    id: "c16",
+    cat: "Lead Auditor",
+    title: "ISO 14001:2015 Lead Auditor",
+    text: "Develop the knowledge to examine how an organization manages its environmental impacts, evaluates compliance, leads audit teams and reports findings.",
+    info: [],
+    img: unsplashImage("1573164713988-8665fc963095"),
+  },
+  {
+    id: "c17",
+    cat: "Leadership & Management",
+    title: "Train The Trainer",
+    text: "",
+    info: [],
+    img: unsplashImage("1521737711867-e3b97375f902"),
+  },
+  {
+    id: "c18",
+    cat: "Leadership & Management",
+    title: "Business Continuity Management",
+    text: "",
+    info: [],
+    img: unsplashImage("1540575467063-178a50c2df87"),
+  },
+  {
+    id: "c19",
+    cat: "Leadership & Management",
+    title: "Lean Six Sigma Green Belt",
+    text: "",
+    info: [],
+    img: unsplashImage("1521737711867-e3b97375f902"),
+  },
+  {
+    id: "c20",
+    cat: "Leadership & Management",
+    title: "ARAMCO Schedule Q Awareness",
+    text: "",
+    info: [],
+    img: unsplashImage("1540575467063-178a50c2df87"),
+  },
+  {
+    id: "c21",
+    cat: "Leadership & Management",
+    title: "Lean Six Sigma Black Belt",
+    text: "",
+    info: [],
+    img: unsplashImage("1521737711867-e3b97375f902"),
+  },
+  {
+    id: "c22",
+    cat: "Safety & Environment",
+    title: "First Aid, CPR & AED",
+    text: "Prepare your employees to recognise emergencies and provide an appropriate first response when it matters most.",
+    info: [],
+    img: unsplashImage("1581092160562-40aa08e78837"),
+  },
+  {
+    id: "c23",
+    cat: "Safety & Environment",
+    title: "OSHA 10 & 30 Hours GI/CI Compliance",
+    text: "OSHA 10-Hour and 30-Hour training for General Industry and Construction, building awareness of workplace hazards and safe work practices.",
+    info: [],
+    img: unsplashImage("1567789884554-0b844b597180"),
+  },
+  {
+    id: "c24",
+    cat: "Safety & Environment",
+    title: "Fire Safety Awareness and Fire Fighting",
+    text: "Prepare your employees to recognise fire risks, understand their responsibilities and take the right action when an emergency occurs.",
+    info: [],
+    img: unsplashImage("1581092160562-40aa08e78837"),
   },
 ];
 const featuredCourse = {
@@ -210,17 +276,16 @@ const upcomingSessions = [
   },
 ];
 const filterCategories = [
-  "All",
-  "Lead Auditor",
+  "All Trainings",
+  "Exam Preparation Courses",
   "Internal Auditor",
-  "Leadership",
-  "Safety",
-  "Sustainability",
-  "Exam Prep",
+  "Lead Auditor",
+  "Leadership & Management",
+  "Safety & Environment",
 ];
 export default function Training() {
   const [activePanel, setActivePanel] = useState(0);
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("All Trainings");
   const [searchQuery, setSearchQuery] = useState("");
   const [visibleCount, setVisibleCount] = useState(6);
   const [enquiry, setEnquiry] = useState({
@@ -253,7 +318,7 @@ export default function Training() {
   const filteredCourses = useMemo(
     () =>
       courses.filter((course) => {
-        const matchesFilter = activeFilter === "All" || course.cat === activeFilter;
+        const matchesFilter = activeFilter === "All Trainings" || course.cat === activeFilter;
         const matchesSearch =
           `${course.title} ${course.cat} ${course.text} ${course.info.join(" ")}`
             .toLowerCase()
@@ -280,22 +345,24 @@ export default function Training() {
           <div className="training-hero-copy">
             <span className="eyebrow">Professional training</span>
             <h1>
-              {"Capability "}
+              {"Professional Training "}
               <br />
-              {"that "}
-              <em>stays.</em>
+              {"for "}
+              <em>Real-World Requirements.</em>
             </h1>
             <p className="lead">
-              Auditor training, leadership programs and professional qualifications, delivered by
-              internationally certified trainers and tailored to how your teams actually work.
+              Meridian delivers professional training for individuals and organizations seeking to
+              develop their knowledge, strengthen workplace capabilities and meet professional
+              requirements. Our programmes cover management systems, auditing, leadership,
+              examination preparation, and safety and environmental practices.
             </p>
             <div className="btns">
               <a className="btn light" href="#catalogue">
-                {"Browse courses "}
+                {"Explore Training Courses "}
                 <i>↓</i>
               </a>
               <a className="btn ghost" href="#enquire">
-                {"Request in-house training "}
+                {"Contact Our Training Team "}
                 <i>↗</i>
               </a>
             </div>
@@ -339,11 +406,9 @@ export default function Training() {
           <b>✦</b>
           <span>Internal auditor</span>
           <b>✦</b>
-          <span>Leadership</span>
+          <span>{"Leadership & management"}</span>
           <b>✦</b>
           <span>{"Safety & environment"}</span>
-          <b>✦</b>
-          <span>Sustainability</span>
           <b>✦</b>
           <span>Exam preparation</span>
           <b>✦</b>
@@ -351,11 +416,9 @@ export default function Training() {
           <b>✦</b>
           <span>Internal auditor</span>
           <b>✦</b>
-          <span>Leadership</span>
+          <span>{"Leadership & management"}</span>
           <b>✦</b>
           <span>{"Safety & environment"}</span>
-          <b>✦</b>
-          <span>Sustainability</span>
           <b>✦</b>
           <span>Exam preparation</span>
           <b>✦</b>
@@ -364,15 +427,12 @@ export default function Training() {
       <section className="section" id="catalogue">
         <div className="wrap">
           <div className="training-cat-head">
-            <div className="kicker">01 / Course catalogue</div>
+            <div className="kicker">01 / Our training portfolio</div>
             <h2 className="big">
-              {"Find the course "}
-              <em>that fits.</em>
+              {"Explore Our Training "}
+              <em>Programmes.</em>
             </h2>
-            <p className="lead">
-              Filter by track or search by keyword. Every course can also be delivered in-house and
-              customised for your teams.
-            </p>
+            <p className="lead">Browse the available courses by subject or training category.</p>
           </div>
           <div className="training-tools" role="group" aria-label="Filters and search">
             <div className="training-filters">
@@ -401,7 +461,7 @@ export default function Training() {
               />
             </div>
           </div>
-          {(activeFilter === "All" || activeFilter === featuredCourse.cat) &&
+          {(activeFilter === "All Trainings" || activeFilter === featuredCourse.cat) &&
             `${featuredCourse.title} ${featuredCourse.text}`
               .toLowerCase()
               .includes(searchQuery.trim().toLowerCase()) && (
@@ -447,14 +507,14 @@ export default function Training() {
                 <article key={visibleCourse.id} className="training-post">
                   <div className="p-img">
                     <img src={visibleCourse.img} alt={visibleCourse.title} loading="lazy" />
-                    <span className="level">{visibleCourse.level}</span>
+                    {visibleCourse.level && <span className="level">{visibleCourse.level}</span>}
                   </div>
                   <div className="p-body">
                     <div className="meta">
                       <span className="tag">{visibleCourse.cat}</span>
                     </div>
                     <h3>{visibleCourse.title}</h3>
-                    <p>{visibleCourse.text}</p>
+                    {visibleCourse.text && <p>{visibleCourse.text}</p>}
                     <div className="info">
                       {visibleCourse.info.map((item) => (
                         <span key={item}>{item}</span>
@@ -792,11 +852,11 @@ export default function Training() {
         <div className="wrap">
           <div className="contact-layout">
             <aside className="intro-card">
-              <span className="eyebrow">Book or enquire</span>
-              <h2>Let’s plan your training.</h2>
+              <span className="eyebrow">Training enquiries</span>
+              <h2>Need Help Choosing a Course?</h2>
               <p>
-                Tell us which course interests you and how many people need training. We’ll respond
-                with dates, formats and a clear next step.
+                If you are looking for a specific programme or planning training for your
+                organization, contact our team to discuss your requirements.
               </p>
               <div className="contact-list">
                 <div className="contact-item">
@@ -822,12 +882,12 @@ export default function Training() {
                   <div>
                     <strong>Phone</strong>
                     <a
-                      href="tel:+966130000000"
+                      href="tel:+966509394640"
                       style={{
                         color: "#cfe0e3",
                       }}
                     >
-                      +966 13 000 0000
+                      +966 50 939 4640
                     </a>
                   </div>
                 </div>

@@ -1,0 +1,247 @@
+<title>Meridian Website Content Gaps</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: single reading column, page-by-page gap lists with a status pill per item */
+  :root {
+    --bg: #f6f5ef;
+    --surface: #ffffff;
+    --fg: #14272d;
+    --muted: #55686c;
+    --line: #dcdcd2;
+    --teal: #093f50;
+    --primrose: #f2e6a2;
+    --ask: #a45b0b;
+    --ask-bg: #fbf1e3;
+    --keep: #2f6070;
+    --keep-bg: #e7f0f0;
+    --fix: #9b2c2c;
+    --fix-bg: #fbeaea;
+    --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+    --font-body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d1b1f; --surface: #132a30; --fg: #e8eeee; --muted: #a8b9bb; --line: #27434a;
+      --teal: #9fd3d8; --primrose: #f2e6a2; --ask: #f0b56a; --ask-bg: #3a2a14;
+      --keep: #9fd3d8; --keep-bg: #183a42; --fix: #f19a9a; --fix-bg: #3b1d1d; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1b1f; --surface: #132a30; --fg: #e8eeee; --muted: #a8b9bb; --line: #27434a;
+    --teal: #9fd3d8; --primrose: #f2e6a2; --ask: #f0b56a; --ask-bg: #3a2a14;
+    --keep: #9fd3d8; --keep-bg: #183a42; --fix: #f19a9a; --fix-bg: #3b1d1d; color-scheme: dark;
+  }
+  body {
+    background: var(--bg); color: var(--fg); font-family: var(--font-body);
+    font-size: 15.5px; line-height: 1.6;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .page { max-width: 860px; margin: 0 auto; padding-block: 48px 72px; display: grid; gap: 44px; }
+  header { display: grid; gap: 14px; border-bottom: 2px solid var(--teal); padding-bottom: 28px; }
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ask); }
+  h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 6vw, 56px); line-height: 1.02; margin: 0; color: var(--teal); text-wrap: balance; }
+  h1 em { font-style: italic; }
+  h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px, 3.6vw, 34px); line-height: 1.1; margin: 0; color: var(--teal); text-wrap: balance; }
+  h3 { font-size: 15px; font-weight: 700; margin: 0; letter-spacing: .01em; }
+  p { margin: 0; max-width: 68ch; }
+  .lede { color: var(--muted); font-size: 17px; }
+  section { display: grid; gap: 18px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px 18px; font-size: 13px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .pill { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .pill.ask { color: var(--ask); background: var(--ask-bg); }
+  .pill.keep { color: var(--keep); background: var(--keep-bg); }
+  .pill.fix { color: var(--fix); background: var(--fix-bg); }
+  .group { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 6px 22px; }
+  .group > h3 { padding: 16px 0 6px; color: var(--teal); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+  ul.items { list-style: none; margin: 0; padding: 0; }
+  ul.items > li { display: grid; grid-template-columns: 92px 1fr; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); align-items: start; }
+  ul.items > li > div { min-width: 0; display: grid; gap: 4px; }
+  ul.items > li .pill { margin-top: 2px; justify-self: start; }
+  .item-title { font-weight: 600; }
+  .note { color: var(--muted); font-size: 14px; }
+  ul.inline { margin: 6px 0 0; padding-left: 18px; color: var(--muted); font-size: 14px; display: grid; gap: 2px; }
+  .callout { background: var(--teal); color: #fff; border-radius: 14px; padding: 22px 24px; display: grid; gap: 10px; }
+  :root:not([data-theme="light"]) .callout { color: #fff; }
+  .callout h3 { color: var(--primrose); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+  .callout p { color: #e4eeee; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .callout { background: #183a42; } }
+  :root[data-theme="dark"] .callout { background: #183a42; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+  th, td { text-align: left; padding: 11px 16px; border-top: 1px solid var(--line); vertical-align: top; }
+  thead th { border-top: 0; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 20px; }
+  @media (max-width: 560px) {
+    ul.items > li { grid-template-columns: 1fr; gap: 6px; }
+    .group { padding: 4px 16px; }
+  }
+</style>
+
+<div class="page">
+  <header>
+    <span class="eyebrow">Website content update · Review notes</span>
+    <h1>What the content document <em>does not cover</em></h1>
+    <p class="lede">The Services, Training, Corporate Wellbeing, Compliance and Advisory pages now use the text from the supplied content document. The design was kept as it is. This page lists everything the document is missing, contradicts, or asks for that the website does not have, so it can be supplied or confirmed.</p>
+    <div class="legend">
+      <span><b class="pill ask">Supply</b> content or files we need from you</span>
+      <span><b class="pill keep">Confirm</b> existing content not in the document: keep or remove?</span>
+      <span><b class="pill fix">Fix</b> errors or conflicts to resolve</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Decisions needed first</h2>
+    <div class="group">
+      <ul class="items">
+        <li><b class="pill ask">Decide</b><div>
+          <span class="item-title">17 individual course pages are written but do not exist on the website</span>
+          <span class="note">The document contains full page content for these courses. They would be new pages with a new layout, so they were not built yet. Confirm they should be built.</span>
+          <ul class="inline">
+            <li>Internal Auditor: ISO 22000, ISO 14001, ISO 50001, ISO 41001, ISO 9001, ISO 45001, ISO/IEC 27001</li>
+            <li>Lead Auditor: ISO 50001, ISO 9001, ISO 14001, ISO 45001, ISO 41001, ISO/IEC 27001, ISO 31000</li>
+            <li>Safety: Fire Safety Awareness and Fire Fighting; First Aid, CPR &amp; AED; OSHA 10 &amp; 30 Hours GI/CI</li>
+          </ul>
+        </div></li>
+        <li><b class="pill fix">Fix</b><div>
+          <span class="item-title">ISO 9001 and ISO 14001 versions contradict each other</span>
+          <span class="note">The Training catalogue lists ISO 9001:2015 and ISO 14001:2015, while the course pages describe ISO 9001:2026 and ISO 14001:2026. The website currently shows the catalogue version (2015). Which is correct?</span>
+        </div></li>
+        <li><b class="pill fix">Fix</b><div>
+          <span class="item-title">Courses referenced but missing from the catalogue</span>
+          <span class="note">The course pages recommend "ISO 22000:2018 Lead Auditor" and "HACCP Training" as related courses, but neither is in the Training catalogue. Add them to the catalogue or remove the references.</span>
+        </div></li>
+        <li><b class="pill ask">Decide</b><div>
+          <span class="item-title">Several sections on the current pages are not in the document</span>
+          <span class="note">The document's page structures leave them out, which suggests removal. They are still on the site until you confirm. Each one is listed under its page below.</span>
+        </div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Services page</h2>
+    <div class="group">
+      <ul class="items">
+        <li><b class="pill ask">Supply</b><div><span class="item-title">What "1,250+" measures</span><span class="note">The label is still the placeholder "[Insert verified description of what this figure measures]". The document says not to publish the number without it, so it is not on the site.</span></div></li>
+        <li><b class="pill ask">Supply</b><div><span class="item-title">Approved client logos for "Trusted by Leading Organizations"</span><span class="note">None supplied.</span></div></li>
+        <li><b class="pill ask">Supply</b><div><span class="item-title">Enquiry form details</span><span class="note">The document asks for a form (Name, Phone, Email, Subject, Message, "Send Enquiry") with spam protection and privacy information. It does not say where submissions should be sent, and no privacy text was supplied. The page currently links to the Contact page.</span></div></li>
+        <li><b class="pill ask">Supply</b><div><span class="item-title">Footer: LMS link, Privacy Policy page, social media links</span><span class="note">The document lists these in the footer, but no URLs, policy text or social accounts were supplied.</span></div></li>
+        <li><b class="pill keep">Confirm</b><div><span class="item-title">Sections not in the document</span>
+          <ul class="inline">
+            <li>"Practical sustainability for business" slider (6 sustainability services)</li>
+            <li>"Build your scope" service selector</li>
+            <li>"Our work in numbers": 530+ advisory engagements, 2,500+ training programs, 1,850+ audits, 350+ third-party inspections (verify these figures if kept)</li>
+            <li>FAQ section, including the claims "first foreign-registered training centre approved by TVTC" and "Highfield Approved Centre"</li>
+            <li>The service lists and "Outcome" lines inside each of the five service cards</li>
+          </ul></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Training page</h2>
+    <div class="group">
+      <ul class="items">
+        <li><b class="pill ask">Supply</b><div><span class="item-title">Accreditation and recognition marks</span><span class="note">The document says to "display the supplied accreditation and recognition marks", but none were supplied.</span></div></li>
+        <li><b class="pill ask">Supply</b><div><span class="item-title">Course details for all 24 courses</span><span class="note">Duration, delivery format (online, in person, hybrid), level, dates and fees. The document gives none, so the course cards show only the title and description.</span></div></li>
+        <li><b class="pill ask">Supply</b><div><span class="item-title">Descriptions for 7 courses</span><span class="note">These courses have only a title, with no description or page content:</span>
+          <ul class="inline">
+            <li>RMP Exam Preparation; PMP Exam Preparation</li>
+            <li>Train The Trainer; Business Continuity Management; Lean Six Sigma Green Belt; Lean Six Sigma Black Belt; ARAMCO Schedule Q Awareness</li>
+          </ul></div></li>
+        <li><b class="pill keep">Confirm</b><div><span class="item-title">Sections not in the document</span>
+          <ul class="inline">
+            <li>Featured course "ISO 9001 Lead Auditor Certification Course" (5 days, Hybrid, Limited seats)</li>
+            <li>"Learning pathways" (Foundation, Practitioner, Leadership)</li>
+            <li>"Training in numbers": 2,500+ programs, 18,000+ learners, 96% satisfaction, 40+ trainers (verify if kept)</li>
+            <li>"Upcoming sessions" with dates from Nov 2026 to Jan 2027 and Karachi, Riyadh and Al Khobar locations</li>
+            <li>"TVTC Approved Foreign Centre · Riyadh &amp; Al Khobar" in the enquiry panel</li>
+          </ul></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Corporate Wellbeing page</h2>
+    <div class="group">
+      <ul class="items">
+        <li><b class="pill fix">Verify</b><div><span class="item-title">Items the document itself marks "verification required"</span><span class="note">Counselling session length (50 minutes), practitioner credentials, the language list, the separate employee and contractor portals, and hotline service levels. Also the current relationships with Light Metrics, BiomarkX and Sonde Health, plus permission to show their names. All are published as written.</span></div></li>
+        <li><b class="pill ask">Supply</b><div><span class="item-title">Photography, partner logos and screenshots</span><span class="note">The document asks for counselling, workshop and e-learning photos, partner logos and dashboard screenshots. None were supplied.</span></div></li>
+        <li><b class="pill keep">Confirm</b><div><span class="item-title">Content not in the document</span>
+          <ul class="inline">
+            <li>"Key benefits" list (lower turnover, ESG reporting alignment, team energy, culture, satisfaction)</li>
+            <li>Quote band: "We bridge strategy and human capital…"</li>
+            <li>"Our global locations: Saudi Arabia, Bahrain, Canada, Pakistan" (also on Compliance and Advisory)</li>
+          </ul></div></li>
+        <li><b class="pill keep">Removed</b><div><span class="item-title">23% profitability and 41% lower absenteeism statistics</span><span class="note">Removed as the document instructs, because no research source was given. Supply the source if they should return.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Compliance page</h2>
+    <div class="group">
+      <ul class="items">
+        <li><b class="pill fix">Verify</b><div><span class="item-title">Service scope the document asks you to confirm</span><span class="note">ISO/IEC 17020, ISO/IEC 17021-1, ISO/IEC 17025, API Q1/Q2, LEED, Mostadam, WELL, BREEAM and EcoVadis. They are listed on the site as written.</span></div></li>
+        <li><b class="pill ask">Supply</b><div><span class="item-title">Photography</span><span class="note">The hero photo and the "A Failed Audit" photo are broken, and are already broken on the current live site. The document asks for industry-specific photos (inspection, production line, data centre, food production and others).</span></div></li>
+        <li><b class="pill keep">Confirm</b><div><span class="item-title">Content not in the document</span>
+          <ul class="inline">
+            <li>"33% less misconduct" statistic and band (sourced to the Ethics &amp; Compliance Initiative). The document says not to publish unsupported statistics.</li>
+            <li>Hero counters "13+ standards and certifications" and the "Gap assessment to certification" / "Audit-ready documentation" labels</li>
+            <li>"Role of compliance experts" band ("Operate with confidence · Scale with control · Lead with integrity")</li>
+          </ul></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Advisory page</h2>
+    <div class="group">
+      <ul class="items">
+        <li><b class="pill ask">Supply</b><div><span class="item-title">Photography</span><span class="note">The document asks for industrial process, logistics and sustainable building photos. None were supplied.</span></div></li>
+        <li><b class="pill keep">Confirm</b><div><span class="item-title">Content not in the document</span>
+          <ul class="inline">
+            <li>"Our promise" quote band</li>
+            <li>The Sustainability Training link, which is no longer listed because the document's sustainability groups leave it out</li>
+            <li>ISO 37001, ISO/IEC 17021-1 and ISO/IEC 17025 have no detail pages on the site</li>
+          </ul></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pages the document does not cover</h2>
+    <p class="note">These pages are unchanged. Supply content if they should be updated too.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Area</th><th>Pages</th></tr></thead>
+        <tbody>
+          <tr><td>Main pages</td><td>Home, About Us, Projects &amp; Events, News &amp; Articles, Contact Us, View Certificate</td></tr>
+          <tr><td>Sustainability</td><td>Main Sustainability page, plus Reporting, LEED, EcoVadis, Mostadam, LCA, Green Building Advisory, Carbon Footprint, ISO 50001, Energy Audits, Sustainability Training</td></tr>
+          <tr><td>Advisory sub-pages</td><td>ISO 9001, ISO 14001 (two pages), ISO 17020, ISO 20121, ISO 22000, ISO 27001, ISO 31000, ISO 41001, ISO 45001, ISO 50001, Lean Six Sigma, Supply Chain, Project Management, Change Management, Process Reengineering, AI Governance, API Q1/Q2, Facilities Management (two pages), Fire Safety, Food Safety, Health &amp; Safety, Industrial Optimization, Vendor Inspections, Risk Assessments, Information Security, Oil &amp; Gas, Sustainability &amp; ESG Integration</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Other issues found</h2>
+    <div class="group">
+      <ul class="items">
+        <li><b class="pill fix">Fix</b><div><span class="item-title">Placeholder phone numbers on the Contact Us page</span><span class="note">It shows "+966 13 000 0000 / +971 4 000 0000". The document only gives +966 50 939 4640, which now replaces the same placeholder on the Training page. Supply the correct Contact page numbers.</span></div></li>
+        <li><b class="pill keep">Note</b><div><span class="item-title">Layout and animation instructions</span><span class="note">The document also includes redesign instructions, such as scroll-linked journeys, a searchable standards directory and an industry selector. The existing design was kept, so these were not applied.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="callout">
+    <h3>What was applied</h3>
+    <p>Services: new hero, five service areas in the document's order, a 4-stage "Our approach" and new closing text. Training: new hero, 6 filter categories, 24 courses, and an enquiry panel with the real phone number. Corporate Wellbeing: all document sections, including the four service areas, the framework and "Why Meridian". Compliance: hero, "why it matters" points, 4 capabilities, the 4-stage approach, "Why Meridian" and closing text. Advisory: hero, introduction, all three expertise areas, the 6-step process in the correct order, 15 standards, "Why Meridian" and closing text.</p>
+  </div>
+
+  <footer>Prepared from the content document "Services, Training, Corporate Wellbeing, Compliance, Advisory and course pages" against the current Meridian website build.</footer>
+</div>

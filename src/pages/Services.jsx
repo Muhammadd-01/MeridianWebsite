@@ -3,36 +3,41 @@ import { Link } from "react-router-dom";
 const serviceAreas = [
   {
     num: "01",
-    title: "Advisory & management systems",
-    desc: "Develop, strengthen and improve management systems that connect standards with day-to-day operations and business objectives.",
+    title: "Advisory",
+    desc: "We help organizations strengthen management systems, improve processes, manage risks and align business practices with strategic objectives.",
+    cta: "Explore Advisory",
     link: "/services/advisory",
     img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=82",
   },
   {
     num: "02",
-    title: "Professional training",
-    desc: "Build the knowledge and practical competence your teams need through auditor training and relevant qualifications within approved scopes.",
-    link: "/services/training",
-    img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=82",
-  },
-  {
-    num: "03",
-    title: "Compliance & assurance",
-    desc: "Understand applicable requirements, assess gaps and strengthen controls, audits and operational assurance.",
-    link: "/services/compliance",
-    img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1000&q=82",
-  },
-  {
-    num: "04",
-    title: "Sustainability & climate solutions",
-    desc: "Address environmental performance, energy efficiency, greenhouse gas measurement and ESG priorities with practical steps.",
+    title: "Sustainability",
+    desc: "We help organizations measure environmental impact, address sustainability requirements and translate responsible business priorities into practical action.",
+    cta: "Explore Sustainability",
     link: "/services/sustainability",
     img: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1000&q=82",
   },
   {
+    num: "03",
+    title: "Training",
+    desc: "We deliver professional training that builds knowledge, develops practical skills and equips people to perform effectively in their roles.",
+    cta: "Explore Training",
+    link: "/services/training",
+    img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=82",
+  },
+  {
+    num: "04",
+    title: "Compliance",
+    desc: "We support organizations through audits, inspections, assessments and compliance activities that help identify gaps and strengthen controls.",
+    cta: "Explore Compliance",
+    link: "/services/compliance",
+    img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1000&q=82",
+  },
+  {
     num: "05",
     title: "Corporate wellbeing",
-    desc: "Support healthier, more capable workplaces with programs that reduce stress and improve productivity and work-life balance.",
+    desc: "We help organizations support employee wellbeing through tailored programmes that encourage healthier workplaces and more supportive working environments.",
+    cta: "Explore Corporate Wellbeing",
     link: "/services/corporate-wellbeing",
     img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=82",
   },
@@ -197,16 +202,18 @@ Thank you.`);
     <div className="services-page">
       <section className="services-hero">
         <div className="services-hero-copy">
-          <span className="eyebrow">Services · Five disciplines</span>
+          <span className="eyebrow">What we do</span>
           <h1>
-            Five disciplines.
+            Expertise for Better
             <br />
-            <em>One</em>
-            {" connected team."}
+            <em>Business</em>
+            {" Performance."}
           </h1>
           <p className="sub">
-            Advisory, professional training, compliance, sustainability and corporate wellbeing,
-            shaped around your requirements and the reality of how your business works.
+            Every organization has different priorities, challenges and ambitions. Meridian brings
+            together specialized expertise across advisory, training, compliance, sustainability and
+            corporate wellbeing to help businesses strengthen their systems, develop their people and
+            improve performance.
           </p>
           <div className="btns">
             <a className="pill" href="#services">
@@ -236,7 +243,7 @@ Thank you.`);
                 <h3>{serviceArea.title}</h3>
                 <p>{serviceArea.desc}</p>
                 <a className="pill" href={serviceArea.link}>
-                  View service ↘
+                  {serviceArea.cta} ↘
                 </a>
               </div>
             </article>
@@ -284,15 +291,17 @@ Thank you.`);
         <div className="wrap">
           <div className="stack-head">
             <div>
-              <div className="kicker">01 / What we do</div>
+              <div className="kicker">01 / Our areas of expertise</div>
               <h2 className="big">
-                Different challenges.
+                Five Areas of Expertise.
                 <br />
-                <em>One connected approach.</em>
+                <em>One Clear Purpose.</em>
               </h2>
             </div>
             <p className="lede">
-              Scroll through each discipline. They work on their own and work better together.
+              From strengthening management systems to developing people and advancing
+              sustainability, our services address the requirements that matter to your
+              organization.
             </p>
           </div>
           <div className="stack">
@@ -314,22 +323,19 @@ Thank you.`);
                 <div>
                   <div className="sc-top">
                     <span className="sc-no">01</span>
-                    <span className="sc-tag">{"ADVISORY & MANAGEMENT SYSTEMS"}</span>
+                    <span className="sc-tag">ADVISORY</span>
                   </div>
                   <h3
                     style={{
                       marginTop: "34px",
                     }}
                   >
-                    {"Systems that "}
-                    <em>run</em>
-                    {" the business."}
+                    {"Build Systems That "}
+                    <em>Drive Performance.</em>
                   </h3>
                   <p className="desc">
-                    Develop, strengthen and improve management systems that connect standards with
-                    day-to-day operations, risk management and business objectives. We solve
-                    operational problems, streamline processes and align strategy with international
-                    standards for long-term growth.
+                    We help organizations strengthen management systems, improve processes, manage
+                    risks and align business practices with strategic objectives.
                   </p>
                 </div>
                 <div
@@ -340,7 +346,7 @@ Thank you.`);
                   }}
                 >
                   <Link className="pill" to="/services/advisory">
-                    Explore Advisory Subpage ↗
+                    Explore Advisory ↗
                   </Link>
                   <Link className="pill ghost" to="/contact-us">
                     Discuss requirements ↗
@@ -370,7 +376,7 @@ Thank you.`);
             </article>
             <article
               className="scard light"
-              id="training"
+              id="sustainability"
               style={{
                 "--i": 1,
                 "--bg": "#f2e6a2",
@@ -386,20 +392,89 @@ Thank you.`);
                 <div>
                   <div className="sc-top">
                     <span className="sc-no">02</span>
-                    <span className="sc-tag">PROFESSIONAL TRAINING</span>
+                    <span className="sc-tag">SUSTAINABILITY</span>
                   </div>
                   <h3
                     style={{
                       marginTop: "34px",
                     }}
                   >
-                    {"Capability that "}
-                    <em>stays.</em>
+                    {"Turn Sustainability Into "}
+                    <em>Measurable Progress.</em>
                   </h3>
                   <p className="desc">
-                    Build the knowledge and practical competence teams need through professional
-                    development, auditor training and relevant qualifications within approved
-                    scopes. Customised programs delivered by internationally certified trainers.
+                    We help organizations measure environmental impact, address sustainability
+                    requirements and translate responsible business priorities into practical action.
+                  </p>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "10px",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <Link className="pill" to="/services/sustainability">
+                    Explore Sustainability ↗
+                  </Link>
+                  <a className="pill ghost" href="#sustainability-deep">
+                    Overview ↓
+                  </a>
+                </div>
+              </div>
+              <div className="sc-right">
+                <div
+                  className="sc-img"
+                  style={{
+                    "--img":
+                      "url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1000&q=82')",
+                  }}
+                />
+                <ul className="sc-list">
+                  <li>Sustainability reporting</li>
+                  <li>Carbon footprint</li>
+                  <li>Energy efficiency</li>
+                  <li>{"LEED & Mostadam"}</li>
+                  <li>{"EcoVadis & CSR"}</li>
+                  <li>Life cycle analysis</li>
+                </ul>
+                <div className="sc-out">
+                  <span>OUTCOME</span>
+                  <strong>Measurable progress your customers can see.</strong>
+                </div>
+              </div>
+            </article>
+            <article
+              className="scard light"
+              id="training"
+              style={{
+                "--i": 2,
+                "--bg": "#e8e9e0",
+                "--fg": "#093f50",
+                "--mut": "#52676a",
+                "--ac": "#a45b0b",
+                "--ln": "#bdc9c4",
+                "--btnbg": "#093f50",
+                "--btnfg": "#fff",
+              }}
+            >
+              <div className="sc-left">
+                <div>
+                  <div className="sc-top">
+                    <span className="sc-no">03</span>
+                    <span className="sc-tag">TRAINING</span>
+                  </div>
+                  <h3
+                    style={{
+                      marginTop: "34px",
+                    }}
+                  >
+                    {"Build Capability. "}
+                    <em>Strengthen Performance.</em>
+                  </h3>
+                  <p className="desc">
+                    We deliver professional training that builds knowledge, develops practical skills
+                    and equips people to perform effectively in their roles.
                   </p>
                   <p className="sc-note">
                     Qualifications and training are delivered within the approved scope of the
@@ -414,7 +489,7 @@ Thank you.`);
                   }}
                 >
                   <Link className="pill" to="/services/training">
-                    Explore Training Subpage ↗
+                    Explore Training ↗
                   </Link>
                   <Link className="pill ghost" to="/contact-us">
                     Enquire ↗
@@ -443,37 +518,36 @@ Thank you.`);
               </div>
             </article>
             <article
-              className="scard light"
+              className="scard"
               id="compliance"
               style={{
-                "--i": 2,
-                "--bg": "#e8e9e0",
-                "--fg": "#093f50",
-                "--mut": "#52676a",
-                "--ac": "#a45b0b",
-                "--ln": "#bdc9c4",
-                "--btnbg": "#093f50",
-                "--btnfg": "#fff",
+                "--i": 3,
+                "--bg": "#101f23",
+                "--fg": "#fff",
+                "--mut": "#b6c5c5",
+                "--ac": "#f2e6a2",
+                "--ln": "#2c464c",
+                "--btnbg": "#f2e6a2",
+                "--btnfg": "#093f50",
               }}
             >
               <div className="sc-left">
                 <div>
                   <div className="sc-top">
-                    <span className="sc-no">03</span>
-                    <span className="sc-tag">{"COMPLIANCE & ASSURANCE"}</span>
+                    <span className="sc-no">04</span>
+                    <span className="sc-tag">COMPLIANCE</span>
                   </div>
                   <h3
                     style={{
                       marginTop: "34px",
                     }}
                   >
-                    {"Be ready when "}
-                    <em>it counts.</em>
+                    {"Make Compliance Work for "}
+                    <em>Your Organization.</em>
                   </h3>
                   <p className="desc">
-                    Support organizations in understanding applicable requirements, assessing gaps
-                    and strengthening controls, audits and operational assurance, from gap
-                    assessment through implementation and internal audit to certification readiness.
+                    We support organizations through audits, inspections, assessments and compliance
+                    activities that help identify gaps and strengthen controls.
                   </p>
                   <p className="sc-note">
                     Advisory, implementation, auditing and certification are distinct activities.
@@ -488,7 +562,7 @@ Thank you.`);
                   }}
                 >
                   <Link className="pill" to="/services/compliance">
-                    Explore Compliance Subpage ↗
+                    Explore Compliance ↗
                   </Link>
                   <Link className="pill ghost" to="/contact-us">
                     Strengthen approach ↗
@@ -519,77 +593,6 @@ Thank you.`);
             </article>
             <article
               className="scard"
-              id="sustainability"
-              style={{
-                "--i": 3,
-                "--bg": "#101f23",
-                "--fg": "#fff",
-                "--mut": "#b6c5c5",
-                "--ac": "#f2e6a2",
-                "--ln": "#2c464c",
-                "--btnbg": "#f2e6a2",
-                "--btnfg": "#093f50",
-              }}
-            >
-              <div className="sc-left">
-                <div>
-                  <div className="sc-top">
-                    <span className="sc-no">04</span>
-                    <span className="sc-tag">{"SUSTAINABILITY & CLIMATE SOLUTIONS"}</span>
-                  </div>
-                  <h3
-                    style={{
-                      marginTop: "34px",
-                    }}
-                  >
-                    {"Better decisions. "}
-                    <em>Lasting impact.</em>
-                  </h3>
-                  <p className="desc">
-                    Address environmental performance, energy efficiency, greenhouse gas
-                    measurement, ESG priorities and sustainable business practices, aligned with
-                    your goals and applicable requirements.
-                  </p>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "10px",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  <Link className="pill" to="/services/sustainability">
-                    Explore Dedicated Subpage ↗
-                  </Link>
-                  <a className="pill ghost" href="#sustainability-deep">
-                    Overview ↓
-                  </a>
-                </div>
-              </div>
-              <div className="sc-right">
-                <div
-                  className="sc-img"
-                  style={{
-                    "--img":
-                      "url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1000&q=82')",
-                  }}
-                />
-                <ul className="sc-list">
-                  <li>Sustainability reporting</li>
-                  <li>Carbon footprint</li>
-                  <li>Energy efficiency</li>
-                  <li>{"LEED & Mostadam"}</li>
-                  <li>{"EcoVadis & CSR"}</li>
-                  <li>Life cycle analysis</li>
-                </ul>
-                <div className="sc-out">
-                  <span>OUTCOME</span>
-                  <strong>Measurable progress your customers can see.</strong>
-                </div>
-              </div>
-            </article>
-            <article
-              className="scard"
               id="wellbeing"
               style={{
                 "--i": 4,
@@ -614,13 +617,12 @@ Thank you.`);
                       marginTop: "34px",
                     }}
                   >
-                    {"Healthier teams. "}
-                    <em>Stronger work.</em>
+                    {"Put Workplace Wellbeing "}
+                    <em>Into Practice.</em>
                   </h3>
                   <p className="desc">
-                    Support healthier, more capable workplaces through programs aligned with
-                    organizational needs and workforce priorities. Improve mental health,
-                    productivity and work-life balance while reducing stress and burnout.
+                    We help organizations support employee wellbeing through tailored programmes that
+                    encourage healthier workplaces and more supportive working environments.
                   </p>
                 </div>
                 <div
@@ -631,7 +633,7 @@ Thank you.`);
                   }}
                 >
                   <Link className="pill" to="/services/corporate-wellbeing">
-                    Explore Wellbeing Subpage ↗
+                    Explore Corporate Wellbeing ↗
                   </Link>
                   <Link className="pill ghost" to="/contact-us">
                     Start a conversation ↗
@@ -816,62 +818,62 @@ Thank you.`);
       <section className="how" id="how">
         <div className="wrap how-grid">
           <div className="how-head">
-            <div className="kicker">03 / How we work</div>
+            <div className="kicker">03 / Our approach</div>
             <h2 className="big">
-              Three stages.
+              A Practical Approach.
               <br />
-              <em>One clear direction.</em>
+              <em>From Start to Improvement.</em>
             </h2>
             <p className="lede">
-              Whichever service you start with, the way we work stays the same: understand first,
-              make it work in practice, then keep improving.
+              Every successful engagement begins with understanding what matters to your
+              organization. We follow a structured, collaborative approach that turns requirements
+              into practical solutions and supports progress beyond implementation.
             </p>
           </div>
           <div className="tl">
             <div className="tl-step">
               <span className="tl-dot" />
               <div className="tl-no">01</div>
-              <h3>Understand</h3>
-              <span className="tag">See the real challenge.</span>
+              <h3>{"Discover & Define"}</h3>
+              <span className="tag">We Listen. We Understand.</span>
               <p>
-                We start with your business priorities, operational realities and the requirements
-                that apply to you, so the work solves the right problem.
+                We begin by understanding your business objectives, challenges and operating
+                environment. Together, we define the scope, assess relevant requirements and identify
+                the priorities that will shape the way forward.
               </p>
-              <div className="chips">
-                <span className="chip">Business context</span>
-                <span className="chip">Applicable requirements</span>
-                <span className="chip">{"Gap & risk assessment"}</span>
-              </div>
             </div>
             <div className="tl-step">
               <span className="tl-dot" />
               <div className="tl-no">02</div>
-              <h3>Implement</h3>
-              <span className="tag">Make it work in practice.</span>
+              <h3>{"Build & Align"}</h3>
+              <span className="tag">Solutions Designed Around Your Needs.</span>
               <p>
-                We build useful systems, capable teams and practical ways of working, then roll them
-                out across departments and locations.
+                Every organization is different. We develop practical management systems, training
+                programmes and advisory plans that reflect your industry, operations and objectives.
               </p>
-              <div className="chips">
-                <span className="chip">Practical systems</span>
-                <span className="chip">{"Training & capability"}</span>
-                <span className="chip">Audit readiness</span>
-              </div>
             </div>
             <div className="tl-step">
               <span className="tl-dot" />
               <div className="tl-no">03</div>
-              <h3>Improve</h3>
-              <span className="tag">Make progress measurable.</span>
+              <h3>{"Implement & Integrate"}</h3>
+              <span className="tag">From Strategy to Practice.</span>
               <p>
-                We strengthen performance through risk-based thinking and continual improvement, so
-                progress is measurable and keeps going after we leave.
+                We support the implementation of systems, processes and frameworks across your
+                organization. Working with relevant specialists, trainers and auditors, we help
+                translate plans into practical action.
               </p>
-              <div className="chips">
-                <span className="chip">Performance monitoring</span>
-                <span className="chip">Internal audits</span>
-                <span className="chip">Continual improvement</span>
-              </div>
+            </div>
+            <div className="tl-step">
+              <span className="tl-dot" />
+              <div className="tl-no">04</div>
+              <h3>{"Sustain & Improve"}</h3>
+              <span className="tag">Continuous Progress. Long-Term Value.</span>
+              <p>
+                Our support can continue beyond initial delivery through monitoring, refresher
+                training, internal audits and further advisory support. We help organizations maintain
+                their systems, identify opportunities for improvement and respond to changing
+                requirements.
+              </p>
             </div>
           </div>
         </div>
@@ -1042,14 +1044,15 @@ Thank you.`);
         </div>
       </section>
       <section className="services-cta" id="contact">
-        <div className="kicker">Make the next step count</div>
+        <div className="kicker">Start a conversation</div>
         <h2>
-          {"Not sure which service fits? "}
-          <em>Let’s find out.</em>
+          {"Let's Make Your Next "}
+          <em>Improvement Happen.</em>
         </h2>
         <p>
-          Tell us where you are today and we’ll help you explore a practical next step for your
-          business.
+          Tell us about your requirements, priorities or challenges. Whether you are looking to
+          strengthen your systems, develop your people, improve compliance or advance
+          sustainability, our team is ready to explore how Meridian can support you.
         </p>
         <div className="row">
           <Link className="pill" to="/contact-us">
