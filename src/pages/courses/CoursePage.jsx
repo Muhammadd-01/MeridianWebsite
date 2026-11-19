@@ -32,13 +32,15 @@ function Hero({ course }) {
       </div>
       <div className="cp_wrap cp_hero_inner">
         <div className="cp_hero_copy">
-          <p className="cp_crumb">
-            <Link to="/">Home</Link>
-            {" / "}
-            <Link to="/services/training">Training</Link>
-            {" / "}
-            <b>{course.shortName}</b>
-          </p>
+          {hero.showCrumb !== false && (
+            <p className="cp_crumb">
+              <Link to="/">Home</Link>
+              {" / "}
+              <Link to="/services/training">Training</Link>
+              {" / "}
+              <b>{course.shortName}</b>
+            </p>
+          )}
           <div className="cp_eyebrow">{hero.eyebrow}</div>
           <h1 className={hero.longTitle ? "cp_h1_long" : ""}>
             {hero.titleLead} <span>{hero.titleAccent}</span>
@@ -365,6 +367,112 @@ function Related({ data, number }) {
   );
 }
 
+// "Focus" section (preview 2): heading, paragraph, paper note and image row.
+function Focus({ data, number }) {
+  return (
+    <section className="cp_focus" id="explore">
+      <div className="cp_wrap cp_focus_grid">
+        <div className="cp_focus_left cp_reveal">
+          <Kicker number={number} label={data.kicker} className="cp_kicker_dark" />
+          <h2>{data.heading}</h2>
+        </div>
+        <div className="cp_focus_right cp_reveal">
+          <p>{data.text}</p>
+          <div className="cp_paper_note">
+            <div className="cp_paper_note_label">{data.noteLabel}</div>
+            <strong>{data.note}</strong>
+          </div>
+          <div className="cp_focus_image_row">
+            <div className="cp_focus_image">
+              <img className="cp_img" src={data.image} alt={data.imageAlt} />
+            </div>
+            <div className="cp_image_caption">
+              <strong>{data.captionNumber}</strong>
+              <span>{data.captionText}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Interactive element flow (preview 2): select an element to read what the auditor examines.
+function Diagram({ data, number }) {
+  const [activeNode, setActiveNode] = useState(0);
+  const node = data.nodes[activeNode];
+  return (
+    <section className="cp_diagram">
+      <div className="cp_wrap">
+        <div className="cp_diagram_heading cp_reveal">
+          <div>
+            <Kicker number={number} label={data.kicker} className="cp_kicker_dark" />
+            <h2>{data.heading}</h2>
+          </div>
+          <p>{data.text}</p>
+        </div>
+        <div className="cp_flow_visual cp_reveal">
+          <div className="cp_flow_topline">
+            <span>{data.label}</span>
+            <small>{data.hint}</small>
+          </div>
+          <div className="cp_flow" role="group" aria-label={data.label}>
+            {data.nodes.map((item, index) => (
+              <button
+                key={item.title}
+                type="button"
+                className={`cp_flow_node ${activeNode === index ? "is-active" : ""}`}
+                aria-pressed={activeNode === index}
+                onClick={() => setActiveNode(index)}
+              >
+                <span className="cp_flow_no">{sectionNumber(index + 1)}</span>
+                <strong>{item.title}</strong>
+                <small>{item.summary}</small>
+              </button>
+            ))}
+          </div>
+          <div className="cp_flow_detail" key={node.title} aria-live="polite">
+            <strong>{node.title}</strong>
+            <p>{node.detail}</p>
+          </div>
+          <div className="cp_flow_foot">
+            <p>{data.footText}</p>
+            <span>{data.footLabel}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Audience band (preview 2): numbered roles in a ruled three-column band.
+function AudienceBand({ data, number }) {
+  return (
+    <section className="cp_aud2" id="audience">
+      <div className="cp_wrap">
+        <div className="cp_aud2_top cp_reveal">
+          <div>
+            <Kicker number={number} label={data.kicker} className="cp_kicker_dark" />
+            <h2>{data.heading}</h2>
+          </div>
+          <div className="cp_aud2_copy">
+            <p>{data.text}</p>
+          </div>
+        </div>
+        <div className="cp_aud2_band cp_reveal">
+          {data.items.map((item, index) => (
+            <div key={item} className="cp_aud2_item">
+              <span>{sectionNumber(index + 1)}</span>
+              <strong>{item}</strong>
+            </div>
+          ))}
+        </div>
+        <div className="cp_aud2_foot">{data.foot}</div>
+      </div>
+    </section>
+  );
+}
+
 function Enquiry({ course, data, number }) {
   const [form, setForm] = useState({
     name: "",
@@ -418,8 +526,18 @@ function Enquiry({ course, data, number }) {
             <p key={paragraph}>{paragraph}</p>
           ))}
           <div className="cp_contact_detail">
-            <a href={`tel:${PHONE_LINK}`}>{PHONE_DISPLAY}</a>
-            <a href={`mailto:${ENQUIRY_EMAIL}`}>{ENQUIRY_EMAIL}</a>
+            {data.detailLabels ? (
+              data.detailLabels.map((label) => (
+                <span key={label} className="cp_contact_label">
+                  {label}
+                </span>
+              ))
+            ) : (
+              <>
+                <a href={`tel:${PHONE_LINK}`}>{PHONE_DISPLAY}</a>
+                <a href={`mailto:${ENQUIRY_EMAIL}`}>{ENQUIRY_EMAIL}</a>
+              </>
+            )}
           </div>
         </div>
         <form className="cp_form cp_reveal" onSubmit={handleSubmit} noValidate>
@@ -580,6 +698,12 @@ export default function CoursePage({ course }) {
             return <Audience key={key} data={course.audience} number={next()} />;
           case "related":
             return <Related key={key} data={course.related} number={next()} />;
+          case "focus":
+            return <Focus key={key} data={course.focus} number={next()} />;
+          case "diagram":
+            return <Diagram key={key} data={course.diagram} number={next()} />;
+          case "audienceBand":
+            return <AudienceBand key={key} data={course.audienceBand} number={next()} />;
           case "enquiry":
             return <Enquiry key={key} course={course} data={course.enquiry} number={next()} />;
           default:

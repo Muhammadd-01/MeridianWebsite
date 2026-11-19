@@ -66,54 +66,72 @@ const leadAuditor50001 = {
     ],
     image: MEQMP_50001_HERO,
     imageAlt: "Industrial energy management infrastructure",
+    showCrumb: false,
   },
-  intro: {
-    kicker: "The purpose",
-    aside: "Energy performance needs to be examined, not simply reported.",
-    heading: "An energy management system must deliver more than documented commitments.",
-    paragraphs: [
-      "An organization may have an energy policy, targets and procedures in place. An effective audit looks at what happens in practice: how energy is used, how performance is measured and whether the system is helping the organization improve.",
-    ],
-    statement: "This training focuses on auditing the system behind the results.",
+  // Section order requested: 1, 2 and 4 from preview 2; 3 and 5 from preview 1.
+  sections: ["focus", "diagram", "journey", "audienceBand", "enquiry"],
+  // Section 1 — preview 2
+  focus: {
+    kicker: "The focus",
+    heading: "Look beyond the energy figures.",
+    text: "An energy management system involves more than policies, targets and documented procedures. The real test is how well an organisation manages its energy use, monitors performance and acts when results fall short.",
+    noteLabel: "The focus of this training",
+    note: "This training focuses on auditing the system behind the results.",
+    image: MEQMP_50001_AUDIT,
+    imageAlt: "Industrial energy management and operations",
+    captionNumber: "01—07",
+    captionText: "Key areas an auditor needs to examine",
   },
-  inside: {
+  // Section 2 — preview 2
+  diagram: {
     kicker: "Inside the system",
-    heading: "Know what to look for.\nKnow what the evidence means.",
-    text: "Explore the key areas a Lead Auditor examines when assessing an Energy Management System.",
-    visual: {
-      labelLeft: "Energy management system",
-      labelRight: "ISO 50001:2018",
-      core: ["ENERGY", "PERFORMANCE"],
-      nodes: [
-        ["ENERGY", "REVIEW"],
-        ["SIGNIFICANT", "ENERGY USES"],
-        ["BASELINES", "& EnPIs"],
-        ["OPERATIONAL", "CONTROL"],
-      ],
-    },
-    topics: [
+    heading: "What does effective energy management look like in practice?",
+    text: "An organisation may have energy targets and performance indicators in place. But do its processes support those targets? Are significant energy uses properly controlled? Can the organisation demonstrate improvement?",
+    label: "ISO 50001 · Energy management system",
+    hint: "Select an element to explore",
+    nodes: [
       {
         title: "Energy reviews",
-        desc: "Examine how the organization identifies energy sources, analyses consumption and determines where energy performance can be improved.",
+        summary: "Understand energy use and consumption.",
+        detail:
+          "Examine how the organisation analyses energy use and consumption, identifies opportunities and establishes a clear understanding of its energy performance.",
       },
       {
         title: "Significant energy uses",
-        desc: "Understand how significant energy uses are identified, monitored and managed, and whether relevant controls are effective.",
+        summary: "Identify where energy matters most.",
+        detail:
+          "Look at the equipment, systems and processes that account for significant energy consumption and how the organisation manages them.",
       },
       {
-        title: "Energy baselines and EnPIs",
-        desc: "Review the measures used to evaluate energy performance and determine whether comparisons are meaningful and supported by evidence.",
+        title: "Energy objectives",
+        summary: "Turn priorities into planned action.",
+        detail:
+          "Consider whether energy objectives and action plans are relevant, measurable and supported by responsibilities and resources.",
       },
       {
-        title: "Operational control",
-        desc: "Assess how operating criteria are applied to activities that affect energy performance, including monitoring and corrective action.",
+        title: "Operational controls",
+        summary: "Manage energy in daily operations.",
+        detail:
+          "Assess how the organisation controls operations and maintenance activities that affect energy performance.",
       },
       {
-        title: "Monitoring and improvement",
-        desc: "Evaluate performance monitoring, nonconformity, corrective action and the organization's approach to continual improvement.",
+        title: "Performance evaluation",
+        summary: "Measure and review actual results.",
+        detail:
+          "Review monitoring, measurement and analysis to determine whether energy performance is being evaluated effectively.",
+      },
+      {
+        title: "Continual improvement",
+        summary: "Act on findings and improve.",
+        detail:
+          "Examine how the organisation responds to findings, corrects problems and improves its Energy Management System over time.",
       },
     ],
+    footText:
+      "The auditor looks at how these elements work together, not simply whether the required documents exist.",
+    footLabel: "Explore each element ↗",
   },
+  // Section 3 — preview 1
   journey: {
     kicker: "The auditor's role",
     heading: "Learn to lead the audit, not just take part in it.",
@@ -145,30 +163,29 @@ const leadAuditor50001 = {
       },
     ],
   },
-  audience: {
+  // Section 4 — preview 2
+  audienceBand: {
     kicker: "Who should attend",
-    heading: "For professionals responsible for energy performance and assurance.",
-    text: "This training is relevant to people who work with Energy Management Systems, assess organizational performance or support ISO 50001 implementation.",
-    image: MEQMP_50001_HERO,
-    imageAlt: "Industrial energy infrastructure",
-    tag: "For energy and audit professionals",
+    heading: "If energy performance is part of your job, auditing should be too.",
+    text: "This training is relevant to professionals who manage energy use, maintain facilities, oversee management systems or carry out audits. It helps connect their technical knowledge with the responsibilities involved in leading an ISO 50001 audit.",
     items: [
       "Energy managers and engineers",
-      "Management system auditors",
-      "Environmental professionals",
-      "Sustainability practitioners",
+      "Internal and management system auditors",
+      "Environmental and sustainability professionals",
       "HSE and QHSE professionals",
-      "Facilities and maintenance teams",
-      "EnMS consultants",
-      "Implementation teams",
+      "Facility, utilities and maintenance managers",
+      "EnMS consultants and implementation teams",
     ],
+    foot: "For professionals working with energy systems, performance and assurance",
   },
+  // Section 5 — preview 1
   enquiry: {
     kicker: NEXT_STEP,
     heading: "Interested in ISO 50001 Lead Auditor Training?",
     paragraphs: [
       "Contact Meridian for course dates, fees, delivery options and registration information. Our team will help you with the details.",
     ],
+    detailLabels: ["Course information", "Delivery options", "Registration support"],
     watermark: "50001",
   },
 };
